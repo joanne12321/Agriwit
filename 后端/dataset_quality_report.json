@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-07-16T16:23:55",
+  "total_records": 22,
+  "ready_records": 16,
+  "median_body_length": 154,
+  "duplicate_bodies": 0,
+  "platform_counts": {
+    "小红书": 22
+  },
+  "category_counts": {
+    "水果": 12,
+    "蔬菜": 1,
+    "零食": 9
+  },
+  "price_counts": {
+    "平价": 17,
+    "中等": 5
+  },
+  "festival_counts": {
+    "日常": 21,
+    "送礼": 1,
+    "春节": 1,
+    "中秋": 1
+  },
+  "quality_flag_counts": {
+    "possible_ad_law_risk": 6
+  },
+  "recommendations": [
+    "数据量不足：建议暑期先完成300-500条高质量样本，再扩展到1000+。",
+    "平台分布过于集中：至少覆盖小红书、抖音/快手、电商详情页、百科/产地介绍。",
+    "品类分布过于集中：单一品类建议不超过总量30%-35%。"
+  ]
+}

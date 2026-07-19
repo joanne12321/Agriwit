@@ -1,0 +1,33 @@
+{
+  "schema_version": "agriwit-eval-v1",
+  "description": "挑战杯答辩用评价集样例。正式版本建议准备50-100条，覆盖不同平台、品类、受众和价格带。",
+  "items": [
+    {
+      "id": "eval_001",
+      "product_name": "云南青皮蜜橘",
+      "platform": "小红书",
+      "category": "水果",
+      "target_user": "孕产妈妈, 都市, 养生食补",
+      "required_points": ["清新微酸", "无籽化渣", "孕期解馋", "现摘鲜果"],
+      "avoid_points": ["医疗功效", "绝对化承诺"],
+      "prompt": "为云南青皮蜜橘生成小红书种草文，目标人群是孕妈，强调酸甜清爽、无籽化渣和日常解馋。"
+    },
+    {
+      "id": "eval_002",
+      "product_name": "山西水蜜桃",
+      "platform": "抖音",
+      "category": "水果",
+      "target_user": "学生党, 上班族, 囤货派",
+      "required_points": ["产地直发", "脆甜爆汁", "坏果包赔", "性价比"],
+      "avoid_points": ["全网最低", "唯一", "100%"],
+      "prompt": "为山西水蜜桃写一段抖音短视频带货口播，口语化，突出产地直发、脆甜爆汁和售后保障。"
+    }
+  ],
+  "rubric": {
+    "relevance": "是否紧扣产品、平台和目标受众",
+    "selling_points": "是否覆盖required_points且没有编造关键事实",
+    "style_match": "是否符合平台文风",
+    "compliance": "是否避开广告法和食品医疗化风险",
+    "conversion": "是否有清晰购买理由和行动引导"
+  }
+}

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>方言大模型 协议 | 讯飞开放平台文档中心</title>
+    <meta name="description" content="">
+    
+    <meta name="description" content="如果您对讯飞AI能力接入感到无从下手，现在您可以通过阅读这些文档获得帮助">
+    <link rel="preload" href="/doc/assets/css/0.styles.0d531566.css" as="style"><link rel="preload" href="/doc/assets/js/app.2a53cc62.js" as="script"><link rel="preload" href="/doc/assets/js/4.38677032.js" as="script"><link rel="preload" href="/doc/assets/js/3.70fcaa22.js" as="script"><link rel="preload" href="/doc/assets/js/310.28ccea24.js" as="script"><link rel="preload" href="/doc/assets/js/2.ee4aa162.js" as="script"><link rel="prefetch" href="/doc/assets/js/1.d2f0c2f7.js"><link rel="prefetch" href="/doc/assets/js/10.d95cad47.js"><link rel="prefetch" href="/doc/assets/js/100.3f463313.js"><link rel="prefetch" href="/doc/assets/js/101.7a34c654.js"><link rel="prefetch" href="/doc/assets/js/102.a7f10347.js"><link rel="prefetch" href="/doc/assets/js/103.65506cb1.js"><link rel="prefetch" href="/doc/assets/js/104.e06683ce.js"><link rel="prefetch" href="/doc/assets/js/105.eb6b4b6d.js"><link rel="prefetch" href="/doc/assets/js/106.3a081cd6.js"><link rel="prefetch" href="/doc/assets/js/107.b8f71b51.js"><link rel="prefetch" href="/doc/assets/js/108.3b530896.js"><link rel="prefetch" href="/doc/assets/js/109.c087c3da.js"><link rel="prefetch" href="/doc/assets/js/11.15a11654.js"><link rel="prefetch" href="/doc/assets/js/110.58fb6160.js"><link rel="prefetch" href="/doc/assets/js/111.f771f73e.js"><link rel="prefetch" href="/doc/assets/js/112.ae3e7cdd.js"><link rel="prefetch" href="/doc/assets/js/113.853e96ce.js"><link rel="prefetch" href="/doc/assets/js/114.85be14e9.js"><link rel="prefetch" href="/doc/assets/js/115.11f21b5b.js"><link rel="prefetch" href="/doc/assets/js/116.b45a5bc6.js"><link rel="prefetch" href="/doc/assets/js/117.902bd1c3.js"><link rel="prefetch" href="/doc/assets/js/118.e37f1122.js"><link rel="prefetch" href="/doc/assets/js/119.fe978cab.js"><link rel="prefetch" href="/doc/assets/js/12.c59127b9.js"><link rel="prefetch" href="/doc/assets/js/120.98f1f5b9.js"><link rel="prefetch" href="/doc/assets/js/121.e1138963.js"><link rel="prefetch" href="/doc/assets/js/122.624dd055.js"><link rel="prefetch" href="/doc/assets/js/123.b1e4361d.js"><link rel="prefetch" href="/doc/assets/js/124.62d71ecd.js"><link rel="prefetch" href="/doc/assets/js/125.ade9d326.js"><link rel="prefetch" href="/doc/assets/js/126.9fac619b.js"><link rel="prefetch" href="/doc/assets/js/127.2d097615.js"><link rel="prefetch" href="/doc/assets/js/128.14f8d536.js"><link rel="prefetch" href="/doc/assets/js/129.53e111e4.js"><link rel="prefetch" href="/doc/assets/js/13.776aed55.js"><link rel="prefetch" href="/doc/assets/js/130.171ab26a.js"><link rel="prefetch" href="/doc/assets/js/131.f49b564f.js"><link rel="prefetch" href="/doc/assets/js/132.a0f9568e.js"><link rel="prefetch" href="/doc/assets/js/133.1529ca27.js"><link rel="prefetch" href="/doc/assets/js/134.e8c7a9ae.js"><link rel="prefetch" href="/doc/assets/js/135.d09116e2.js"><link rel="prefetch" href="/doc/assets/js/136.a8e390aa.js"><link rel="prefetch" href="/doc/assets/js/137.9b83cd00.js"><link rel="prefetch" href="/doc/assets/js/138.cb2a202b.js"><link rel="prefetch" href="/doc/assets/js/139.38f95f33.js"><link rel="prefetch" href="/doc/assets/js/14.004cba17.js"><link rel="prefetch" href="/doc/assets/js/140.c9d26cd1.js"><link rel="prefetch" href="/doc/assets/js/141.d739ebb1.js"><link rel="prefetch" href="/doc/assets/js/142.8ca96094.js"><link rel="prefetch" href="/doc/assets/js/143.2a73368f.js"><link rel="prefetch" href="/doc/assets/js/144.2071beb6.js"><link rel="prefetch" href="/doc/assets/js/145.27925ea1.js"><link rel="prefetch" href="/doc/assets/js/146.60767671.js"><link rel="prefetch" href="/doc/assets/js/147.24f70ba5.js"><link rel="prefetch" href="/doc/assets/js/148.261ec265.js"><link rel="prefetch" href="/doc/assets/js/149.fc91a196.js"><link rel="prefetch" href="/doc/assets/js/15.b3ae6818.js"><link rel="prefetch" href="/doc/assets/js/150.4e7f3c74.js"><link rel="prefetch" href="/doc/assets/js/151.3fbf5066.js"><link rel="prefetch" href="/doc/assets/js/152.13bc1359.js"><link rel="prefetch" href="/doc/assets/js/153.ca9b45f6.js"><link rel="prefetch" href="/doc/assets/js/154.bd8824fc.js"><link rel="prefetch" href="/doc/assets/js/155.7bde2302.js"><link rel="prefetch" href="/doc/assets/js/156.0a6fae3b.js"><link rel="prefetch" href="/doc/assets/js/157.cb9fb28b.js"><link rel="prefetch" href="/doc/assets/js/158.ee435d55.js"><link rel="prefetch" href="/doc/assets/js/159.5a535213.js"><link rel="prefetch" href="/doc/assets/js/16.b7992925.js"><link rel="prefetch" href="/doc/assets/js/160.3f19b8da.js"><link rel="prefetch" href="/doc/assets/js/161.38417a17.js"><link rel="prefetch" href="/doc/assets/js/162.b6d9d252.js"><link rel="prefetch" href="/doc/assets/js/163.bb5af34b.js"><link rel="prefetch" href="/doc/assets/js/164.4b43e9b6.js"><link rel="prefetch" href="/doc/assets/js/165.23f32c96.js"><link rel="prefetch" href="/doc/assets/js/166.03159279.js"><link rel="prefetch" href="/doc/assets/js/167.f931a2e5.js"><link rel="prefetch" href="/doc/assets/js/168.9b4e2914.js"><link rel="prefetch" href="/doc/assets/js/169.c2976e4a.js"><link rel="prefetch" href="/doc/assets/js/17.e5bd46db.js"><link rel="prefetch" href="/doc/assets/js/170.4c25d7dc.js"><link rel="prefetch" href="/doc/assets/js/171.58b4ce65.js"><link rel="prefetch" href="/doc/assets/js/172.f5a452b9.js"><link rel="prefetch" href="/doc/assets/js/173.7101ed50.js"><link rel="prefetch" href="/doc/assets/js/174.ca3df406.js"><link rel="prefetch" href="/doc/assets/js/175.0dac307b.js"><link rel="prefetch" href="/doc/assets/js/176.ce3c5315.js"><link rel="prefetch" href="/doc/assets/js/177.fb7b0dc6.js"><link rel="prefetch" href="/doc/assets/js/178.2cff176d.js"><link rel="prefetch" href="/doc/assets/js/179.0dd3a829.js"><link rel="prefetch" href="/doc/assets/js/18.019c5823.js"><link rel="prefetch" href="/doc/assets/js/180.7d61fd17.js"><link rel="prefetch" href="/doc/assets/js/181.6cacfb02.js"><link rel="prefetch" href="/doc/assets/js/182.92778d0c.js"><link rel="prefetch" href="/doc/assets/js/183.d6c0fa63.js"><link rel="prefetch" href="/doc/assets/js/184.665ce812.js"><link rel="prefetch" href="/doc/assets/js/185.f8cf936c.js"><link rel="prefetch" href="/doc/assets/js/186.9c70b244.js"><link rel="prefetch" href="/doc/assets/js/187.8833998b.js"><link rel="prefetch" href="/doc/assets/js/188.82264133.js"><link rel="prefetch" href="/doc/assets/js/189.123582a9.js"><link rel="prefetch" href="/doc/assets/js/19.51892f69.js"><link rel="prefetch" href="/doc/assets/js/190.e06ffba7.js"><link rel="prefetch" href="/doc/assets/js/191.cd3b09b2.js"><link rel="prefetch" href="/doc/assets/js/192.b2923232.js"><link rel="prefetch" href="/doc/assets/js/193.040574a4.js"><link rel="prefetch" href="/doc/assets/js/194.4dcddef0.js"><link rel="prefetch" href="/doc/assets/js/195.0b9864d6.js"><link rel="prefetch" href="/doc/assets/js/196.cfef2ef8.js"><link rel="prefetch" href="/doc/assets/js/197.38eee057.js"><link rel="prefetch" href="/doc/assets/js/198.0ae0e638.js"><link rel="prefetch" href="/doc/assets/js/199.47685584.js"><link rel="prefetch" href="/doc/assets/js/20.5535c3cd.js"><link rel="prefetch" href="/doc/assets/js/200.ac5efd25.js"><link rel="prefetch" href="/doc/assets/js/201.382ccb52.js"><link rel="prefetch" href="/doc/assets/js/202.25e1ee66.js"><link rel="prefetch" href="/doc/assets/js/203.05be7b35.js"><link rel="prefetch" href="/doc/assets/js/204.46a377f0.js"><link rel="prefetch" href="/doc/assets/js/205.544cae70.js"><link rel="prefetch" href="/doc/assets/js/206.b6d4c491.js"><link rel="prefetch" href="/doc/assets/js/207.1ceac2d1.js"><link rel="prefetch" href="/doc/assets/js/208.74d69e0e.js"><link rel="prefetch" href="/doc/assets/js/209.d010c22a.js"><link rel="prefetch" href="/doc/assets/js/21.a90f9332.js"><link rel="prefetch" href="/doc/assets/js/210.7d844f06.js"><link rel="prefetch" href="/doc/assets/js/211.547320bc.js"><link rel="prefetch" href="/doc/assets/js/212.285211e5.js"><link rel="prefetch" href="/doc/assets/js/213.ebe17be9.js"><link rel="prefetch" href="/doc/assets/js/214.59a2d113.js"><link rel="prefetch" href="/doc/assets/js/215.b086eb5b.js"><link rel="prefetch" href="/doc/assets/js/216.fff4b2d2.js"><link rel="prefetch" href="/doc/assets/js/217.a9a1e4bf.js"><link rel="prefetch" href="/doc/assets/js/218.b6ef2c6c.js"><link rel="prefetch" href="/doc/assets/js/219.7d3a677a.js"><link rel="prefetch" href="/doc/assets/js/22.9a8ec9a7.js"><link rel="prefetch" href="/doc/assets/js/220.8c3898f3.js"><link rel="prefetch" href="/doc/assets/js/221.5e1b4961.js"><link rel="prefetch" href="/doc/assets/js/222.960160d8.js"><link rel="prefetch" href="/doc/assets/js/223.7fbf345b.js"><link rel="prefetch" href="/doc/assets/js/224.01b5ed2f.js"><link rel="prefetch" href="/doc/assets/js/225.69e70696.js"><link rel="prefetch" href="/doc/assets/js/226.3863714a.js"><link rel="prefetch" href="/doc/assets/js/227.b55e46a7.js"><link rel="prefetch" href="/doc/assets/js/228.5ec661d9.js"><link rel="prefetch" href="/doc/assets/js/229.52b50e08.js"><link rel="prefetch" href="/doc/assets/js/23.771246be.js"><link rel="prefetch" href="/doc/assets/js/230.4b94200e.js"><link rel="prefetch" href="/doc/assets/js/231.1d80503c.js"><link rel="prefetch" href="/doc/assets/js/232.f4f9ac51.js"><link rel="prefetch" href="/doc/assets/js/233.262bf45f.js"><link rel="prefetch" href="/doc/assets/js/234.a733b79a.js"><link rel="prefetch" href="/doc/assets/js/235.cdbb49ef.js"><link rel="prefetch" href="/doc/assets/js/236.1aa74cf6.js"><link rel="prefetch" href="/doc/assets/js/237.a6ef08df.js"><link rel="prefetch" href="/doc/assets/js/238.d02d68e1.js"><link rel="prefetch" href="/doc/assets/js/239.e546516b.js"><link rel="prefetch" href="/doc/assets/js/24.dfcde4af.js"><link rel="prefetch" href="/doc/assets/js/240.dc1320ea.js"><link rel="prefetch" href="/doc/assets/js/241.8ffad98c.js"><link rel="prefetch" href="/doc/assets/js/242.6d330fff.js"><link rel="prefetch" href="/doc/assets/js/243.1e3b0268.js"><link rel="prefetch" href="/doc/assets/js/244.4fbbed48.js"><link rel="prefetch" href="/doc/assets/js/245.c0c6cc9d.js"><link rel="prefetch" href="/doc/assets/js/246.86c27bd9.js"><link rel="prefetch" href="/doc/assets/js/247.8308ef0a.js"><link rel="prefetch" href="/doc/assets/js/248.274c7af5.js"><link rel="prefetch" href="/doc/assets/js/249.0daca9a5.js"><link rel="prefetch" href="/doc/assets/js/25.60e86255.js"><link rel="prefetch" href="/doc/assets/js/250.c4c6ceed.js"><link rel="prefetch" href="/doc/assets/js/251.80256db3.js"><link rel="prefetch" href="/doc/assets/js/252.dd510bdc.js"><link rel="prefetch" href="/doc/assets/js/253.d909728e.js"><link rel="prefetch" href="/doc/assets/js/254.12dbd40f.js"><link rel="prefetch" href="/doc/assets/js/255.934b9c61.js"><link rel="prefetch" href="/doc/assets/js/256.47a51d57.js"><link rel="prefetch" href="/doc/assets/js/257.a50c16cf.js"><link rel="prefetch" href="/doc/assets/js/258.6646ad30.js"><link rel="prefetch" href="/doc/assets/js/259.57161cdb.js"><link rel="prefetch" href="/doc/assets/js/26.f624c9c6.js"><link rel="prefetch" href="/doc/assets/js/260.8518fcc9.js"><link rel="prefetch" href="/doc/assets/js/261.7bdababe.js"><link rel="prefetch" href="/doc/assets/js/262.9760b07a.js"><link rel="prefetch" href="/doc/assets/js/263.704f2e56.js"><link rel="prefetch" href="/doc/assets/js/264.57aa251e.js"><link rel="prefetch" href="/doc/assets/js/265.e2ea4222.js"><link rel="prefetch" href="/doc/assets/js/266.8a5f740f.js"><link rel="prefetch" href="/doc/assets/js/267.9ea18636.js"><link rel="prefetch" href="/doc/assets/js/268.2c7c2dcd.js"><link rel="prefetch" href="/doc/assets/js/269.f59418db.js"><link rel="prefetch" href="/doc/assets/js/27.21e2e665.js"><link rel="prefetch" href="/doc/assets/js/270.ec4332fb.js"><link rel="prefetch" href="/doc/assets/js/271.efa2b8d0.js"><link rel="prefetch" href="/doc/assets/js/272.74086059.js"><link rel="prefetch" href="/doc/assets/js/273.643cd85d.js"><link rel="prefetch" href="/doc/assets/js/274.66d821e2.js"><link rel="prefetch" href="/doc/assets/js/275.1ed8c471.js"><link rel="prefetch" href="/doc/assets/js/276.51a15c3c.js"><link rel="prefetch" href="/doc/assets/js/277.3b13ec0f.js"><link rel="prefetch" href="/doc/assets/js/278.64455d18.js"><link rel="prefetch" href="/doc/assets/js/279.acd2434d.js"><link rel="prefetch" href="/doc/assets/js/28.3aed7a42.js"><link rel="prefetch" href="/doc/assets/js/280.3e5c2ed1.js"><link rel="prefetch" href="/doc/assets/js/281.1159b693.js"><link rel="prefetch" href="/doc/assets/js/282.b70bd2a7.js"><link rel="prefetch" href="/doc/assets/js/283.be9e3a2c.js"><link rel="prefetch" href="/doc/assets/js/284.1d9f1e10.js"><link rel="prefetch" href="/doc/assets/js/285.6eb31e37.js"><link rel="prefetch" href="/doc/assets/js/286.52475178.js"><link rel="prefetch" href="/doc/assets/js/287.afe63ba0.js"><link rel="prefetch" href="/doc/assets/js/288.747cd9b1.js"><link rel="prefetch" href="/doc/assets/js/289.7e2dfe24.js"><link rel="prefetch" href="/doc/assets/js/29.345a5b04.js"><link rel="prefetch" href="/doc/assets/js/290.b24cc948.js"><link rel="prefetch" href="/doc/assets/js/291.c887712f.js"><link rel="prefetch" href="/doc/assets/js/292.2e7d1533.js"><link rel="prefetch" href="/doc/assets/js/293.2860a610.js"><link rel="prefetch" href="/doc/assets/js/294.0ab16da0.js"><link rel="prefetch" href="/doc/assets/js/295.77b5da71.js"><link rel="prefetch" href="/doc/assets/js/296.d971e69e.js"><link rel="prefetch" href="/doc/assets/js/297.48e0aa8c.js"><link rel="prefetch" href="/doc/assets/js/298.7d6a1886.js"><link rel="prefetch" href="/doc/assets/js/299.291dc5c8.js"><link rel="prefetch" href="/doc/assets/js/30.639b6181.js"><link rel="prefetch" href="/doc/assets/js/300.cb64ab7d.js"><link rel="prefetch" href="/doc/assets/js/301.3518313c.js"><link rel="prefetch" href="/doc/assets/js/302.421570dd.js"><link rel="prefetch" href="/doc/assets/js/303.33a090c0.js"><link rel="prefetch" href="/doc/assets/js/304.a7e7fb7d.js"><link rel="prefetch" href="/doc/assets/js/305.5e02804c.js"><link rel="prefetch" href="/doc/assets/js/306.23123d5b.js"><link rel="prefetch" href="/doc/assets/js/307.766c1ca5.js"><link rel="prefetch" href="/doc/assets/js/308.b8b01345.js"><link rel="prefetch" href="/doc/assets/js/309.e5b3d936.js"><link rel="prefetch" href="/doc/assets/js/31.c1684d3f.js"><link rel="prefetch" href="/doc/assets/js/311.c7d618ae.js"><link rel="prefetch" href="/doc/assets/js/312.1d26ea64.js"><link rel="prefetch" href="/doc/assets/js/313.657cdb14.js"><link rel="prefetch" href="/doc/assets/js/314.844e4caf.js"><link rel="prefetch" href="/doc/assets/js/315.a0fb72fa.js"><link rel="prefetch" href="/doc/assets/js/316.55786c19.js"><link rel="prefetch" href="/doc/assets/js/317.3c5bd8d2.js"><link rel="prefetch" href="/doc/assets/js/318.7e7dd422.js"><link rel="prefetch" href="/doc/assets/js/319.ef7adab9.js"><link rel="prefetch" href="/doc/assets/js/32.422177f2.js"><link rel="prefetch" href="/doc/assets/js/320.d7384fc7.js"><link rel="prefetch" href="/doc/assets/js/321.cdc9fa94.js"><link rel="prefetch" href="/doc/assets/js/322.a7e1a9b0.js"><link rel="prefetch" href="/doc/assets/js/323.4d1fa340.js"><link rel="prefetch" href="/doc/assets/js/324.864f7003.js"><link rel="prefetch" href="/doc/assets/js/325.e438f520.js"><link rel="prefetch" href="/doc/assets/js/326.a82b227e.js"><link rel="prefetch" href="/doc/assets/js/327.bef6cc16.js"><link rel="prefetch" href="/doc/assets/js/328.6e84ea5c.js"><link rel="prefetch" href="/doc/assets/js/329.77da5ac8.js"><link rel="prefetch" href="/doc/assets/js/33.b8060573.js"><link rel="prefetch" href="/doc/assets/js/330.0172e257.js"><link rel="prefetch" href="/doc/assets/js/331.356a3dfc.js"><link rel="prefetch" href="/doc/assets/js/332.c58a6a76.js"><link rel="prefetch" href="/doc/assets/js/333.e155b38c.js"><link rel="prefetch" href="/doc/assets/js/334.ffce5102.js"><link rel="prefetch" href="/doc/assets/js/335.2c59d405.js"><link rel="prefetch" href="/doc/assets/js/336.3f0805e7.js"><link rel="prefetch" href="/doc/assets/js/337.4d14ad96.js"><link rel="prefetch" href="/doc/assets/js/338.707399ee.js"><link rel="prefetch" href="/doc/assets/js/339.259eb71f.js"><link rel="prefetch" href="/doc/assets/js/34.842e9efe.js"><link rel="prefetch" href="/doc/assets/js/340.6c49d83b.js"><link rel="prefetch" href="/doc/assets/js/341.daf81fbf.js"><link rel="prefetch" href="/doc/assets/js/342.0d02b031.js"><link rel="prefetch" href="/doc/assets/js/343.0aa8d153.js"><link rel="prefetch" href="/doc/assets/js/344.7d5eb250.js"><link rel="prefetch" href="/doc/assets/js/345.a9a0abeb.js"><link rel="prefetch" href="/doc/assets/js/346.75488d4b.js"><link rel="prefetch" href="/doc/assets/js/347.0736a455.js"><link rel="prefetch" href="/doc/assets/js/348.126c7f25.js"><link rel="prefetch" href="/doc/assets/js/349.241f3ddc.js"><link rel="prefetch" href="/doc/assets/js/35.7ba6b1ff.js"><link rel="prefetch" href="/doc/assets/js/350.95257377.js"><link rel="prefetch" href="/doc/assets/js/351.550d834e.js"><link rel="prefetch" href="/doc/assets/js/352.5c24ed3c.js"><link rel="prefetch" href="/doc/assets/js/353.ef9b5855.js"><link rel="prefetch" href="/doc/assets/js/354.02aa8903.js"><link rel="prefetch" href="/doc/assets/js/355.063349d6.js"><link rel="prefetch" href="/doc/assets/js/356.03b45a16.js"><link rel="prefetch" href="/doc/assets/js/357.b800ef84.js"><link rel="prefetch" href="/doc/assets/js/358.61caa9fe.js"><link rel="prefetch" href="/doc/assets/js/359.b71d2529.js"><link rel="prefetch" href="/doc/assets/js/36.dbfa064f.js"><link rel="prefetch" href="/doc/assets/js/360.a3b0c6cc.js"><link rel="prefetch" href="/doc/assets/js/361.b98a119a.js"><link rel="prefetch" href="/doc/assets/js/362.36b4db0e.js"><link rel="prefetch" href="/doc/assets/js/363.e64a0984.js"><link rel="prefetch" href="/doc/assets/js/364.a4a5a2c5.js"><link rel="prefetch" href="/doc/assets/js/365.ede99b8d.js"><link rel="prefetch" href="/doc/assets/js/366.a7ec32f8.js"><link rel="prefetch" href="/doc/assets/js/367.50d53480.js"><link rel="prefetch" href="/doc/assets/js/368.833d4c34.js"><link rel="prefetch" href="/doc/assets/js/369.6c2a1256.js"><link rel="prefetch" href="/doc/assets/js/37.fa2f09fc.js"><link rel="prefetch" href="/doc/assets/js/370.e8743ac0.js"><link rel="prefetch" href="/doc/assets/js/371.1f3fffb1.js"><link rel="prefetch" href="/doc/assets/js/372.d2ae8577.js"><link rel="prefetch" href="/doc/assets/js/373.53428acb.js"><link rel="prefetch" href="/doc/assets/js/374.463162d2.js"><link rel="prefetch" href="/doc/assets/js/375.dd0b360d.js"><link rel="prefetch" href="/doc/assets/js/376.b73d9ac4.js"><link rel="prefetch" href="/doc/assets/js/377.a6ed0d95.js"><link rel="prefetch" href="/doc/assets/js/378.14721b2f.js"><link rel="prefetch" href="/doc/assets/js/379.5b3e8aca.js"><link rel="prefetch" href="/doc/assets/js/38.95de6c8e.js"><link rel="prefetch" href="/doc/assets/js/380.d56b55bf.js"><link rel="prefetch" href="/doc/assets/js/381.3431751a.js"><link rel="prefetch" href="/doc/assets/js/382.7227ffd9.js"><link rel="prefetch" href="/doc/assets/js/383.0020a3b7.js"><link rel="prefetch" href="/doc/assets/js/384.89e6ac25.js"><link rel="prefetch" href="/doc/assets/js/385.671b0a6e.js"><link rel="prefetch" href="/doc/assets/js/386.f89ecb64.js"><link rel="prefetch" href="/doc/assets/js/387.99303736.js"><link rel="prefetch" href="/doc/assets/js/388.1aa79d9b.js"><link rel="prefetch" href="/doc/assets/js/389.2483fcca.js"><link rel="prefetch" href="/doc/assets/js/39.e335ffc4.js"><link rel="prefetch" href="/doc/assets/js/390.56bcbc18.js"><link rel="prefetch" href="/doc/assets/js/391.4a6a2d15.js"><link rel="prefetch" href="/doc/assets/js/392.85c4ba2e.js"><link rel="prefetch" href="/doc/assets/js/393.8c771918.js"><link rel="prefetch" href="/doc/assets/js/394.102ad2e2.js"><link rel="prefetch" href="/doc/assets/js/395.ebb2d525.js"><link rel="prefetch" href="/doc/assets/js/396.ade49b15.js"><link rel="prefetch" href="/doc/assets/js/397.f4a6a42f.js"><link rel="prefetch" href="/doc/assets/js/398.f8915289.js"><link rel="prefetch" href="/doc/assets/js/399.1f78064b.js"><link rel="prefetch" href="/doc/assets/js/40.85a54a9e.js"><link rel="prefetch" href="/doc/assets/js/400.96b6a0d1.js"><link rel="prefetch" href="/doc/assets/js/401.f8c6422c.js"><link rel="prefetch" href="/doc/assets/js/402.6f8ee762.js"><link rel="prefetch" href="/doc/assets/js/403.7e42db1f.js"><link rel="prefetch" href="/doc/assets/js/404.b6aff2b4.js"><link rel="prefetch" href="/doc/assets/js/405.3feb3e82.js"><link rel="prefetch" href="/doc/assets/js/406.d6cda5e7.js"><link rel="prefetch" href="/doc/assets/js/407.08932ff6.js"><link rel="prefetch" href="/doc/assets/js/408.dfb5a22b.js"><link rel="prefetch" href="/doc/assets/js/409.769ea3d5.js"><link rel="prefetch" href="/doc/assets/js/41.8e08f51d.js"><link rel="prefetch" href="/doc/assets/js/410.93b5ace2.js"><link rel="prefetch" href="/doc/assets/js/411.e2ffa25c.js"><link rel="prefetch" href="/doc/assets/js/412.036b89bb.js"><link rel="prefetch" href="/doc/assets/js/413.6bf14465.js"><link rel="prefetch" href="/doc/assets/js/414.b227a4d7.js"><link rel="prefetch" href="/doc/assets/js/415.5694d5d4.js"><link rel="prefetch" href="/doc/assets/js/416.65c4156b.js"><link rel="prefetch" href="/doc/assets/js/417.22c65363.js"><link rel="prefetch" href="/doc/assets/js/418.a5757496.js"><link rel="prefetch" href="/doc/assets/js/419.c820a97d.js"><link rel="prefetch" href="/doc/assets/js/42.bd2d5f0e.js"><link rel="prefetch" href="/doc/assets/js/420.13ea31a8.js"><link rel="prefetch" href="/doc/assets/js/421.cefc4a10.js"><link rel="prefetch" href="/doc/assets/js/422.a88043b3.js"><link rel="prefetch" href="/doc/assets/js/423.97140c95.js"><link rel="prefetch" href="/doc/assets/js/424.cdb1645d.js"><link rel="prefetch" href="/doc/assets/js/425.2a710859.js"><link rel="prefetch" href="/doc/assets/js/426.e0003468.js"><link rel="prefetch" href="/doc/assets/js/427.0f83d853.js"><link rel="prefetch" href="/doc/assets/js/428.bf87ca82.js"><link rel="prefetch" href="/doc/assets/js/429.715f2063.js"><link rel="prefetch" href="/doc/assets/js/43.4a7848cd.js"><link rel="prefetch" href="/doc/assets/js/430.077a2b19.js"><link rel="prefetch" href="/doc/assets/js/431.9b4cbbcb.js"><link rel="prefetch" href="/doc/assets/js/432.ed898063.js"><link rel="prefetch" href="/doc/assets/js/433.7cfbd5cd.js"><link rel="prefetch" href="/doc/assets/js/434.e3693d99.js"><link rel="prefetch" href="/doc/assets/js/435.4048bfc2.js"><link rel="prefetch" href="/doc/assets/js/436.9f31f458.js"><link rel="prefetch" href="/doc/assets/js/437.b78ea494.js"><link rel="prefetch" href="/doc/assets/js/438.6a29c4f3.js"><link rel="prefetch" href="/doc/assets/js/439.6cdd5e51.js"><link rel="prefetch" href="/doc/assets/js/44.09c73c2c.js"><link rel="prefetch" href="/doc/assets/js/440.80fc7966.js"><link rel="prefetch" href="/doc/assets/js/441.e230e67c.js"><link rel="prefetch" href="/doc/assets/js/442.3d2b13db.js"><link rel="prefetch" href="/doc/assets/js/443.fbc49fba.js"><link rel="prefetch" href="/doc/assets/js/444.df7e1761.js"><link rel="prefetch" href="/doc/assets/js/445.8e7e7f26.js"><link rel="prefetch" href="/doc/assets/js/446.fb66ab8e.js"><link rel="prefetch" href="/doc/assets/js/447.c9a111ee.js"><link rel="prefetch" href="/doc/assets/js/448.14c6e90f.js"><link rel="prefetch" href="/doc/assets/js/449.6c9d24cf.js"><link rel="prefetch" href="/doc/assets/js/45.19f024ce.js"><link rel="prefetch" href="/doc/assets/js/450.cfe3fb7a.js"><link rel="prefetch" href="/doc/assets/js/451.38c22ecc.js"><link rel="prefetch" href="/doc/assets/js/46.67c991f3.js"><link rel="prefetch" href="/doc/assets/js/47.a0f7cecf.js"><link rel="prefetch" href="/doc/assets/js/48.944a41dd.js"><link rel="prefetch" href="/doc/assets/js/49.cdd4cb9d.js"><link rel="prefetch" href="/doc/assets/js/5.fed3795f.js"><link rel="prefetch" href="/doc/assets/js/50.128a6a39.js"><link rel="prefetch" href="/doc/assets/js/51.5cffa245.js"><link rel="prefetch" href="/doc/assets/js/52.39ef9801.js"><link rel="prefetch" href="/doc/assets/js/53.986afb48.js"><link rel="prefetch" href="/doc/assets/js/54.3f0b8cd7.js"><link rel="prefetch" href="/doc/assets/js/55.c99752b5.js"><link rel="prefetch" href="/doc/assets/js/56.aedae85b.js"><link rel="prefetch" href="/doc/assets/js/57.539f1ce2.js"><link rel="prefetch" href="/doc/assets/js/58.9ccfd782.js"><link rel="prefetch" href="/doc/assets/js/59.7472a04b.js"><link rel="prefetch" href="/doc/assets/js/6.3cf1b46f.js"><link rel="prefetch" href="/doc/assets/js/60.38c571b2.js"><link rel="prefetch" href="/doc/assets/js/61.a417b5d3.js"><link rel="prefetch" href="/doc/assets/js/62.26916860.js"><link rel="prefetch" href="/doc/assets/js/63.6e623b41.js"><link rel="prefetch" href="/doc/assets/js/64.c59a4aad.js"><link rel="prefetch" href="/doc/assets/js/65.526257af.js"><link rel="prefetch" href="/doc/assets/js/66.cd63e10f.js"><link rel="prefetch" href="/doc/assets/js/67.0d4e6ed3.js"><link rel="prefetch" href="/doc/assets/js/68.4e347118.js"><link rel="prefetch" href="/doc/assets/js/69.e04ab351.js"><link rel="prefetch" href="/doc/assets/js/7.292b1adf.js"><link rel="prefetch" href="/doc/assets/js/70.2f99e115.js"><link rel="prefetch" href="/doc/assets/js/71.d3f915ad.js"><link rel="prefetch" href="/doc/assets/js/72.0e27b29f.js"><link rel="prefetch" href="/doc/assets/js/73.a6a07d7f.js"><link rel="prefetch" href="/doc/assets/js/74.b297cee8.js"><link rel="prefetch" href="/doc/assets/js/75.c7f73d19.js"><link rel="prefetch" href="/doc/assets/js/76.dc35e9fb.js"><link rel="prefetch" href="/doc/assets/js/77.d4eb1826.js"><link rel="prefetch" href="/doc/assets/js/78.7fbf6c01.js"><link rel="prefetch" href="/doc/assets/js/79.f19e421d.js"><link rel="prefetch" href="/doc/assets/js/80.661d8561.js"><link rel="prefetch" href="/doc/assets/js/81.9d4f5143.js"><link rel="prefetch" href="/doc/assets/js/82.06f7b2f8.js"><link rel="prefetch" href="/doc/assets/js/83.c9f633ec.js"><link rel="prefetch" href="/doc/assets/js/84.e0c1c0d3.js"><link rel="prefetch" href="/doc/assets/js/85.a8e642af.js"><link rel="prefetch" href="/doc/assets/js/86.5d84046a.js"><link rel="prefetch" href="/doc/assets/js/87.73251543.js"><link rel="prefetch" href="/doc/assets/js/88.a4e36915.js"><link rel="prefetch" href="/doc/assets/js/89.7132ad90.js"><link rel="prefetch" href="/doc/assets/js/9.7277a517.js"><link rel="prefetch" href="/doc/assets/js/90.11e07685.js"><link rel="prefetch" href="/doc/assets/js/91.691f818f.js"><link rel="prefetch" href="/doc/assets/js/92.e3aac2f8.js"><link rel="prefetch" href="/doc/assets/js/93.257024f0.js"><link rel="prefetch" href="/doc/assets/js/94.755b102a.js"><link rel="prefetch" href="/doc/assets/js/95.e863895a.js"><link rel="prefetch" href="/doc/assets/js/96.e8a4d600.js"><link rel="prefetch" href="/doc/assets/js/97.2a3b8c59.js"><link rel="prefetch" href="/doc/assets/js/98.796a310b.js"><link rel="prefetch" href="/doc/assets/js/99.c0cbbe0b.js">
+    <link rel="stylesheet" href="/doc/assets/css/0.styles.0d531566.css">
+    <script language="JavaScript" type="text/JavaScript" src="//sso.xfyun.cn/SSOService/login/getcookies"></script>
+    <link rel="stylesheet" href="https://aixfyun-cn-bj.xfyun.cn/common_cdn/docsearch.min.css" />
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-56fac40d><div class="h-header" data-v-07eebb88 data-v-56fac40d><div class="h-menu-wrap" data-v-07eebb88><ul class="menu-container" data-v-07eebb88><a href="/" target="_blank" class="logo" data-v-07eebb88></a>  <div class="header-right" data-v-07eebb88><div class="station" data-v-07eebb88><span class="current-station" data-v-07eebb88><i class="icon-earth" data-v-07eebb88></i>
+            中文站
+            <i class="caret" data-v-07eebb88></i></span> <div class="station-options" data-v-07eebb88><span class="station-option active" data-v-07eebb88>中文站</span> <a href="https://global.xfyun.cn/" target="_blank" class="station-option" data-v-07eebb88>English</a></div></div> <a target="_blank" href="https://console.xfyun.cn/app/myapp" class="console" style="color: #333;" data-v-07eebb88>
+          控制台
+        </a></div></ul></div> <div class="menu-panel" style="height:0px;" data-v-07eebb88><div class="sub-menu" data-v-07eebb88><div class="icon-close" data-v-07eebb88></div> <div class="sm__left" data-v-07eebb88><div class="sm__left-menu" data-v-07eebb88><!----></div></div> <div class="sm__middle" data-v-07eebb88><div class="sm__middle_scroll" data-v-07eebb88><ul class="sub-menu__children" data-v-07eebb88></ul></div></div> <div class="sm__right" data-v-07eebb88><div class="sm__right__content" data-v-07eebb88><!----></div></div></div></div></div> <div class="theme-container-main" data-v-56fac40d><div class="sidebar-mask" data-v-56fac40d></div> <aside class="sidebar" data-v-56fac40d><!----> <div class="sidebar-header" data-v-56fac40d>文档中心</div> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><img width="15" height="15" src="/doc/ysfu.svg"> <span>平台文档</span> <span class="line-arrow up"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><!----> <span>开发者新手指南</span> <span class="line-arrow up"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/doc/platform/xfyunreadme.html" class="sidebar-link">平台简介</a></li><li><a href="/doc/platform/quickguide.html" class="sidebar-link">快速指引</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><!----> <span>服务协议</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><!----> <span>用户认证须知</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><!----> <span>财务</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><!----> <span>账号</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><!----> <span>会员</span> <span class="line-arrow down"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/spark_dark.png"> <span>星火认知大模型</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/yysb.svg"> <span>语音识别</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/yyhc.svg"> <span>语音合成</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/yykz.svg"> <span>语音扩展</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/yycl.svg"> <span>自然语言处理</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/rlsb.svg"> <span>人脸识别</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/wzsb.svg"> <span>文字识别</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/txsb.svg"> <span>图像识别</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/ico_yfw.svg"> <span>基础服务</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/gywm.svg"> <span>解决方案</span> <span class="line-arrow down"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><img width="15" height="15" src="/doc/msc.svg"> <span>MSC API文档</span> <span class="line-arrow down"></span></p> <!----></section></li></ul> </aside> <main class="page" data-v-56fac40d><div class="page-top" data-v-56fac40d><ul class="breadcrumb"><li><a href="/doc/" class="router-link-active">文档中心</a></li> <li>spark</li><li>spark_slm_iat</li></ul> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form></div> <div class="content__default"><h1 id="方言大模型-协议"><a href="#方言大模型-协议" class="header-anchor">#</a> 方言大模型 协议</h1> <h2 id="一、-方言大模型描述"><a href="#一、-方言大模型描述" class="header-anchor">#</a> 一、 方言大模型描述</h2> <p>方言大模型，支持普通话，简单英语和202种方言全免切，无需显示指定语种。技术咨询可直接提交<a href="https://console.xfyun.cn/workorder/commit" target="_blank" rel="noopener noreferrer">工单<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="二、接口demo"><a href="#二、接口demo" class="header-anchor">#</a> 二、接口Demo</h2> <p>部分开发语言Demo如下，其他开发语言请参照文档进行开发，欢迎大家到<a href="https://developer.xfyun.cn/" target="_blank" rel="noopener noreferrer">讯飞开放平台社区<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>交流集成经验。<br></p> <p><a href="https://xfyun-doc.xfyun.cn/lc-sp-spark_mucl_cn_iat_demo_java-1735546021682.zip" target="_blank" rel="noopener noreferrer">大模型方言语音识别 Demo java语言<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br> <a href="https://xfyun-doc.xfyun.cn/lc-sp-spark_slm_iat_python-1735526511442.zip" target="_blank" rel="noopener noreferrer">大模型方言语音识别 Demo python语言<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="三、接口要求"><a href="#三、接口要求" class="header-anchor">#</a> 三、接口要求</h2> <table><thead><tr><th style="text-align:left;">内容</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">请求协议</td> <td style="text-align:left;">ws[s]（为提高安全性，强烈推荐wss）</td></tr> <tr><td style="text-align:left;">请求地址</td> <td style="text-align:left;">方言识别地址：ws[s]: //iat.cn-huabei-1.xf-yun.com/v1</td></tr> <tr><td style="text-align:left;">接口鉴权</td> <td style="text-align:left;">签名机制，详情请参照下方<a href="https://www.xfyun.cn/doc/spark/spark_mul_cn_iat.html#%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83" target="_blank" rel="noopener noreferrer">接口鉴权<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></td></tr> <tr><td style="text-align:left;">字符编码</td> <td style="text-align:left;">UTF-8</td></tr> <tr><td style="text-align:left;">响应格式</td> <td style="text-align:left;">统一采用JSON格式</td></tr> <tr><td style="text-align:left;">开发语言</td> <td style="text-align:left;">任意，只要可以向讯飞云服务发起HTTP请求的均可</td></tr> <tr><td style="text-align:left;">音频属性</td> <td style="text-align:left;">采样率16k或8K、位长16bit、单声道</td></tr> <tr><td style="text-align:left;">音频格式</td> <td style="text-align:left;">pcm</td></tr> <tr><td style="text-align:left;">音频长度</td> <td style="text-align:left;">最长60s</td></tr></tbody></table> <h2 id="四、接口鉴权"><a href="#四、接口鉴权" class="header-anchor">#</a> 四、接口鉴权</h2> <p>通过在请求地址后面加上鉴权相关参数的方式。示例url：</p> <div class="language-text extra-class"><pre class="language-text"><code>wss://iat.cn-huabei-1.xf-yun.com/v1?authorization=YXBpX2tleT0iYTFkNjc0NmRkMWJiMTlmMTlkNTkyMDVhZDAwMDc0NjQiLCBhbGdvcml0aG09ImhtYWMtc2hhMjU2IiwgaGVhZGVycz0iaG9zdCBkYXRlIHJlcXVlc3QtbGluZSIsIHNpZ25hdHVyZT0iRDZFQzFCRHk5Wjl2Y1RqdE55aW0wenNFZi9LQUxIQmg1TlNxYVcwMUNJbz0i&amp;amp;date=Mon%2C+30+Dec+2024+07%3A40%3A12+GMT&amp;amp;host=iat.cn-huabei-1.xf-yun.com
+</code></pre></div><h3 id="鉴权方法"><a href="#鉴权方法" class="header-anchor">#</a> 鉴权方法</h3> <table><thead><tr><th style="text-align:left;">参数</th> <th style="text-align:left;">类型</th> <th style="text-align:left;">必须</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">示例</th></tr></thead> <tbody><tr><td style="text-align:left;">host</td> <td style="text-align:left;">string</td> <td style="text-align:left;">是</td> <td style="text-align:left;">请求主机</td> <td style="text-align:left;">iat.xf-yun.com</td></tr> <tr><td style="text-align:left;">date</td> <td style="text-align:left;">string</td> <td style="text-align:left;">是</td> <td style="text-align:left;">当前时间戳，RFC1123格式</td> <td style="text-align:left;">Tue, 14 May 2024 08:46:48 GMT</td></tr> <tr><td style="text-align:left;">authorization</td> <td style="text-align:left;">string</td> <td style="text-align:left;">是</td> <td style="text-align:left;">使用base64编码的签名相关信息(签名基于hmac-sha256计算)</td> <td style="text-align:left;">参考下方authorization参数生成规则</td></tr></tbody></table> <p><strong>· date参数生成规则</strong></p> <p>date必须是UTC+0或GMT时区，RFC1123格式(Tue, 14 May 2024 08:46:48 GMT)。
+服务端会对Date进行时钟偏移检查，最大允许300秒的偏差，超出偏差的请求都将被拒绝。</p> <p><strong>· authorization参数生成规则</strong></p> <p>1）获取接口密钥APIKey 和 APISecret。
+在讯飞开放平台控制台，创建WebAPI平台应用并添加语音听写（流式版）服务后即可查看，均为32位字符串。</p> <p>2）参数authorization base64编码前（authorization_origin）的格式如下。</p> <div class="language-text extra-class"><pre class="language-text"><code>api_key=&quot;$api_key&quot;,algorithm=&quot;hmac-sha256&quot;,headers=&quot;host date request-line&quot;,signature=&quot;$signature&quot;
+</code></pre></div><p>其中 api_key 是在控制台获取的APIKey，algorithm 是加密算法（仅支持hmac-sha256），headers 是参与签名的参数（见下方注释）。
+signature 是使用加密算法对参与签名的参数签名后并使用base64编码的字符串，详见下方。</p> <p>*<strong>注：* headers是参与签名的参数，请注意是固定的参数名（&quot;host date request-line&quot;），而非这些参数的值。</strong></p> <p>3）signature的原始字段(signature_origin)规则如下。</p> <p>signature原始字段由 host，date，request-line三个参数按照格式拼接成，
+拼接的格式为(\n为换行符,’:’后面有一个空格)：</p> <div class="language-text extra-class"><pre class="language-text"><code>host: $host\ndate: $date\n$request-line
+</code></pre></div><p>假设</p> <div class="language-text extra-class"><pre class="language-text"><code>请求url = wss://iat.cn-huabei-1.xf-yun.com/v1
+date = Tue, 14 May 2024 08:46:48 GMT
+</code></pre></div><p>那么 signature原始字段(signature_origin)则为：</p> <div class="language-text extra-class"><pre class="language-text"><code>host: iat.cn-huabei-1.xf-yun.com
+date: Tue, 14 May 2024 08:46:48 GMT
+GET /v1 HTTP/1.1
+</code></pre></div><p>4）使用hmac-sha256算法结合apiSecret对signature_origin签名，获得签名后的摘要signature_sha。</p> <div class="language-text extra-class"><pre class="language-text"><code>signature_sha=hmac-sha256(signature_origin,$apiSecret)
+</code></pre></div><p>其中 apiSecret 是在控制台获取的APISecret</p> <p>5）使用base64编码对signature_sha进行编码获得最终的signature。</p> <div class="language-text extra-class"><pre class="language-text"><code>signature=base64(signature_sha)
+</code></pre></div><p>假设</p> <div class="language-text extra-class"><pre class="language-text"><code>APISecret = secretxxxxxxxx2df7900c09xxxxxxxx	
+date = Tue, 14 May 2024 08:46:48 GMT
+</code></pre></div><p>则signature为</p> <div class="language-text extra-class"><pre class="language-text"><code>signature=S66FeqTJlvkd+KfJg+a73BAabocwRg2scKflONI8o80=
+</code></pre></div><p>6）根据以上信息拼接authorization base64编码前（authorization_origin）的字符串，示例如下。</p> <div class="language-text extra-class"><pre class="language-text"><code>api_key=&quot;keyxxxxxxxx8ee279348519exxxxxxxx&quot;, algorithm=&quot;hmac-sha256&quot;, headers=&quot;host date request-line&quot;, signature=&quot;S66FeqTJlvkd+KfJg+a73BAabocwRg2scKflONI8o80=&quot;
+</code></pre></div><p><em>注：</em> headers是参与签名的参数，请注意是固定的参数名（&quot;host date request-line&quot;），而非这些参数的值。</p> <p>7）最后再对authorization_origin进行base64编码获得最终的authorization参数。</p> <div class="language-text extra-class"><pre class="language-text"><code>authorization = base64(authorization_origin)
+示例：
+wss://iat.cn-huabei-1.xf-yun.com/v1?authorization=YXBpX2tleT0iYTFkNjc0NmRkMWJiMTlmMTlkNTkyMDVhZDAwMDc0NjQiLCBhbGdvcml0aG09ImhtYWMtc2hhMjU2IiwgaGVhZGVycz0iaG9zdCBkYXRlIHJlcXVlc3QtbGluZSIsIHNpZ25hdHVyZT0iRDZFQzFCRHk5Wjl2Y1RqdE55aW0wenNFZi9LQUxIQmg1TlNxYVcwMUNJbz0i&amp;amp;date=Mon%2C+30+Dec+2024+07%3A40%3A12+GMT&amp;amp;host=iat.cn-huabei-1.xf-yun.com
+</code></pre></div><h2 id="五、数据传输接收与请求、返回示例"><a href="#五、数据传输接收与请求、返回示例" class="header-anchor">#</a> 五、数据传输接收与请求、返回示例</h2> <h3 id="_5-1-数据传输接收"><a href="#_5-1-数据传输接收" class="header-anchor">#</a> 5.1. 数据传输接收</h3> <p>握手成功后客户端和服务端会建立Websocket连接，客户端通过Websocket连接可以同时上传和接收数据。
+当服务端有识别结果时，会通过Websocket连接推送识别结果到客户端。</p> <p>发送数据时，如果间隔时间太短，可能会导致引擎识别有误。
+建议每次发送音频间隔40ms，每次发送音频字节数（即java示例demo中的frameSize）为一帧音频大小的整数倍。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//连接成功，开始发送数据</span>
+<span class="token keyword">int</span> frameSize <span class="token operator">=</span> <span class="token number">1280</span><span class="token punctuation">;</span> <span class="token comment">//每一帧音频大小的整数倍，请注意不同音频格式一帧大小字节数不同，可参考下方建议</span>
+<span class="token keyword">int</span> intervel <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> status <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 音频的状态</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">FileInputStream</span> fs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span>frameSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 发送音频</span>
+</code></pre></div><p>我们建议：未压缩的PCM格式，每次发送音频间隔40ms，每次发送音频字节数1280B；</p> <h3 id="_5-2-请求协议示例"><a href="#_5-2-请求协议示例" class="header-anchor">#</a> 5.2. 请求协议示例</h3> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;header&quot;: {
+        &quot;app_id&quot;: &quot;123456&quot;,
+    },
+    &quot;parameter&quot;: {
+        &quot;iat&quot;: {
+            &quot;language&quot;: &quot;zh_cn&quot;,
+            &quot;accent&quot;: &quot;mulacc&quot;,
+            &quot;domain&quot;: &quot;slm&quot;,
+            &quot;eos&quot;: 1800,
+            &quot;dwa&quot;: &quot;wpgs&quot;,
+            &quot;ptt&quot;: 1,
+            &quot;nunum&quot;: 1,
+            &quot;ltc&quot;: 0,
+            &quot;result&quot;: {
+                &quot;encoding&quot;: &quot;utf8&quot;,
+                &quot;compress&quot;: &quot;raw&quot;,
+                &quot;format&quot;: &quot;json&quot;
+            }
+        }
+    },
+    &quot;payload&quot;: {
+        &quot;audio&quot;: {
+            &quot;encoding&quot;: &quot;raw&quot;,
+            &quot;sample_rate&quot;: 16000,
+            &quot;channels&quot;: 1,
+            &quot;bit_depth&quot;: 16,
+            &quot;status&quot;: 0,
+            &quot;seq&quot;: 0,
+            &quot;audio&quot;: &quot;AAAAAP...&quot;,
+        }
+    }
+}
+</code></pre></div><p><strong>协议结构说明</strong></p> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">类型</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">header</td> <td style="text-align:left;">协议头部</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">协议头部，用于描述平台特性的参数，详见 5.2 平台参数。</td></tr> <tr><td style="text-align:left;">parameter</td> <td style="text-align:left;">能力参数</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">AI 特性参数，用于控制 AI 引擎特性的开关。</td></tr> <tr><td style="text-align:left;">iat</td> <td style="text-align:left;">服务别名</td> <td style="text-align:left;">Object</td> <td style="text-align:left;"></td></tr> <tr><td style="text-align:left;">result</td> <td style="text-align:left;">响应数据控制</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">数据格式预期，用于描述返回结果的编码等相关约束，不同的数据类型，约束维度亦不相同，此 object 与响应结果存在对应关系。</td></tr> <tr><td style="text-align:left;">payload</td> <td style="text-align:left;">输入数据段</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">数据段，携带请求的数据。</td></tr> <tr><td style="text-align:left;">audio</td> <td style="text-align:left;">输入数据</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">输入数据，详见 5.2 请求数据。</td></tr></tbody></table> <h3 id="_5-3-请求参数"><a href="#_5-3-请求参数" class="header-anchor">#</a> 5.3. 请求参数</h3> <h4 id="_5-3-1-平台参数"><a href="#_5-3-1-平台参数" class="header-anchor">#</a> 5.3.1. 平台参数</h4> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">类型</th> <th style="text-align:left;">是否必传</th></tr></thead> <tbody><tr><td style="text-align:left;">app_id</td> <td style="text-align:left;">在平台申请的app id信息</td> <td style="text-align:left;">string</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">res_id</td> <td style="text-align:left;">应用级热词，用于提高相关词语识别权重（可直接在控制台设置，并上传res_id）</td> <td style="text-align:left;">string</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">status</td> <td style="text-align:left;">请求状态，可选值为：0-开始、1-继续、2-结束</td> <td style="text-align:left;">int</td> <td style="text-align:left;">是</td></tr></tbody></table> <h4 id="_5-3-2-服务特性参数"><a href="#_5-3-2-服务特性参数" class="header-anchor">#</a> 5.3.2. 服务特性参数</h4> <p><strong>功能参数</strong></p> <table><thead><tr><th style="text-align:left;">功能标识</th> <th style="text-align:left;">功能描述</th> <th style="text-align:left;">数据类型</th> <th style="text-align:left;">取值范围</th> <th style="text-align:left;">必填</th> <th style="text-align:left;">默认值</th></tr></thead> <tbody><tr><td style="text-align:left;">language</td> <td style="text-align:left;">语种设置</td> <td style="text-align:left;">String</td> <td style="text-align:left;">仅支持：zh_cn</td> <td style="text-align:left;">是</td> <td style="text-align:left;">zh_cn</td></tr> <tr><td style="text-align:left;">accent</td> <td style="text-align:left;">方言设置</td> <td style="text-align:left;">String</td> <td style="text-align:left;">仅支持：mulacc<br>支持202种方言免切换，具体可查看<a href="https://xfyun-doc.xfyun.cn/lc-sp-%E6%96%B9%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E6%96%B9%E8%A8%80%E6%98%8E%E7%BB%86-1736922316173.xlsx" target="_blank" rel="noopener noreferrer">支持方言明细<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></td> <td style="text-align:left;">是</td> <td style="text-align:left;">mulacc</td></tr> <tr><td style="text-align:left;">domain</td> <td style="text-align:left;">应用领域设置</td> <td style="text-align:left;">String</td> <td style="text-align:left;">仅支持：slm</td> <td style="text-align:left;">是</td> <td style="text-align:left;">slm</td></tr> <tr><td style="text-align:left;">eos</td> <td style="text-align:left;">尾静音截断：引擎判定结束的时间，连续检测给定时间长度的音频，均为静音，则引擎停止识别</td> <td style="text-align:left;">int</td> <td style="text-align:left;">最小值:600, 最大值:10000</td> <td style="text-align:left;">否</td> <td style="text-align:left;">1800</td></tr> <tr><td style="text-align:left;">nbest</td> <td style="text-align:left;">句子多候选：通过参数控制输出的n个最优的结果，而不是1个</td> <td style="text-align:left;">int</td> <td style="text-align:left;">最小值:0, 最大值:5</td> <td style="text-align:left;">否</td> <td style="text-align:left;">0</td></tr> <tr><td style="text-align:left;">wbest</td> <td style="text-align:left;">词级多候选：通过控制输出槽内的n个结果，而不是1个</td> <td style="text-align:left;">int</td> <td style="text-align:left;">最小值:0, 最大值:5</td> <td style="text-align:left;">否</td> <td style="text-align:left;">0</td></tr> <tr><td style="text-align:left;">vinfo</td> <td style="text-align:left;">句子级别帧对齐:给出一次会话中，子句的vad边界信息</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:不返回vad信息, 1:返回vad信息</td> <td style="text-align:left;">否</td> <td style="text-align:left;">0</td></tr> <tr><td style="text-align:left;">dwa</td> <td style="text-align:left;">流式识别PGS：流式识别功能，打开后，会话过程中实时给出语音识别的结果，而不是子句结束时才给结果</td> <td style="text-align:left;">string</td> <td style="text-align:left;">最小长度:0, 最大长度:10</td> <td style="text-align:left;">否</td> <td style="text-align:left;"></td></tr> <tr><td style="text-align:left;">ptt</td> <td style="text-align:left;">标点预测：在语音识别结果中增加标点符号</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:关闭, 1:开启</td> <td style="text-align:left;">否</td> <td style="text-align:left;">1</td></tr> <tr><td style="text-align:left;">smth</td> <td style="text-align:left;">顺滑功能：将语音识别结果中的顺滑词（语气词、叠词）进行标记，业务侧通过标记过滤语气词最终展现识别结果</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:关闭, 1:开启</td> <td style="text-align:left;">否</td> <td style="text-align:left;">0</td></tr> <tr><td style="text-align:left;">nunum</td> <td style="text-align:left;">数字规整：将语音识别结果中的原始文字串转为相应的阿拉伯数字或者符号</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:关闭, 1:开启</td> <td style="text-align:left;">否</td> <td style="text-align:left;">1</td></tr> <tr><td style="text-align:left;">opt</td> <td style="text-align:left;">是否输出属性</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:json格式输出，不带属性, <br>1:文本格式输出，不带属性, <br>2:json格式输出，带文字属性&quot;wp&quot;:&quot;n&quot;和标点符号属性&quot;wp&quot;:&quot;p&quot;</td> <td style="text-align:left;">否</td> <td style="text-align:left;"></td></tr> <tr><td style="text-align:left;">dhw</td> <td style="text-align:left;">会话热词，支持utf-8和gb2312；<br>取值样例：“dhw=gb2312;你好|大家”（对应gb2312编码）；<br> “dhw=utf-8;你好|大家”（对应utf-8编码）</td> <td style="text-align:left;">string</td> <td style="text-align:left;">最小长度:0, 最大长度:1024</td> <td style="text-align:left;">否</td> <td style="text-align:left;"></td></tr> <tr><td style="text-align:left;">rlang</td> <td style="text-align:left;">返回字体指定zh-cn/zh-hk/zh-mo/zh-tw，服务默认是简体字</td> <td style="text-align:left;">string</td> <td style="text-align:left;">最小长度:0, 最大长度:100</td> <td style="text-align:left;">否</td> <td style="text-align:left;"></td></tr> <tr><td style="text-align:left;">ltc</td> <td style="text-align:left;">是否进行中英文筛选</td> <td style="text-align:left;">int</td> <td style="text-align:left;">1:不进行筛选, 2:只出中文, 3:只出英文</td> <td style="text-align:left;">否</td> <td style="text-align:left;"></td></tr></tbody></table> <p><strong>响应数据参数</strong></p> <p>result 段的参数（默认返回）</p> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">数据类型</th> <th style="text-align:left;">取值范围</th> <th style="text-align:left;">默认值</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">必填</th></tr></thead> <tbody><tr><td style="text-align:left;">encoding</td> <td style="text-align:left;">文本编码</td> <td style="text-align:left;">string</td> <td style="text-align:left;">utf8, gb2312</td> <td style="text-align:left;">utf8</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">compress</td> <td style="text-align:left;">文本压缩格式</td> <td style="text-align:left;">string</td> <td style="text-align:left;">raw, gzip</td> <td style="text-align:left;">raw</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">format</td> <td style="text-align:left;">文本格式</td> <td style="text-align:left;">string</td> <td style="text-align:left;">plain, json, xml</td> <td style="text-align:left;">json</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr></tbody></table> <h4 id="_5-3-3-请求数据"><a href="#_5-3-3-请求数据" class="header-anchor">#</a> 5.3.3. 请求数据</h4> <p>audio（默认请求）</p> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">数据类型</th> <th style="text-align:left;">取值范围</th> <th style="text-align:left;">默认值</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">必填</th></tr></thead> <tbody><tr><td style="text-align:left;">encoding</td> <td style="text-align:left;">音频编码</td> <td style="text-align:left;">string</td> <td style="text-align:left;">lame（即mp3格式）, speex, opus, opus-wb, speex-wb</td> <td style="text-align:left;">speex-wb</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">sample_rate</td> <td style="text-align:left;">采样率</td> <td style="text-align:left;">int</td> <td style="text-align:left;">16000, 8000</td> <td style="text-align:left;">16000</td> <td style="text-align:left;">音频采样率，可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">channels</td> <td style="text-align:left;">声道数</td> <td style="text-align:left;">int</td> <td style="text-align:left;">1, 2</td> <td style="text-align:left;">1</td> <td style="text-align:left;">声道数，可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">bit_depth</td> <td style="text-align:left;">位深</td> <td style="text-align:left;">int</td> <td style="text-align:left;">16, 8</td> <td style="text-align:left;">16</td> <td style="text-align:left;">单位bit，可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">status</td> <td style="text-align:left;">数据状态</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:开始, 1:继续, 2:结束</td> <td style="text-align:left;">0</td> <td style="text-align:left;">取值范围为：0（开始）、1（继续）、2（结束）</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">seq</td> <td style="text-align:left;">数据序号</td> <td style="text-align:left;">int</td> <td style="text-align:left;">最小值:0, 最大值:9999999</td> <td style="text-align:left;">0</td> <td style="text-align:left;">标明数据为第几块</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">audio</td> <td style="text-align:left;">音频数据</td> <td style="text-align:left;">string</td> <td style="text-align:left;">最小尺寸:0B, 最大尺寸:10485760B</td> <td style="text-align:left;"></td> <td style="text-align:left;">音频大小：0-10M</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">frame_size</td> <td style="text-align:left;">帧大小</td> <td style="text-align:left;">int</td> <td style="text-align:left;">最小值:0, 最大值:1024</td> <td style="text-align:left;">0</td> <td style="text-align:left;">帧大小，默认0</td> <td style="text-align:left;">否</td></tr></tbody></table> <h3 id="_5-4-响应"><a href="#_5-4-响应" class="header-anchor">#</a> 5.4. 响应</h3> <h4 id="_5-4-1-响应协议示例"><a href="#_5-4-1-响应协议示例" class="header-anchor">#</a> 5.4.1. 响应协议示例</h4> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;header&quot;: {
+        &quot;code&quot;: 0,
+        &quot;message&quot;: &quot;success&quot;,
+        &quot;sid&quot;: &quot;ase000e065f@dx193f81b97fb750c882&quot;,
+        &quot;status&quot;: 2
+    },
+    &quot;payload&quot;: {
+        &quot;result&quot;: {
+            &quot;encoding&quot;: &quot;utf8&quot;,
+            &quot;compress&quot;: &quot;raw&quot;,
+            &quot;format&quot;: &quot;json&quot;,
+            &quot;status&quot;: 0,
+            &quot;seq&quot;: 0,
+            &quot;text&quot;: &quot;eyJzbiI6MSwibHMiOnRydWUsImJnIjowLCJlZCI6MCwid3MiOlt7ImJnIjowLCJjdyI6W3……&quot;
+        }
+    }
+}
+</code></pre></div><p><strong>协议结构说明</strong></p> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">类型</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">header</td> <td style="text-align:left;">协议头部</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">协议头部，用于描述平台特性的参数，详见 5.5.1 平台参数。</td></tr> <tr><td style="text-align:left;">payload</td> <td style="text-align:left;">响应数据块</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">数据段，携带响应的数据。</td></tr> <tr><td style="text-align:left;">result</td> <td style="text-align:left;">响应数据块</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">输出数据，详见 5.5.3 响应数据参数。</td></tr></tbody></table> <h3 id="_5-5-响应参数"><a href="#_5-5-响应参数" class="header-anchor">#</a> 5.5. 响应参数</h3> <h4 id="_5-5-1-平台参数"><a href="#_5-5-1-平台参数" class="header-anchor">#</a> 5.5.1. 平台参数</h4> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">类型</th> <th style="text-align:left;">是否必选</th></tr></thead> <tbody><tr><td style="text-align:left;">code</td> <td style="text-align:left;">返回码，0表示成功，其它表示异常</td> <td style="text-align:left;">int</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">message</td> <td style="text-align:left;">错误描述</td> <td style="text-align:left;">string</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">sid</td> <td style="text-align:left;">本次会话的id</td> <td style="text-align:left;">string</td> <td style="text-align:left;">是</td></tr></tbody></table> <h4 id="_5-5-2-响应数据参数"><a href="#_5-5-2-响应数据参数" class="header-anchor">#</a> 5.5.2. 响应数据参数</h4> <p>result（默认返回）</p> <table><thead><tr><th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">数据类型</th> <th style="text-align:left;">取值范围</th> <th style="text-align:left;">默认值</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">必填</th></tr></thead> <tbody><tr><td style="text-align:left;">encoding</td> <td style="text-align:left;">文本编码</td> <td style="text-align:left;">string</td> <td style="text-align:left;">utf8, gb2312</td> <td style="text-align:left;">utf8</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">compress</td> <td style="text-align:left;">文本压缩格式</td> <td style="text-align:left;">string</td> <td style="text-align:left;">raw, gzip</td> <td style="text-align:left;">raw</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">format</td> <td style="text-align:left;">文本格式</td> <td style="text-align:left;">string</td> <td style="text-align:left;">plain, json, xml</td> <td style="text-align:left;">json</td> <td style="text-align:left;">取值范围可枚举</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">status</td> <td style="text-align:left;">数据状态</td> <td style="text-align:left;">int</td> <td style="text-align:left;">0:开始, 1:继续, 2:结束</td> <td style="text-align:left;">0</td> <td style="text-align:left;">取值范围为：0（开始）、1（继续）、2（结束）</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">seq</td> <td style="text-align:left;">数据序号</td> <td style="text-align:left;">int</td> <td style="text-align:left;">最小值:0, 最大值:9999999</td> <td style="text-align:left;">0</td> <td style="text-align:left;"></td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">text</td> <td style="text-align:left;">文本数据</td> <td style="text-align:left;">string</td> <td style="text-align:left;">最小长度:0, 最大长度:1000000</td> <td style="text-align:left;"></td> <td style="text-align:left;"></td> <td style="text-align:left;">是</td></tr></tbody></table> <h4 id="_5-5-3-响应数据解析"><a href="#_5-5-3-响应数据解析" class="header-anchor">#</a> 5.5.3. 响应数据解析</h4> <p>result.text</p> <p><strong>示例：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;bg&quot;: 0,
+    &quot;ed&quot;: 0,
+    &quot;ls&quot;: false,
+    &quot;sn&quot;: 15,
+    &quot;pgs&quot;: rpl,
+    &quot;rst&quot;: pgs,
+    &quot;rg&quot;: [
+        1,14
+    ],
+    &quot;ws&quot;: [
+        {
+            &quot;wb&quot;: null,
+            &quot;wc&quot;: null,
+            &quot;we&quot;: null,
+            &quot;wp&quot;: null,
+            &quot;cw&quot;: [
+                {
+                    &quot;sc&quot;: 0,
+                    &quot;ph&quot;: null,
+                    &quot;w&quot;: 科大讯飞
+                }
+            ]
+        }
+    ]
+}
+</code></pre></div><p><strong>解析：</strong></p> <table><thead><tr><th style="text-align:left;"></th> <th style="text-align:left;">字段</th> <th style="text-align:left;">含义</th> <th style="text-align:left;">数据类型</th> <th style="text-align:left;">取值范围</th> <th style="text-align:left;">默认值</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;"></td> <td style="text-align:left;">bg</td> <td style="text-align:left;"></td> <td style="text-align:left;">float</td> <td style="text-align:left;">--</td> <td style="text-align:left;">140</td> <td style="text-align:left;">本次识别结果的语音开始端点，以ms为单位</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">ed</td> <td style="text-align:left;"></td> <td style="text-align:left;">float</td> <td style="text-align:left;">--</td> <td style="text-align:left;">2280</td> <td style="text-align:left;">本次识别结果的语音结束端点，以ms为单位</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">ls</td> <td style="text-align:left;"></td> <td style="text-align:left;">boolean</td> <td style="text-align:left;">true:false:</td> <td style="text-align:left;">false</td> <td style="text-align:left;">本次结果是否为最后一块结果</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">sn</td> <td style="text-align:left;"></td> <td style="text-align:left;">float</td> <td style="text-align:left;">--</td> <td style="text-align:left;">1</td> <td style="text-align:left;">本次识别结果在总体识别结果中的序号</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">pgs</td> <td style="text-align:left;"></td> <td style="text-align:left;">string</td> <td style="text-align:left;">--</td> <td style="text-align:left;">rpl</td> <td style="text-align:left;">流式识别场景下，本次识别结果操作方式，rpl 为替换前一次识别结果，apd为替换前一次识别结果</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">rst</td> <td style="text-align:left;"></td> <td style="text-align:left;">string</td> <td style="text-align:left;">--</td> <td style="text-align:left;">rlt</td> <td style="text-align:left;">流式识别场景下，本地识别结果的类型，rlt为子句最终结果，pgs 为子句过程的流式结果</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">rg</td> <td style="text-align:left;"></td> <td style="text-align:left;">array</td> <td style="text-align:left;">--</td> <td style="text-align:left;">[]</td> <td style="text-align:left;">流式识别场景下，结果标识字段，字段为2维数组，第一个值为 sn 的值，第二个为替换子句的终止sn号</td></tr> <tr><td style="text-align:left;"></td> <td style="text-align:left;">ws</td> <td style="text-align:left;"></td> <td style="text-align:left;">array</td> <td style="text-align:left;">--</td> <td style="text-align:left;">[]</td> <td style="text-align:left;">本次识别结果的内容，是一个多维数组，每个值表示一个槽</td></tr></tbody></table> <h2 id="六、错误码列表"><a href="#六、错误码列表" class="header-anchor">#</a> 六、错误码列表</h2> <p>错误码示例：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;code&quot;:10003, // 平台通用错误码，详细信息请参照 5.1 平台通用错误码
+    &quot;message&quot;:&quot;WrapperInitErr;errno=101&quot;, // errno 为引擎错误码
+    &quot;sid&quot;:&quot;ocr00088c7d@dx170194697e9a11d902&quot;
+}
+</code></pre></div><h3 id="_6-1-平台通用错误码"><a href="#_6-1-平台通用错误码" class="header-anchor">#</a> 6.1. 平台通用错误码</h3> <table><thead><tr><th style="text-align:left;">错误码</th> <th style="text-align:left;">错误描述</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">处理策略</th></tr></thead> <tbody><tr><td style="text-align:left;">10009</td> <td style="text-align:left;">input invalid data</td> <td style="text-align:left;">输入数据非法</td> <td style="text-align:left;">检查输入数据</td></tr> <tr><td style="text-align:left;">10010</td> <td style="text-align:left;">service license not enough</td> <td style="text-align:left;">没有授权许可或授权数已满</td> <td style="text-align:left;">提交工单</td></tr> <tr><td style="text-align:left;">10019</td> <td style="text-align:left;">service read buffer timeout, session timeout</td> <td style="text-align:left;">session超时</td> <td style="text-align:left;">检查是否数据发送完毕但未关闭连接</td></tr> <tr><td style="text-align:left;">10043</td> <td style="text-align:left;">Syscall AudioCodingDecode error</td> <td style="text-align:left;">音频解码失败</td> <td style="text-align:left;">检查aue参数，如果为speex，请确保音频是speex音频并分段压缩且与帧大小一致</td></tr> <tr><td style="text-align:left;">10114</td> <td style="text-align:left;">session timeout</td> <td style="text-align:left;">session 超时</td> <td style="text-align:left;">会话时间超时，检查是否发送数据时间超过了60s</td></tr> <tr><td style="text-align:left;">10139</td> <td style="text-align:left;">invalid param</td> <td style="text-align:left;">参数错误</td> <td style="text-align:left;">检查参数是否正确</td></tr> <tr><td style="text-align:left;">10160</td> <td style="text-align:left;">parse request json error</td> <td style="text-align:left;">请求数据格式非法</td> <td style="text-align:left;">检查请求数据是否是合法的json</td></tr> <tr><td style="text-align:left;">10161</td> <td style="text-align:left;">parse base64 string error</td> <td style="text-align:left;">base64解码失败</td> <td style="text-align:left;">检查发送的数据是否使用base64编码了</td></tr> <tr><td style="text-align:left;">10163</td> <td style="text-align:left;">param validate error:...</td> <td style="text-align:left;">参数校验失败</td> <td style="text-align:left;">具体原因见详细的描述</td></tr> <tr><td style="text-align:left;">10200</td> <td style="text-align:left;">read data timeout</td> <td style="text-align:left;">读取数据超时</td> <td style="text-align:left;">检查是否累计10s未发送数据并且未关闭连接</td></tr> <tr><td style="text-align:left;">10222</td> <td style="text-align:left;">context deadline exceeded</td> <td style="text-align:left;">1.上传的数据超过了接口上限； 2.SSL证书无效；</td> <td style="text-align:left;">1.检查接口上传的数据（文本、音频、图片等）是否超越了接口的最大限制，可到相应的接口文档查询具体的上限； 2. 请将log导出发到工单：https://console.xfyun.cn/workorder/commit；</td></tr> <tr><td style="text-align:left;">10223</td> <td style="text-align:left;">RemoteLB: can't find valued addr</td> <td style="text-align:left;">lb 找不到节点</td> <td style="text-align:left;">提交工单</td></tr> <tr><td style="text-align:left;">10313</td> <td style="text-align:left;">invalid appid</td> <td style="text-align:left;">appid和apikey不匹配</td> <td style="text-align:left;">检查appid是否合法</td></tr> <tr><td style="text-align:left;">10317</td> <td style="text-align:left;">invalid version</td> <td style="text-align:left;">版本非法</td> <td style="text-align:left;">请到控制台提交工单联系技术人员</td></tr> <tr><td style="text-align:left;">10700</td> <td style="text-align:left;">not authority</td> <td style="text-align:left;">引擎异常</td> <td style="text-align:left;">按照报错原因的描述，对照开发文档检查输入输出，如果仍然无法排除问题，请提供sid以及接口返回的错误信息，到控制台提交工单联系技术人员排查。</td></tr> <tr><td style="text-align:left;">11200</td> <td style="text-align:left;">auth no license</td> <td style="text-align:left;">功能未授权</td> <td style="text-align:left;">请先检查appid是否正确，并且确保该appid下添加了相关服务。若没问题，则按照如下方法排查。 1. 确认总调用量是否已超越限制，或者总次数授权已到期，若已超限或者已过期请联系商务人员。 2. 查看是否使用了未授权的功能，或者授权已过期。</td></tr> <tr><td style="text-align:left;">11201</td> <td style="text-align:left;">auth no enough license</td> <td style="text-align:left;">该APPID的每日交互次数超过限制</td> <td style="text-align:left;">根据自身情况提交应用审核进行服务量提额，或者联系商务购买企业级正式接口，获得海量服务量权限以便商用。</td></tr> <tr><td style="text-align:left;">11503</td> <td style="text-align:left;">server error :atmos return an error data</td> <td style="text-align:left;">服务内部响应数据错误</td> <td style="text-align:left;">提交工单</td></tr> <tr><td style="text-align:left;">11502</td> <td style="text-align:left;">server error: too many datas in resp</td> <td style="text-align:left;">服务配置错误</td> <td style="text-align:left;">提交工单</td></tr></tbody></table> <h2 id="七、常见问题"><a href="#七、常见问题" class="header-anchor">#</a> 七、常见问题</h2> <p><strong>方言大模型的APIKey在哪里查询到？</strong></p> <blockquote><p>答：控制台--我的应用---找到对应应用的方言识别大模型服务---即能查看到。</p></blockquote> <p><strong>方言大模型支持多少方言？</strong></p> <blockquote><p>答：方言大模型除支持中英文外，还支持202种方言免切换，具体支持明细可点击下载查看-<a href="https://xfyun-doc.xfyun.cn/lc-sp-%E6%96%B9%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E6%96%B9%E8%A8%80%E6%98%8E%E7%BB%86-1736922316173.xlsx" target="_blank" rel="noopener noreferrer">方言大模型支持方言明细<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p></blockquote> <p><strong>方言大模型最长支持多少秒之内的音频？</strong></p> <blockquote><p>答：支持识别60s之内的音频。</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-anchor"><div class="anchor-title">在这篇文章中：</div> <ul class="anchorbar" data-v-6d927f1c><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#一、-方言大模型描述" class="sidebar-link" data-v-6d927f1c>一、 方言大模型描述</a></li><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#二、接口demo" class="sidebar-link" data-v-6d927f1c>二、接口Demo</a></li><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#三、接口要求" class="sidebar-link" data-v-6d927f1c>三、接口要求</a></li><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#四、接口鉴权" class="sidebar-link" data-v-6d927f1c>四、接口鉴权</a></li><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#五、数据传输接收与请求、返回示例" class="sidebar-link" data-v-6d927f1c>五、数据传输接收与请求、返回示例</a></li><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#六、错误码列表" class="sidebar-link" data-v-6d927f1c>六、错误码列表</a></li><li data-v-6d927f1c><a href="/doc/spark/spark_slm_iat.html#七、常见问题" class="sidebar-link" data-v-6d927f1c>七、常见问题</a></li></ul></div> </main></div> <div class="affix" data-v-3d6f7632 data-v-56fac40d><div class="affix-content" data-v-3d6f7632><div class="affix-content__bottom" data-v-3d6f7632><div class="affix-suggest" data-v-3d6f7632><img src="https://openres.xfyun.cn/xfyundoc/2025-04-07/9ffb8626-6dc0-47d9-af8c-73f098736416/1744023538619/avatar.png" alt data-v-3d6f7632> <div class="text" data-v-3d6f7632>在线咨询</div></div> <div class="affix-applet" data-v-3d6f7632><img src="https://openres.xfyun.cn/xfyundoc/2025-04-07/b67ddee7-7a9c-4a77-80d2-2d1066f7c2d7/1744024777211/experince.png" alt data-v-3d6f7632> <div class="text" data-v-3d6f7632>体验中心</div></div> <div class="affix-bottom" style="display:none;" data-v-3d6f7632><div class="border" data-v-3d6f7632></div> <div class="top-boder" data-v-3d6f7632><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAkCAYAAACTz/ouAAAAAXNSR0IArs4c6QAAAg1JREFUSEvtljFLHEEUx99/PUn2CokQyXUiWAiCX8A0wTK3plEs9DAYsRLEFHcagowiEVMkpg0mCLlCkTS5swwW+QaCoCCInWJhsNhVvJsXZt07L7p7M8UKCdw0O8XM7zfvzZuZBRGRk3nbwVxqV/24GpA4KnxbPER6ODtAwAYzW3HBFQeAJOYhpDO5Lyx5LE54hQULX5XgKTEXmOlRnBKAfhPgQEGFEIndo8vWOAXd7Q/OhBAlX3Cf7d8ROBMiSa67yqpAkslXhc/CNYncKILB6Q+2d3q8w0yd1yVIB3Zbqmfz42tPJ9EKAriqsr5aGEA/7baUo5PUFUTBq3VuIIkU6OCmklBBOBznRNzi7wHhnIN+sCeR6bojCIODsAeifUn8QgEtyyqy5E4m7tJF8pcgCm4328+8K3eFiYaCi+y7nbAnvStvWyepCurBN9fEcXo4u14rKOaXBwZfipRO4gt0cDUmTODP1UhgAq8n0EnwPJObJ8lz1c0i7Kmcq7TUHqyoCCpjwiIhCwtIj+RWmHkqKL9QuC6CKAmAT3AmxGN2vfd++T1smv2x+u4k7H7RRVCZ0z/+5om8KC/5C07aWe1dVJloKri9uIZA9xxQI0WNFN1k4P8/aM7IzJpkOerHBOS38ssZ7Q7777dh6x+d7ZXlcpEZIFjOVn7pl8lUY4GCqb/w4FsygV8/Affc/gBM/H+xjOVcLwAAAABJRU5ErkJggg==" alt data-v-3d6f7632></div></div></div> <div class="affix-panel-advice" style="display:none;" data-v-3d6f7632><iframe src="https://www.xfyun.cn/botIm?quote=1" width="0" height="0" frameborder="0" data-v-3d6f7632></iframe></div> <!----> <!----></div> <div class="feedback-modal" data-v-62e3299d data-v-3d6f7632><div class="modal-top" data-v-62e3299d><span data-v-62e3299d>×</span></div> <p class="modal-title" data-v-62e3299d>意见/投诉反馈</p> <p class="modal-mention" data-v-62e3299d>
+    本入口仅处理对讯飞开放平台的意见和投诉，如果您是问题咨询请
+    <a href="https://xfyun.sobot.com/chat/pc/v2/index.html?sysnum=1f851a5acb6e4f408a3e3e5487750951&channelid=31" target="_blank" class="im-btn" data-v-62e3299d>点击此处</a>
+    进行IM咨询，点击IM页面转人工服务可以为您转人工处理。
+  </p> <div data-v-62e3299d><div class="modal-content" data-v-62e3299d><div class="modal-ipt-item" data-v-62e3299d><div class="modal-ipt-item-left" data-v-62e3299d><i class="star" data-v-62e3299d>*</i>
+          您的称呼
+        </div> <div class="modal-ipt-item-right" data-v-62e3299d><input type="text" maxlength="40" placeholder="请输入您的称呼" value="" class="ipt" data-v-62e3299d> <!----></div></div> <div class="modal-ipt-item" data-v-62e3299d><div class="modal-ipt-item-left" data-v-62e3299d><i class="star" data-v-62e3299d>*</i>
+          手机号码
+        </div> <div class="modal-ipt-item-right phone" data-v-62e3299d><select class="ipt select" data-v-62e3299d><option selected="selected" value="+86" data-v-62e3299d>
+              (+86)中国
+            </option><option value="+853" data-v-62e3299d>
+              (+853)中国澳门 (中國澳門)
+            </option><option value="+886" data-v-62e3299d>
+              (+886)中国台湾 (中國台灣)
+            </option><option value="+852" data-v-62e3299d>
+              (+852)中国香港
+            </option><option value="+355" data-v-62e3299d>
+              (+355)阿尔巴尼亚 (Shqipëri)
+            </option><option value="+213" data-v-62e3299d>
+              (+213)阿尔及利亚 (Algeria)
+            </option><option value="+93" data-v-62e3299d>
+              (+93)阿富汗 (‫افغانستان‬‎)
+            </option><option value="+54" data-v-62e3299d>
+              (+54)阿根廷 (Argentina)
+            </option><option value="+971" data-v-62e3299d>
+              (+971)阿拉伯联合酋长国 (‫الإمارات العربية المتحدة‬‎)
+            </option><option value="+297" data-v-62e3299d>
+              (+297)阿鲁巴 (Aruba)
+            </option><option value="+968" data-v-62e3299d>
+              (+968)阿曼 (‫عُمان‬‎)
+            </option><option value="+994" data-v-62e3299d>
+              (+994)阿塞拜疆 (Azərbaycan)
+            </option><option value="+247" data-v-62e3299d>
+              (+247)阿森松岛 (Ascension Island)
+            </option><option value="+20" data-v-62e3299d>
+              (+20)埃及 (‫مصر‬‎)
+            </option><option value="+251" data-v-62e3299d>
+              (+251)埃塞俄比亚 (Ethiopia)
+            </option><option value="+353" data-v-62e3299d>
+              (+353)爱尔兰 (Ireland)
+            </option><option value="+372" data-v-62e3299d>
+              (+372)爱沙尼亚 (Eesti)
+            </option><option value="+376" data-v-62e3299d>
+              (+376)安道尔 (Andorra)
+            </option><option value="+244" data-v-62e3299d>
+              (+244)安哥拉 (Angola)
+            </option><option value="+1264" data-v-62e3299d>
+              (+1264)安圭拉 (Anguilla)
+            </option><option value="+1268" data-v-62e3299d>
+              (+1268)安提瓜和巴布达 (Antigua &amp; Barbuda)
+            </option><option value="+43" data-v-62e3299d>
+              (+43)奥地利 (Österreich)
+            </option><option value="+61" data-v-62e3299d>
+              (+61)澳大利亚 (Australia)
+            </option><option value="+1246" data-v-62e3299d>
+              (+1246)巴巴多斯 (Barbados)
+            </option><option value="+675" data-v-62e3299d>
+              (+675)巴布亚新几内亚 (Papua New Guinea)
+            </option><option value="+1242" data-v-62e3299d>
+              (+1242)巴哈马 (Bahamas)
+            </option><option value="+92" data-v-62e3299d>
+              (+92)巴基斯坦 (‫پاکستان‬‎)
+            </option><option value="+595" data-v-62e3299d>
+              (+595)巴拉圭 (Paraguay)
+            </option><option value="+970" data-v-62e3299d>
+              (+970)巴勒斯坦 (‫فلسطين‬‎)
+            </option><option value="+973" data-v-62e3299d>
+              (+973)巴林 (‫البحرين‬‎)
+            </option><option value="+507" data-v-62e3299d>
+              (+507)巴拿马 (Panamá)
+            </option><option value="+55" data-v-62e3299d>
+              (+55)巴西 (Brasil)
+            </option><option value="+375" data-v-62e3299d>
+              (+375)白俄罗斯 (Беларусь)
+            </option><option value="+1441" data-v-62e3299d>
+              (+1441)百慕大 (Bermuda)
+            </option><option value="+359" data-v-62e3299d>
+              (+359)保加利亚 (България)
+            </option><option value="+229" data-v-62e3299d>
+              (+229)贝宁 (Bénin)
+            </option><option value="+32" data-v-62e3299d>
+              (+32)比利时 (Belgium)
+            </option><option value="+354" data-v-62e3299d>
+              (+354)冰岛 (Ísland)
+            </option><option value="+591" data-v-62e3299d>
+              (+591)玻利维亚 (Bolivia)
+            </option><option value="+1787" data-v-62e3299d>
+              (+1787)波多黎各 (Puerto Rico)
+            </option><option value="+48" data-v-62e3299d>
+              (+48)波兰 (Polska)
+            </option><option value="+387" data-v-62e3299d>
+              (+387)波斯尼亚和黑塞哥维那 (Bosna i Hercegovina)
+            </option><option value="+267" data-v-62e3299d>
+              (+267)博茨瓦纳 (Botswana)
+            </option><option value="+501" data-v-62e3299d>
+              (+501)伯利兹 (Belize)
+            </option><option value="+975" data-v-62e3299d>
+              (+975)不丹 (འབྲུག)
+            </option><option value="+226" data-v-62e3299d>
+              (+226)布基纳法索 (Burkina Faso)
+            </option><option value="+257" data-v-62e3299d>
+              (+257)布隆迪 (Uburundi)
+            </option><option value="+850" data-v-62e3299d>
+              (+850)朝鲜 (북한)
+            </option><option value="+240" data-v-62e3299d>
+              (+240)赤道几内亚 (Guinea Ecuatorial)
+            </option><option value="+45" data-v-62e3299d>
+              (+45)丹麦 (Danmark)
+            </option><option value="+49" data-v-62e3299d>
+              (+49)德国 (Deutschland)
+            </option><option value="+670" data-v-62e3299d>
+              (+670)东帝汶 (Timor-Leste)
+            </option><option value="+228" data-v-62e3299d>
+              (+228)多哥 (Togo)
+            </option><option value="+1809" data-v-62e3299d>
+              (+1809)多米尼加共和国 (República Dominicana)
+            </option><option value="+1767" data-v-62e3299d>
+              (+1767)多米尼克 (Dominica)
+            </option><option value="+7" data-v-62e3299d>
+              (+7)俄罗斯 (Россия)
+            </option><option value="+593" data-v-62e3299d>
+              (+593)厄瓜多尔 (Ecuador)
+            </option><option value="+291" data-v-62e3299d>
+              (+291)厄立特里亚 (Eritrea)
+            </option><option value="+33" data-v-62e3299d>
+              (+33)法国 (France)
+            </option><option value="+298" data-v-62e3299d>
+              (+298)法罗群岛 (Føroyar)
+            </option><option value="+689" data-v-62e3299d>
+              (+689)法属波利尼西亚 (Polynésie française)
+            </option><option value="+594" data-v-62e3299d>
+              (+594)法属圭亚那 (Guyane française)
+            </option><option value="+63" data-v-62e3299d>
+              (+63)菲律宾 (Philippines)
+            </option><option value="+358" data-v-62e3299d>
+              (+358)芬兰 (Suomi)
+            </option><option value="+238" data-v-62e3299d>
+              (+238)佛得角 (Kabu Verdi)
+            </option><option value="+500" data-v-62e3299d>
+              (+500)福克兰群岛（马尔维纳斯群岛） (Falkland Islands (Islas Malvinas))
+            </option><option value="+220" data-v-62e3299d>
+              (+220)冈比亚 (Gambia)
+            </option><option value="+242" data-v-62e3299d>
+              (+242)刚果（布） (Congo-Brazzaville)
+            </option><option value="+243" data-v-62e3299d>
+              (+243)刚果（金） (Jamhuri ya Kidemokrasia ya Kongo)
+            </option><option value="+57" data-v-62e3299d>
+              (+57)哥伦比亚 (Colombia)
+            </option><option value="+506" data-v-62e3299d>
+              (+506)哥斯达黎加 (Costa Rica)
+            </option><option value="+1473" data-v-62e3299d>
+              (+1473)格林纳达 (Grenada)
+            </option><option value="+299" data-v-62e3299d>
+              (+299)格陵兰 (Kalaallit Nunaat)
+            </option><option value="+995" data-v-62e3299d>
+              (+995)格鲁吉亚 (საქართველო)
+            </option><option value="+590" data-v-62e3299d>
+              (+590)瓜德罗普 (Guadeloupe)
+            </option><option value="+592" data-v-62e3299d>
+              (+592)圭亚那 (Guyana)
+            </option><option value="+7" data-v-62e3299d>
+              (+7)哈萨克斯坦 (Казахстан)
+            </option><option value="+509" data-v-62e3299d>
+              (+509)海地 (Haiti)
+            </option><option value="+82" data-v-62e3299d>
+              (+82)韩国 (대한민국)
+            </option><option value="+31" data-v-62e3299d>
+              (+31)荷兰 (Nederland)
+            </option><option value="+599" data-v-62e3299d>
+              (+599)荷属加勒比区 (Caribbean Netherlands)
+            </option><option value="+1721" data-v-62e3299d>
+              (+1721)荷属圣马丁 (Sint Maarten)
+            </option><option value="+382" data-v-62e3299d>
+              (+382)黑山 (Crna Gora)
+            </option><option value="+504" data-v-62e3299d>
+              (+504)洪都拉斯 (Honduras)
+            </option><option value="+686" data-v-62e3299d>
+              (+686)基里巴斯 (Kiribati)
+            </option><option value="+253" data-v-62e3299d>
+              (+253)吉布提 (Djibouti)
+            </option><option value="+996" data-v-62e3299d>
+              (+996)吉尔吉斯斯坦 (Кыргызстан)
+            </option><option value="+224" data-v-62e3299d>
+              (+224)几内亚 (Guinée)
+            </option><option value="+245" data-v-62e3299d>
+              (+245)几内亚比绍 (Guiné-Bissau)
+            </option><option value="+001" data-v-62e3299d>
+              (+001)加拿大 (Canada)
+            </option><option value="+233" data-v-62e3299d>
+              (+233)加纳 (Gaana)
+            </option><option value="+241" data-v-62e3299d>
+              (+241)加蓬 (Gabon)
+            </option><option value="+855" data-v-62e3299d>
+              (+855)柬埔寨 (កម្ពុជា)
+            </option><option value="+420" data-v-62e3299d>
+              (+420)捷克 (Česko)
+            </option><option value="+263" data-v-62e3299d>
+              (+263)津巴布韦 (Zimbabwe)
+            </option><option value="+237" data-v-62e3299d>
+              (+237)喀麦隆 (Cameroun)
+            </option><option value="+974" data-v-62e3299d>
+              (+974)卡塔尔 (‫قطر‬‎)
+            </option><option value="+1345" data-v-62e3299d>
+              (+1345)开曼群岛 (Cayman Islands)
+            </option><option value="+269" data-v-62e3299d>
+              (+269)科摩罗 (‫جزر القمر‬‎)
+            </option><option value="+225" data-v-62e3299d>
+              (+225)科特迪瓦 (Côte d’Ivoire)
+            </option><option value="+965" data-v-62e3299d>
+              (+965)科威特 (‫الكويت‬‎)
+            </option><option value="+385" data-v-62e3299d>
+              (+385)克罗地亚 (Hrvatska)
+            </option><option value="+254" data-v-62e3299d>
+              (+254)肯尼亚 (Kenya)
+            </option><option value="+682" data-v-62e3299d>
+              (+682)库克群岛 (Cook Islands)
+            </option><option value="+599" data-v-62e3299d>
+              (+599)库拉索 (Curaçao)
+            </option><option value="+371" data-v-62e3299d>
+              (+371)拉脱维亚 (Latvija)
+            </option><option value="+266" data-v-62e3299d>
+              (+266)莱索托 (Lesotho)
+            </option><option value="+856" data-v-62e3299d>
+              (+856)老挝 (ລາວ)
+            </option><option value="+961" data-v-62e3299d>
+              (+961)黎巴嫩 (‫لبنان‬‎)
+            </option><option value="+231" data-v-62e3299d>
+              (+231)利比里亚 (Liberia)
+            </option><option value="+218" data-v-62e3299d>
+              (+218)利比亚 (‫ليبيا‬‎)
+            </option><option value="+370" data-v-62e3299d>
+              (+370)立陶宛 (Lietuva)
+            </option><option value="+423" data-v-62e3299d>
+              (+423)列支敦士登 (Liechtenstein)
+            </option><option value="+262" data-v-62e3299d>
+              (+262)留尼汪 (La Réunion)
+            </option><option value="+250" data-v-62e3299d>
+              (+250)卢旺达 (Rwanda)
+            </option><option value="+40" data-v-62e3299d>
+              (+40)罗马尼亚 (România)
+            </option><option value="+261" data-v-62e3299d>
+              (+261)马达加斯加 (Madagasikara)
+            </option><option value="+356" data-v-62e3299d>
+              (+356)马耳他 (Malta)
+            </option><option value="+960" data-v-62e3299d>
+              (+960)马尔代夫 (Maldives)
+            </option><option value="+265" data-v-62e3299d>
+              (+265)马拉维 (Malawi)
+            </option><option value="+60" data-v-62e3299d>
+              (+60)马来西亚 (Malaysia)
+            </option><option value="+223" data-v-62e3299d>
+              (+223)马里 (Mali)
+            </option><option value="+389" data-v-62e3299d>
+              (+389)马其顿（前南斯拉夫马其顿共和国） (Република Македонија)
+            </option><option value="+692" data-v-62e3299d>
+              (+692)马绍尔群岛 (Marshall Islands)
+            </option><option value="+596" data-v-62e3299d>
+              (+596)马提尼克 (Martinique)
+            </option><option value="+222" data-v-62e3299d>
+              (+222)毛里塔尼亚 (‫موريتانيا‬‎)
+            </option><option value="+1" data-v-62e3299d>
+              (+1)美国 (United States)
+            </option><option value="+1684" data-v-62e3299d>
+              (+1684)美属萨摩亚 (American Samoa)
+            </option><option value="+1340" data-v-62e3299d>
+              (+1340)美属维尔京群岛 (U.S. Virgin Islands)
+            </option><option value="+976" data-v-62e3299d>
+              (+976)蒙古 (Монгол)
+            </option><option value="+1664" data-v-62e3299d>
+              (+1664)蒙特塞拉特 (Montserrat)
+            </option><option value="+880" data-v-62e3299d>
+              (+880)孟加拉国 (বাংলাদেশ)
+            </option><option value="+51" data-v-62e3299d>
+              (+51)秘鲁 (Perú)
+            </option><option value="+691" data-v-62e3299d>
+              (+691)密克罗尼西亚 (Micronesia)
+            </option><option value="+95" data-v-62e3299d>
+              (+95)缅甸 (မြန်မာ)
+            </option><option value="+373" data-v-62e3299d>
+              (+373)摩尔多瓦 (Republica Moldova)
+            </option><option value="+212" data-v-62e3299d>
+              (+212)摩洛哥 (Morocco)
+            </option><option value="+377" data-v-62e3299d>
+              (+377)摩纳哥 (Monaco)
+            </option><option value="+258" data-v-62e3299d>
+              (+258)莫桑比克 (Moçambique)
+            </option><option value="+52" data-v-62e3299d>
+              (+52)墨西哥 (México)
+            </option><option value="+264" data-v-62e3299d>
+              (+264)纳米比亚 (Namibië)
+            </option><option value="+27" data-v-62e3299d>
+              (+27)南非 (South Africa)
+            </option><option value="+211" data-v-62e3299d>
+              (+211)南苏丹 (‫جنوب السودان‬‎)
+            </option><option value="+977" data-v-62e3299d>
+              (+977)尼泊尔 (नेपाल)
+            </option><option value="+505" data-v-62e3299d>
+              (+505)尼加拉瓜 (Nicaragua)
+            </option><option value="+227" data-v-62e3299d>
+              (+227)尼日尔 (Nijar)
+            </option><option value="+234" data-v-62e3299d>
+              (+234)尼日利亚 (Nigeria)
+            </option><option value="+47" data-v-62e3299d>
+              (+47)挪威 (Norge)
+            </option><option value="+672" data-v-62e3299d>
+              (+672)诺福克岛 (Norfolk Island)
+            </option><option value="+680" data-v-62e3299d>
+              (+680)帕劳 (Palau)
+            </option><option value="+351" data-v-62e3299d>
+              (+351)葡萄牙 (Portugal)
+            </option><option value="+81" data-v-62e3299d>
+              (+81)日本
+            </option><option value="+46" data-v-62e3299d>
+              (+46)瑞典 (Sverige)
+            </option><option value="+41" data-v-62e3299d>
+              (+41)瑞士 (Schweiz)
+            </option><option value="+503" data-v-62e3299d>
+              (+503)萨尔瓦多 (El Salvador)
+            </option><option value="+685" data-v-62e3299d>
+              (+685)萨摩亚 (Samoa)
+            </option><option value="+381" data-v-62e3299d>
+              (+381)塞尔维亚 (Србија)
+            </option><option value="+232" data-v-62e3299d>
+              (+232)塞拉利昂 (Sierra Leone)
+            </option><option value="+221" data-v-62e3299d>
+              (+221)塞内加尔 (Senegal)
+            </option><option value="+357" data-v-62e3299d>
+              (+357)塞浦路斯 (Κύπρος)
+            </option><option value="+248" data-v-62e3299d>
+              (+248)塞舌尔 (Seychelles)
+            </option><option value="+966" data-v-62e3299d>
+              (+966)沙特阿拉伯 (‫المملكة العربية السعودية‬‎)
+            </option><option value="+239" data-v-62e3299d>
+              (+239)圣多美和普林西比 (São Tomé e Príncipe)
+            </option><option value="+290" data-v-62e3299d>
+              (+290)圣赫勒拿 (St. Helena)
+            </option><option value="+1869" data-v-62e3299d>
+              (+1869)圣基茨和尼维斯 (St. Kitts &amp; Nevis)
+            </option><option value="+1758" data-v-62e3299d>
+              (+1758)圣卢西亚 (St. Lucia)
+            </option><option value="+00" data-v-62e3299d>
+              (+00)圣马丁岛 (Saint-Martin)
+            </option><option value="+378" data-v-62e3299d>
+              (+378)圣马力诺 (San Marino)
+            </option><option value="+508" data-v-62e3299d>
+              (+508)圣皮埃尔和密克隆群岛 (Saint-Pierre-et-Miquelon)
+            </option><option value="+1784" data-v-62e3299d>
+              (+1784)圣文森特和格林纳丁斯 (St. Vincent &amp; Grenadines)
+            </option><option value="+94" data-v-62e3299d>
+              (+94)斯里兰卡 (ශ්‍රී ලංකාව)
+            </option><option value="+421" data-v-62e3299d>
+              (+421)斯洛伐克 (Slovensko)
+            </option><option value="+386" data-v-62e3299d>
+              (+386)斯洛文尼亚 (Slovenija)
+            </option><option value="+268" data-v-62e3299d>
+              (+268)斯威士兰 (Swaziland)
+            </option><option value="+249" data-v-62e3299d>
+              (+249)苏丹 (‫السودان‬‎)
+            </option><option value="+597" data-v-62e3299d>
+              (+597)苏里南 (Suriname)
+            </option><option value="+252" data-v-62e3299d>
+              (+252)索马里 (Soomaaliya)
+            </option><option value="+677" data-v-62e3299d>
+              (+677)所罗门群岛 (Solomon Islands)
+            </option><option value="+992" data-v-62e3299d>
+              (+992)塔吉克斯坦 (Tajikistan)
+            </option><option value="+66" data-v-62e3299d>
+              (+66)泰国 (ไทย)
+            </option><option value="+255" data-v-62e3299d>
+              (+255)坦桑尼亚 (Tanzania)
+            </option><option value="+676" data-v-62e3299d>
+              (+676)汤加 (Tonga)
+            </option><option value="+1649" data-v-62e3299d>
+              (+1649)特克斯和凯科斯群岛 (Turks &amp; Caicos Islands)
+            </option><option value="+1868" data-v-62e3299d>
+              (+1868)特立尼达和多巴哥 (Trinidad &amp; Tobago)
+            </option><option value="+216" data-v-62e3299d>
+              (+216)突尼斯 (Tunisia)
+            </option><option value="+688" data-v-62e3299d>
+              (+688)图瓦卢 (Tuvalu)
+            </option><option value="+90" data-v-62e3299d>
+              (+90)土耳其 (Türkiye)
+            </option><option value="+993" data-v-62e3299d>
+              (+993)土库曼斯坦 (Turkmenistan)
+            </option><option value="+690" data-v-62e3299d>
+              (+690)托克劳 (Tokelau)
+            </option><option value="+681" data-v-62e3299d>
+              (+681)瓦利斯和富图纳 (Wallis &amp; Futuna)
+            </option><option value="+502" data-v-62e3299d>
+              (+502)危地马拉 (Guatemala)
+            </option><option value="+58" data-v-62e3299d>
+              (+58)委内瑞拉 (Venezuela)
+            </option><option value="+673" data-v-62e3299d>
+              (+673)文莱 (Brunei)
+            </option><option value="+256" data-v-62e3299d>
+              (+256)乌干达 (Uganda)
+            </option><option value="+380" data-v-62e3299d>
+              (+380)乌克兰 (Україна)
+            </option><option value="+598" data-v-62e3299d>
+              (+598)乌拉圭 (Uruguay)
+            </option><option value="+998" data-v-62e3299d>
+              (+998)乌兹别克斯坦 (Oʻzbekiston)
+            </option><option value="+34" data-v-62e3299d>
+              (+34)西班牙 (España)
+            </option><option value="+30" data-v-62e3299d>
+              (+30)希腊 (Ελλάδα)
+            </option><option value="+65" data-v-62e3299d>
+              (+65)新加坡 (Singapore)
+            </option><option value="+687" data-v-62e3299d>
+              (+687)新喀里多尼亚 (Nouvelle-Calédonie)
+            </option><option value="+64" data-v-62e3299d>
+              (+64)新西兰 (New Zealand)
+            </option><option value="+36" data-v-62e3299d>
+              (+36)匈牙利 (Magyarország)
+            </option><option value="+963" data-v-62e3299d>
+              (+963)叙利亚 (‫سوريا‬‎)
+            </option><option value="+1876" data-v-62e3299d>
+              (+1876)牙买加 (Jamaica)
+            </option><option value="+374" data-v-62e3299d>
+              (+374)亚美尼亚 (Հայաստան)
+            </option><option value="+967" data-v-62e3299d>
+              (+967)也门 (‫اليمن‬‎)
+            </option><option value="+964" data-v-62e3299d>
+              (+964)伊拉克 (‫العراق‬‎)
+            </option><option value="+98" data-v-62e3299d>
+              (+98)伊朗 (‫ایران‬‎)
+            </option><option value="+972" data-v-62e3299d>
+              (+972)以色列 (‫ישראל‬‎)
+            </option><option value="+39" data-v-62e3299d>
+              (+39)意大利 (Italia)
+            </option><option value="+91" data-v-62e3299d>
+              (+91)印度 (भारत)
+            </option><option value="+62" data-v-62e3299d>
+              (+62)印度尼西亚 (Indonesia)
+            </option><option value="+44" data-v-62e3299d>
+              (+44)英国 (United Kingdom)
+            </option><option value="+1284" data-v-62e3299d>
+              (+1284)英属维尔京群岛 (British Virgin Islands)
+            </option><option value="+246" data-v-62e3299d>
+              (+246)英属印度洋领地 (British Indian Ocean Territory)
+            </option><option value="+962" data-v-62e3299d>
+              (+962)约旦 (‫الأردن‬‎)
+            </option><option value="+84" data-v-62e3299d>
+              (+84)越南 (Việt Nam)
+            </option><option value="+260" data-v-62e3299d>
+              (+260)赞比亚 (Zambia)
+            </option><option value="+235" data-v-62e3299d>
+              (+235)乍得 (Tchad)
+            </option><option value="+350" data-v-62e3299d>
+              (+350)直布罗陀 (Gibraltar)
+            </option><option value="+56" data-v-62e3299d>
+              (+56)智利 (Chile)
+            </option><option value="+236" data-v-62e3299d>
+              (+236)中非共和国 (République centrafricaine)
+            </option><option value="+674" data-v-62e3299d>
+              (+674)瑙鲁 (Nauru)
+            </option><option value="+379" data-v-62e3299d>
+              (+379)梵蒂冈 (Città del Vaticano)
+            </option><option value="+679" data-v-62e3299d>
+              (+679)斐济 (Fiji)
+            </option></select> <input type="text" placeholder="请输入您的手机号码" value="" class="ipt" data-v-62e3299d></div> <!----></div> <div class="modal-ipt-item" data-v-62e3299d><div class="modal-ipt-item-left" data-v-62e3299d><i class="star" data-v-62e3299d>*</i>
+          意见投诉
+        </div> <div class="modal-ipt-item-right" data-v-62e3299d><textarea type="text" maxlength="128" placeholder="请详细填写，以便我们更加详细地了解您的诉求。(不多于128字)" class="ipt textarea" data-v-62e3299d></textarea></div> <!----></div></div> <button disabled="disabled" class="submit-btn" data-v-62e3299d>立即提交</button></div> <!----></div></div> <!----></div><div class="global-ui"></div></div>
+    <script src="/doc/assets/js/app.2a53cc62.js" defer></script><script src="/doc/assets/js/4.38677032.js" defer></script><script src="/doc/assets/js/3.70fcaa22.js" defer></script><script src="/doc/assets/js/310.28ccea24.js" defer></script><script src="/doc/assets/js/2.ee4aa162.js" defer></script>
+    <script type="text/javascript" src="https://aixfyun-cn-bj.xfyun.cn/common_cdn/docsearch.min.js"></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'itm.start':
+      new Date().getTime(),event:'itm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='ITM_dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://dt.xfyun.cn/itm.js/?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','ITM_dataLayer','ITM-5ad5f3a8');</script>
+    <script>
+      var _hmt = _hmt || []; // eslint-disable-line
+      (function () {
+        var hm = document.createElement('script')
+        hm.src = '//hm.baidu.com/hm.js?83a57cc9e205b0add91afc6c4f0babcc'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+      })()
+    </script>
+    <!-- GrowingIO Analytics code version 2.1 -->
+    <!-- Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com -->
+    <script type='text/javascript'>
+      !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");gio('init','8473744dbcf62d60', {});
+      //custom page code begin here
+      //custom page code end here
+      gio('send');
+    </script>
+    <!-- End GrowingIO Analytics code version: 2.1 -->
+    <!-- <script async src="../idata.js" /> -->
+    <script>
+      // 埋点初始化
+      (function(){
+        var _host = window.location.host;
+  
+        // if(_host.indexOf('zimu.iflyrec.com') <= -1){
+        //       return;
+        // }
+  
+        const script = document.createElement('script')
+        const sProtocol = 'https:'
+        script.setAttribute('charset', 'utf-8')
+        script.setAttribute('id', 'idata')
+        script.innerHTML =
+          "(function (w, d, s) {var l = 'IFlyCollector', f = d.getElementsByTagName(s)[0], j = d.createElement(s), w = window;w[l] = {}; var c = w[l]; c._o = function (a) { return function () { (c._e = c._e || []).push([a, arguments]) } };var e = ['init', 'onEvent', 'onError', 'bindUser','unbindUser', 'updateCustomConfig', 'setChannel', 'setDuid', 'setAppVersion'];for (var i = 0; i < e.length; i++) { c[e[i]] = c._o.call(null, e[i]) }j.async = true; j.src = '" +
+          sProtocol +
+          "//idatalogconf.iflysec.com/entry.js'; f.parentNode.insertBefore(j, f);})(window, document, 'script');"
+        document.getElementsByTagName('head')[0].appendChild(script)
+        IFlyCollector.init({
+          appId: 'abb467774d',
+          host: window.location.host,
+  
+          debug: false,
+  
+          collectUrl: '',
+          spa: false,
+          configUrl: '',
+          source: '',
+        })
+  
+        IFlyCollector.setDuid('00:00:00:00:00:00')
+        IFlyCollector.setAppVersion('V2.19')
+        window.IFlyCollector = IFlyCollector
+      })()
+    </script>
+  </body>
+</html>
