@@ -596,7 +596,7 @@ class UserExtraInfoRequest(BaseModel):
 async def save_extra_info(data: UserExtraInfoRequest):
     """保存⽤户补充的公司/个⼈信息到向量数据库"""
     try:
-        from vector_memory import get_vector_memory
+        from vector_memory_v2 import get_vector_memory
         vm = get_vector_memory()
         vm.add_memory(data.user_id, data.text, source="toolbox")
         return {"success": True, "saved_chunks": 1, "message": "已存入向量库"}
@@ -609,7 +609,7 @@ async def save_extra_info(data: UserExtraInfoRequest):
 async def get_extra_info(user_id: int):
     """获取⽤户已存储的补充信息"""
     try:
-        from vector_memory import get_vector_memory
+        from vector_memory_v2 import get_vector_memory
         memories = get_vector_memory().list_memories(user_id)
         # 返回格式：[{"id": hash, "text": ..., "has_vector": bool}, ...]
         items = [{"id": m.get("text", "")[:16], "text": m["text"]} for m in memories]
@@ -623,7 +623,7 @@ async def get_extra_info(user_id: int):
 async def delete_extra_info(user_id: int):
     """清除⽤户的补充信息"""
     try:
-        from vector_memory import get_vector_memory
+        from vector_memory_v2 import get_vector_memory
         get_vector_memory().clear_memories(user_id)
         return {"success": True}
     except Exception as e:
@@ -633,7 +633,7 @@ async def delete_extra_info(user_id: int):
 async def delete_extra_info_item(user_id: int, chunk_id: str):
     """删除向量库中单条记忆（按 hash 匹配）"""
     try:
-        from vector_memory import get_vector_memory
+        from vector_memory_v2 import get_vector_memory
         import os, json as _json
         vm = get_vector_memory()
         path = vm._file_path(user_id)
