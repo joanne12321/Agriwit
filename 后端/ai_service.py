@@ -40,8 +40,19 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 # ─────────────────────── 基础配置 ───────────────────────
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
-llm = OpenAI(api_key=DEEPSEEK_API_KEY or "missing-key", base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"))
+# LLM 服务使用 OpenAI 兼容协议，便于在 DeepSeek、vLLM、LM Studio、
+# Ollama 等服务之间切换，而不改变上层 Agent 业务代码。
+LLM_API_KEY = os.getenv("LLM_API_KEY") or os.getenv("DEEPSEEK_API_KEY", "")
+LLM_BASE_URL = (
+    os.getenv("LLM_BASE_URL")
+    or os.getenv("DEEPSEEK_BASE_URL")
+    or "https://api.deepseek.com"
+)
+LLM_MODEL = os.getenv("LLM_MODEL", "deepseek-chat")
+llm = OpenAI(
+    api_key=LLM_API_KEY or "missing-key",
+    base_url=LLM_BASE_URL,
+)
 
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
@@ -133,7 +144,7 @@ class BaseAgent:
     def _chat(self, system: str, user: str,
               temperature: float = 0.7, max_tokens: int = 500) -> str:
         resp = llm.chat.completions.create(
-            model="deepseek-chat",
+            model=LLM_MODEL,
             messages=[
                 {"role": "system", "content": system},
                 {"role": "user", "content": user}
@@ -730,7 +741,8 @@ class Orchestrator:
         wid = self.workflow_id
         user_id = request_data.get("user_id", "default_user")
         platform = request_data.get("platform", "⼩红书")
-        user_input = request_data.get("product_name", "").strip()
+        explicit_product_name = request_data.get("product_name", "").strip()
+        user_input = (request_data.get("user_request") or explicit_product_name).strip()
         custom_tags = request_data.get("custom_tags", [])
         festival_hint = request_data.get("festival_hint", "")
         target_user = request_data.get("target_user_hint", "")
@@ -784,7 +796,9 @@ class Orchestrator:
         print("\n [阶段2] 文案创作 + 质检")
 
         # 汇总完整上下文
-        final_product_name = profile_result.get("product_name") or user_input or "农产品"
+        request_like_words = ["生成", "海报", "文案", "帮我", "给我", "带字", "修改", "做一张", "来一张"]
+        looks_like_request = any(w in explicit_product_name for w in request_like_words)
+        final_product_name = profile_result.get("product_name") or ("" if looks_like_request else explicit_product_name) or "农产品"
         extra_info = []
         try:
             from vector_memory import get_vector_memory
@@ -1136,7 +1150,7 @@ def get_hotspot():
 
     try:
         resp = llm.chat.completions.create(
-            model="deepseek-chat",
+            model=LLM_MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=800
@@ -1363,7 +1377,7 @@ def generate_live_script():
 
         try:
             resp = llm.chat.completions.create(
-                model="deepseek-chat",
+                model=LLM_MODEL,
                 messages=[
                     {"role": "system", "content": "你是专业的农产品直播运营专家，擅长写接地气、有感染力的直播脚本。直接输出脚本内容，不要额外解释。"},
                     {"role": "user", "content": prompt}

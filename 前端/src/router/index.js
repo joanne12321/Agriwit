@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Creation from '../views/Creation.vue'
+import MobileCreation from '../views/MobileCreation.vue'
 import ProductManage from '../components/ProductManage.vue'
 import Materials from '../components/Materials.vue'
 import Toolbox from '../components/Toolbox.vue'
@@ -10,6 +11,7 @@ import About from '../components/About.vue'
 const routes = [
  { path: '/', name: 'Home', component: Home },
  { path: '/creation', name: 'Creation', component: Creation },
+ { path: '/mobile', name: 'MobileCreation', component: MobileCreation },
  { path: '/products', name: 'ProductManage', component: ProductManage },
  { path: '/toolbox', name: 'Toolbox', component: Toolbox },
  { path: '/materials', name: 'Materials', component: Materials },

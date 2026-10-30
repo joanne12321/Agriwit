@@ -1,10 +1,15 @@
 # image_service.py -- 修复版 + 本地模板上传 + AI生成海报 + 语音识别
-from pydub import AudioSegment
-AudioSegment.converter = r"C:\Users\29399\AppData\Local\Programs\Python\Python311\ffmpeg.exe"
-AudioSegment.ffprobe = r"C:\Users\29399\AppData\Local\Programs\Python\Python311\ffprobe.exe"
+try:
+    from pydub import AudioSegment
+    AudioSegment.converter = r"C:\Users\29399\AppData\Local\Programs\Python\Python311\ffmpeg.exe"
+    AudioSegment.ffprobe = r"C:\Users\29399\AppData\Local\Programs\Python\Python311\ffprobe.exe"
+    PYDUB_AVAILABLE = True
+except ImportError:
+    AudioSegment = None
+    PYDUB_AVAILABLE = False
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from PIL import Image, ImageFilter, ImageEnhance, ImageDraw
+from PIL import Image, ImageFilter, ImageEnhance, ImageDraw, ImageFont
 import io, base64, os, uuid, threading, json, hashlib, time, hmac, hashlib
 from dotenv import load_dotenv
 from pathlib import Path
@@ -88,6 +93,13 @@ FILTER_DEFS = {
     "bright": {"name": "明亮", "desc": "清爽通透感"},
     "green": {"name": "⽥园", "desc": "绿意盎然"},
 }
+
+FONT_CANDIDATES = [
+    r"C:\Windows\Fonts\msyhbd.ttc",
+    r"C:\Windows\Fonts\msyh.ttc",
+    r"C:\Windows\Fonts\simhei.ttf",
+    r"C:\Windows\Fonts\simsun.ttc",
+]
 
 BUILTIN_TEMPLATES = [
     {"id": "green_gradient", "name": "清新绿渐变", "color": (208,234,208), "color2": (240,250,240)},
@@ -173,6 +185,227 @@ def apply_filter(img: Image.Image, name: str) -> Image.Image:
         img = Image.merge("RGB", (r.point(lambda x: max(0, int(x * 0.94))), g.point(lambda x: min(255, int(x * 1.08 + 6))), b))
         img = ImageEnhance.Color(img).enhance(1.2)
     return img
+
+def _font(size: int, bold=True):
+    preferred = FONT_CANDIDATES if bold else FONT_CANDIDATES[1:] + FONT_CANDIDATES[:1]
+    for path in preferred:
+        if os.path.exists(path):
+            return ImageFont.truetype(path, size=size)
+    return ImageFont.load_default()
+
+def _clean_text(text, max_len=18):
+    text = str(text or "").strip()
+    for ch in ["\n", "\r", "\t", "#", "，", "。", "！", "!", "～", "~", "…", "：", ":"]:
+        text = text.replace(ch, " ")
+    text = " ".join(text.split())
+    return text[:max_len]
+
+def _is_generic_request(text):
+    text = str(text or "")
+    return any(k in text for k in ["生成", "海报", "文案", "帮我", "给我", "带字", "做一张", "来一张"])
+
+def _trim_transparent_border(img: Image.Image, padding=8) -> Image.Image:
+    """裁掉抠图后的透明空白，避免主体被透明画布拖得很小。"""
+    if img.mode != "RGBA":
+        return img
+    alpha = img.getchannel("A")
+    bbox = alpha.getbbox()
+    if not bbox:
+        return img
+    x1, y1, x2, y2 = bbox
+    x1 = max(0, x1 - padding)
+    y1 = max(0, y1 - padding)
+    x2 = min(img.width, x2 + padding)
+    y2 = min(img.height, y2 + padding)
+    return img.crop((x1, y1, x2, y2))
+
+def _fit_font(draw, text, max_width, start_size, min_size=24, bold=True):
+    size = start_size
+    while size > min_size:
+        fnt = _font(size, bold=bold)
+        box = draw.textbbox((0, 0), text, font=fnt, stroke_width=2)
+        if box[2] - box[0] <= max_width:
+            return fnt
+        size -= 4
+    return _font(min_size, bold=bold)
+
+def _draw_centered_text(draw, xy, text, font, fill, stroke_fill=None, stroke_width=0, anchor="mm"):
+    draw.text(xy, text, font=font, fill=fill, anchor=anchor,
+              stroke_width=stroke_width, stroke_fill=stroke_fill or fill)
+
+def _draw_soft_text(draw, xy, text, font, fill, shadow=(0, 0, 0, 120), stroke_fill=None, stroke_width=0, anchor="mm"):
+    x, y = xy
+    for dx, dy in [(0, 5), (3, 5), (-3, 5)]:
+        draw.text((x + dx, y + dy), text, font=font, fill=shadow, anchor=anchor,
+                  stroke_width=stroke_width, stroke_fill=shadow)
+    draw.text(xy, text, font=font, fill=fill, anchor=anchor,
+              stroke_width=stroke_width, stroke_fill=stroke_fill or fill)
+
+def _draw_label(draw, box, text, fill, outline, radius=26):
+    x1, y1, x2, y2 = box
+    draw.rounded_rectangle(box, radius=radius, fill=outline)
+    inset = max(8, int((y2 - y1) * 0.12))
+    draw.rounded_rectangle((x1 + inset, y1 + inset, x2 - inset, y2 - inset),
+                           radius=max(8, radius - inset), fill=fill)
+    fnt = _fit_font(draw, text, x2 - x1 - inset * 4, int((y2 - y1) * 0.45), 18)
+    _draw_centered_text(draw, ((x1 + x2) // 2, (y1 + y2) // 2), text, fnt, (24, 155, 208))
+
+def _draw_rotated_text(base, text, center, angle, font_size, fill, stroke_fill, stroke_width=4):
+    W, H = base.size
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(layer)
+    fnt = _font(font_size, bold=True)
+    box = draw.textbbox((0, 0), text, font=fnt, stroke_width=stroke_width)
+    tw, th = box[2] - box[0], box[3] - box[1]
+    x = int(center[0] - tw / 2)
+    y = int(center[1] - th / 2)
+    draw.text((x, y), text, font=fnt, fill=fill, stroke_width=stroke_width, stroke_fill=stroke_fill)
+    rotated = layer.rotate(angle, resample=Image.BICUBIC, center=center)
+    return Image.alpha_composite(base.convert("RGBA"), rotated)
+
+def build_poster_text(product_name="", ai_content="", tags=None, user_hint=""):
+    """把长文案压成可上屏的海报文字层，后续可被前端编辑。"""
+    tags = tags or []
+    source = f"{product_name} {ai_content} {' '.join(tags)} {user_hint}"
+    clean_product = "" if _is_generic_request(product_name) else product_name
+    product = _clean_text(clean_product or "农产品", 12)
+
+    is_tea = any(k in source for k in ["茶", "茶叶", "绿茶", "红茶", "乌龙", "白茶", "普洱", "岩茶", "单丛", "龙井", "毛尖"])
+    is_fruit = any(k in source for k in ["果", "枣", "橘", "橙", "桃", "梨", "苹果", "葡萄", "番茄", "芒果", "荔枝", "西瓜"])
+
+    if is_tea:
+        candidate_words = ["清香", "回甘", "醇厚", "鲜爽", "耐泡", "原叶", "高山", "手作", "茶香", "兰香"]
+        default_words = ["清香", "回甘", "醇厚"]
+        scene = "好茶上新"
+        badge = "原叶好茶 清香回甘"
+        footer = product if product != "农产品" else "精选原叶茶"
+        headline_tpl = "{0}{1} 好茶入杯"
+    elif is_fruit:
+        candidate_words = ["清甜", "脆爽", "爆汁", "多汁", "香甜", "酸甜", "无渣", "化渣", "新鲜", "现摘", "解腻", "清凉"]
+        default_words = ["新鲜", "清甜", "多汁"]
+        scene = "夏日清凉节" if any(k in source for k in ["夏", "清凉", "解暑"]) else "鲜果上新"
+        badge = "午后解暑 鲜甜补给" if any(k in source for k in ["夏", "清凉", "解暑", "午后"]) else "产地直发 新鲜到家"
+        footer = product if product != "农产品" else "A 级当季鲜果"
+        headline_tpl = "{0}{1} 直击味蕾"
+    else:
+        candidate_words = ["原产", "优选", "新鲜", "地道", "安心", "实在", "品质", "自然"]
+        default_words = ["产地", "优选", "品质"]
+        scene = "农品上新"
+        badge = "产地直发 品质到家"
+        footer = product if product != "农产品" else "优选农产品"
+        headline_tpl = "{0}{1} 品质之选"
+
+    taste_words = []
+    for kw in candidate_words:
+        if kw in source and kw not in taste_words:
+            taste_words.append(kw)
+    if not taste_words:
+        taste_words = default_words
+
+    headline = headline_tpl.format(taste_words[0], taste_words[1] if len(taste_words) > 1 else "")
+    subhead = " ".join(taste_words[:3])
+
+    return {
+        "event": _clean_text(scene, 8),
+        "headline": _clean_text(headline, 14),
+        "subhead": _clean_text(subhead, 10),
+        "badge": _clean_text(badge, 12),
+        "footer": _clean_text(footer, 12),
+        "brand": _clean_text("云稼集 AgriWit", 16),
+        "disclaimer": _clean_text("广告由云稼集智能生成", 18),
+    }
+
+def _sanitize_background_prompt(prompt):
+    text = str(prompt or "")
+    for word in ["带字", "有字", "加字", "文字", "文案", "标题", "海报文字", "给我生成", "帮我生成", "生成一张", "生成"]:
+        text = text.replace(word, " ")
+    text = " ".join(text.split())
+    return text or "干净高级的农产品宣传背景"
+
+def refine_poster_text(current, instruction):
+    """轻量级文字修改：支持“主标题改成...”这类直接指令，也有兜底改写。"""
+    current = dict(current or {})
+    instruction = str(instruction or "").strip()
+    field_aliases = {
+        "headline": ["主标题", "大标题", "标题"],
+        "subhead": ["副标题", "小标题"],
+        "badge": ["贴纸", "角标", "弧形", "卖点"],
+        "footer": ["底部", "产品名", "底栏"],
+        "event": ["活动", "节日", "左上角"],
+        "brand": ["品牌", "店铺"],
+    }
+    for field, aliases in field_aliases.items():
+        if any(a in instruction for a in aliases):
+            for sep in ["改成", "修改为", "换成", "变成", "写成", "：", ":"]:
+                if sep in instruction:
+                    value = instruction.split(sep, 1)[1].strip(" “”\"'")
+                    if value:
+                        current[field] = _clean_text(value, 18 if field in ["brand", "disclaimer"] else 14)
+                        return current
+    if "年轻" in instruction or "活泼" in instruction:
+        if "茶" in "".join(current.values()):
+            current["headline"] = "一杯清香 轻松回甘"
+            current["subhead"] = "清香 回甘"
+        else:
+            current["headline"] = "一口爆汁 清爽开炫"
+            current["subhead"] = "鲜甜多汁"
+    elif "高级" in instruction or "质感" in instruction:
+        current["headline"] = "原产甄选 品质之选"
+        current["subhead"] = "地道 好物"
+    elif "清凉" in instruction or "夏" in instruction:
+        current["event"] = "夏日清凉节"
+        current["headline"] = "清甜沁凉 直击燥热"
+        current["badge"] = "午后解暑 鲜甜补给"
+    elif instruction:
+        current["headline"] = _clean_text(instruction, 14)
+    return current
+
+def render_text_poster(base_img: Image.Image, poster_text=None):
+    poster_text = poster_text or {}
+    img = base_img.convert("RGBA")
+    W, H = img.size
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    cyan = (20, 166, 222, 255)
+    white = (255, 255, 255, 255)
+    yellow = (250, 238, 44, 255)
+    deep = (0, 145, 204, 255)
+
+    event = _clean_text(poster_text.get("event", "鲜果上新"), 8)
+    _draw_label(draw, (int(W * 0.05), int(H * 0.04), int(W * 0.34), int(H * 0.12)), event, yellow, yellow)
+
+    brand = _clean_text(poster_text.get("brand", "云稼集 AgriWit"), 16)
+    brand_font = _fit_font(draw, brand, int(W * 0.28), int(H * 0.035), 18)
+    draw.text((int(W * 0.72), int(H * 0.05)), brand, font=brand_font, fill=white,
+              stroke_width=1, stroke_fill=(0, 120, 170, 180))
+
+    headline = _clean_text(poster_text.get("headline", "清甜多汁 正当季"), 14)
+    headline_font = _fit_font(draw, headline, int(W * 0.84), int(H * 0.085), 38)
+    _draw_soft_text(draw, (W // 2, int(H * 0.23)), headline, headline_font, white,
+                    stroke_fill=(0, 0, 0, 110), stroke_width=2)
+
+    subhead = _clean_text(poster_text.get("subhead", "新鲜清甜"), 10)
+    sub_font = _fit_font(draw, subhead, int(W * 0.5), int(H * 0.05), 28)
+    _draw_soft_text(draw, (W // 2, int(H * 0.32)), subhead, sub_font, white,
+                    stroke_fill=(0, 0, 0, 90), stroke_width=1)
+
+    img = Image.alpha_composite(img, overlay)
+
+    badge = _clean_text(poster_text.get("badge", "产地直发 新鲜到家"), 12)
+    img = _draw_rotated_text(img, badge, (int(W * 0.70), int(H * 0.45)), -13,
+                             max(30, int(H * 0.045)), yellow, deep, 5)
+
+    draw = ImageDraw.Draw(img)
+    footer = _clean_text(poster_text.get("footer", "A 级当季鲜果"), 12)
+    foot_font = _fit_font(draw, footer, int(W * 0.55), int(H * 0.062), 28)
+    draw.text((int(W * 0.05), int(H * 0.89)), footer, font=foot_font, fill=cyan,
+              stroke_width=2, stroke_fill=white)
+
+    disclaimer = _clean_text(poster_text.get("disclaimer", "广告由云稼集智能生成"), 18)
+    small_font = _font(max(14, int(H * 0.014)), bold=False)
+    draw.text((int(W * 0.05), int(H * 0.965)), disclaimer, font=small_font, fill=(16, 145, 196, 220))
+    return img.convert("RGB")
 
 def _analyze_brightness_zones(bg: Image.Image, grid=3):
     """
@@ -341,6 +574,8 @@ def composite(cutout: Image.Image, template_id: str, size, position="center", sc
         glm_result = _glm_vision_compose(bg, cutout, W, H)
         if glm_result:
             s = glm_result['scale']
+            if template_type in ['file', 'ai'] or auto_composition:
+                s = max(s, 0.58)
             short_side = min(W, H)
             target_size = int(short_side * s)
             # 等比缩放
@@ -349,8 +584,12 @@ def composite(cutout: Image.Image, template_id: str, size, position="center", sc
             new_w, new_h = int(cw0 * ratio), int(ch0 * ratio)
             cutout = cutout.resize((new_w, new_h), Image.LANCZOS)
             # 按百分比定位（中心点）
-            cx = int(W * glm_result['x_pct'])
-            cy = int(H * glm_result['y_pct'])
+            x_pct = glm_result['x_pct']
+            y_pct = glm_result['y_pct']
+            if y_pct < 0.48:
+                y_pct = 0.58
+            cx = int(W * x_pct)
+            cy = int(H * y_pct)
             x = cx - new_w // 2
             y = cy - new_h // 2
             x = max(0, min(x, W - new_w))
@@ -366,27 +605,32 @@ def composite(cutout: Image.Image, template_id: str, size, position="center", sc
     # 路径 B: 亮度分析 / 手动
     # ========================
     if auto_composition or template_type == 'ai':
-        scale = min(scale, 0.85)
+        scale = max(0.9, min(scale, 1.05))
     elif template_type == 'file':
-        scale = min(scale, 0.75)
+        scale = max(0.78, min(scale, 0.95))
     
     cutout.thumbnail((int(W * scale), int(H * scale)), Image.LANCZOS)
     cw, ch = cutout.size
     
     if position in ['smart', 'intelligent'] or (auto_composition and template_type == 'file'):
-        try:
+        if template_type == 'ai' or auto_composition:
+            x = int(W * 0.5 - cw // 2)
+            y = int(H * 0.60 - ch // 2)
+            print(f'  智能排版: 海报文字模式主体居中偏下，位置=({x},{y})')
+        else:
+          try:
             zones = _analyze_brightness_zones(bg, grid=3)
             best_col, best_row = _find_best_placement(zones, grid=3)
             cell_w, cell_h = W // 3, H // 3
             center_x = best_col * cell_w + cell_w // 2
-            center_y = best_row * cell_h + cell_h // 2
+            center_y = max(best_row * cell_h + cell_h // 2, int(H * 0.48))
             x = center_x - cw // 2
             y = center_y - ch // 2
             print(f'  智能排版: 最佳区块=({best_col},{best_row}), 位置=({x},{y})')
-        except Exception as e:
+          except Exception as e:
             print(f'  智能排版分析失败，使用居中: {e}')
             x = (W - cw) // 2
-            y = (H - ch) // 2
+            y = int(H * 0.60 - ch // 2)
     else:
         if alignment == 'left':
             x = int(W * 0.1)
@@ -414,7 +658,8 @@ def composite(cutout: Image.Image, template_id: str, size, position="center", sc
 # ================================================
 def _do_remove_bg(task_id: str, img_bytes: bytes, template_id: str,
                   size: list, position: str, filters: list, scale=0.62, 
-                  alignment="center", auto_composition=False, template_type="builtin"):
+                  alignment="center", auto_composition=False, template_type="builtin",
+                  poster_text=None, product_name="", ai_content="", render_text=True):
     try:
         task_store[task_id].update({"status": "processing", "progress": 5, "step": "准备中…"})
         
@@ -425,27 +670,33 @@ def _do_remove_bg(task_id: str, img_bytes: bytes, template_id: str,
             task_store[task_id].update({"progress": 15, "step": "AI 模型已加载，识别主体中…"})
             cutout_bytes = rembg_remove(img_bytes, session=sess)
             cutout = Image.open(io.BytesIO(cutout_bytes)).convert("RGBA")
+            cutout = _trim_transparent_border(cutout, padding=12)
             task_store[task_id].update({"progress": 50, "step": "抠图完成，合成海报中…"})
         else:
             # ⽆模型：直接⽤原图（背景不透明，合成效果稍差但能⽤）
             task_store[task_id].update({"progress": 50, "step": "跳过抠图（模型未就绪），合成中…"})
             cutout = Image.open(io.BytesIO(img_bytes)).convert("RGBA")
+            cutout = _trim_transparent_border(cutout, padding=12)
         
-        # -- Step 2：合成 + 滤镜 --
+        # -- Step 2：合成 + 滤镜 + 可编辑文字层 --
         if GLM_API_KEY and (auto_composition or template_type in ['file', 'ai']):
             task_store[task_id].update({"progress": 52, "step": "GLM-4V 智能分析最佳构图位置..."})
         else:
             task_store[task_id].update({"progress": 55, "step": "正在合成海报..."})
         poster = composite(cutout, template_id, size, position, scale, alignment, auto_composition, template_type)
+        if render_text:
+            poster_text = poster_text or build_poster_text(product_name, ai_content)
         versions = {}
         total = len(filters)
         for i, fname in enumerate(filters):
             if fname in FILTER_DEFS:
-                filtered = apply_filter(poster, fname)
+                filtered_base = apply_filter(poster, fname)
+                filtered = render_text_poster(filtered_base, poster_text) if render_text else filtered_base
                 thumb = filtered.copy()
                 thumb.thumbnail([360, 360], Image.LANCZOS)
                 versions[fname] = {
                     "name": FILTER_DEFS[fname]["name"],
+                    "base_image": f"data:image/jpeg;base64,{to_b64(filtered_base, 'JPEG')}",
                     "image": f"data:image/jpeg;base64,{to_b64(filtered, 'JPEG')}",
                     "thumbnail": f"data:image/jpeg;base64,{to_b64(thumb, 'JPEG')}"
                 }
@@ -459,6 +710,7 @@ def _do_remove_bg(task_id: str, img_bytes: bytes, template_id: str,
             "step": "完成！",
             "cutout_base64": cutout_b64,
             "poster_versions": versions,
+            "poster_text": poster_text or {},
         })
         print(f" 任务完成 [{task_id[:8]}] {len(versions)} 个版本")
     
@@ -483,6 +735,10 @@ def full_pipeline():
     alignment = data.get("alignment", "center")
     auto_composition = data.get("auto_composition", False)
     filters = data.get("filters", ["original", "warm", "vivid", "vintage"])
+    poster_text = data.get("poster_text") or None
+    product_name = data.get("product_name", "")
+    ai_content = data.get("ai_content", "")
+    render_text = data.get("render_text", True)
     
     if not image_b64:
         return jsonify({"error": "请提供图⽚"}), 400
@@ -493,7 +749,8 @@ def full_pipeline():
     task_id = str(uuid.uuid4())
     task_store[task_id] = {"status": "queued", "progress": 0, "step": "等待处理…"}
     executor.submit(_do_remove_bg, task_id, img_bytes, template_id, size, position, 
-                   filters, scale, alignment, auto_composition, template_type)
+                   filters, scale, alignment, auto_composition, template_type,
+                   poster_text, product_name, ai_content, render_text)
     
     print(f" 任务已提交 [{task_id[:8]}]")
     return jsonify({"task_id": task_id, "status": "queued"})
@@ -515,6 +772,48 @@ def get_task(task_id):
         threading.Thread(target=cleanup, daemon=True).start()
     
     return jsonify(task)
+
+@app.route('/api/poster/text-draft', methods=['POST'])
+def poster_text_draft():
+    data = request.json or {}
+    text = build_poster_text(
+        product_name=data.get("product_name", ""),
+        ai_content=data.get("ai_content", ""),
+        tags=data.get("tags", []),
+        user_hint=data.get("user_hint", ""),
+    )
+    return jsonify({"success": True, "poster_text": text})
+
+@app.route('/api/poster/refine-text', methods=['POST'])
+def poster_refine_text():
+    data = request.json or {}
+    current = data.get("poster_text") or {}
+    instruction = data.get("instruction", "")
+    refined = refine_poster_text(current, instruction)
+    return jsonify({"success": True, "poster_text": refined})
+
+@app.route('/api/poster/render-text', methods=['POST'])
+def poster_render_text():
+    data = request.json or {}
+    base_b64 = data.get("base_image") or data.get("image_base64") or ""
+    poster_text = data.get("poster_text") or {}
+    if not base_b64:
+        return jsonify({"success": False, "error": "请提供海报底图"}), 400
+    try:
+        base = from_b64(base_b64).convert("RGB")
+        rendered = render_text_poster(base, poster_text)
+        thumb = rendered.copy()
+        thumb.thumbnail([360, 360], Image.LANCZOS)
+        return jsonify({
+            "success": True,
+            "image": f"data:image/jpeg;base64,{to_b64(rendered, 'JPEG')}",
+            "thumbnail": f"data:image/jpeg;base64,{to_b64(thumb, 'JPEG')}",
+            "poster_text": poster_text,
+        })
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
 
 # ================================================
 # bg_01、bg_02 等文件名 -> 友好显示名称映射
@@ -706,7 +1005,8 @@ def generate_poster():
             }), 400
 
         # -- 构建农产品海报专用 prompt --
-        full_prompt = f"为农产品设计一张高品质宣传海报背景图，{prompt}"
+        visual_prompt = _sanitize_background_prompt(prompt)
+        full_prompt = f"为农产品设计一张高品质宣传海报背景图，{visual_prompt}"
         if style:
             full_prompt += f"，风格：{style}"
         full_prompt += "。要求：无文字、干净大气、适合放置产品图和文案叠加。"
@@ -998,6 +1298,10 @@ def voice_recognize():
         if ',' in audio_base64:
             audio_base64 = audio_base64.split(',')[1]
         audio_bytes = base64.b64decode(audio_base64)
+
+        if not PYDUB_AVAILABLE:
+          print("  [!] pydub 未安装，无法转码语音，使用模拟识别")
+          return recognize_mock(dialect)
 
         try:
           audio_file = io.BytesIO(audio_bytes)

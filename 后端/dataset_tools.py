@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import random
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -172,15 +173,133 @@ def build_dataset(input_path: Path, output_dir: Path) -> tuple[Path, Path]:
     return corpus_path, report_path
 
 
+def _sft_user_prompt(record: dict[str, Any]) -> str:
+    """把结构化筛选条件整理成模型可学习的用户指令。"""
+    fields = [
+        ("平台", record.get("platform", "")),
+        ("商品类别", record.get("category", "")),
+        ("商品名", record.get("product_name", "")),
+        ("价格区间", record.get("price_tier", "")),
+        ("目标受众", "、".join(record.get("audiences") or [])),
+        ("适用节日", "、".join(record.get("festivals") or [])),
+        ("宣传角度", "、".join(record.get("angles") or [])),
+        ("备注", record.get("notes", "")),
+    ]
+    lines = ["请根据以下信息生成农产品营销文案。"]
+    lines.extend(f"{label}：{value}" for label, value in fields if value)
+    lines.extend([
+        "",
+        "请输出：",
+        "1. 标题",
+        "2. 正文",
+        "3. 标签",
+        "要求：围绕真实产品信息创作，不要照抄示例，不要编造未提供的认证、奖项、功效或承诺。",
+    ])
+    return "\n".join(lines)
+
+
+def _sft_assistant_answer(record: dict[str, Any]) -> str:
+    title = record.get("title", "").strip()
+    body = record.get("body", "").strip()
+    tags = " ".join(record.get("angles") or [])
+    answer = [f"标题：{title}", "", f"正文：{body}"]
+    if tags:
+        answer.extend(["", f"标签：{' '.join('#' + tag.lstrip('#') for tag in record['angles'][:8])}"])
+    return "\n".join(answer)
+
+
+def build_sft_files(
+    corpus_path: Path,
+    output_dir: Path,
+    eval_ratio: float = 0.1,
+    seed: int = 42,
+) -> tuple[Path, Path, dict[str, int]]:
+    """从清洗后的 corpus 生成 Qwen/LLaMA-Factory 可用的 JSONL 文件。"""
+    data = json.loads(corpus_path.read_text(encoding="utf-8"))
+    records = data.get("records", data) if isinstance(data, (dict, list)) else []
+    eligible = [
+        r for r in records
+        if isinstance(r, dict)
+        and r.get("title")
+        and r.get("body")
+        and r.get("platform")
+        and r.get("product_name")
+        and r.get("category")
+        and not r.get("quality_flags")
+    ]
+
+    random.Random(seed).shuffle(eligible)
+    eval_size = max(1, round(len(eligible) * eval_ratio)) if len(eligible) > 1 else 0
+    eval_records = eligible[:eval_size]
+    train_records = eligible[eval_size:]
+
+    system_prompt = (
+        "你是云稼集 Agriwit 的农产品营销文案助手。"
+        "你需要根据平台、商品信息、目标受众和宣传角度，"
+        "生成真实、自然、适合发布的中文营销文案。"
+    )
+
+    def to_line(record: dict[str, Any]) -> str:
+        item = {
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": _sft_user_prompt(record)},
+                {"role": "assistant", "content": _sft_assistant_answer(record)},
+            ],
+            "metadata": {
+                "source_id": record.get("id", ""),
+                "platform": record.get("platform", ""),
+                "category": record.get("category", ""),
+                "product_name": record.get("product_name", ""),
+            },
+        }
+        return json.dumps(item, ensure_ascii=False)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    train_path = output_dir / "sft_train.jsonl"
+    eval_path = output_dir / "sft_eval.jsonl"
+    train_path.write_text(
+        "\n".join(to_line(r) for r in train_records) + ("\n" if train_records else ""),
+        encoding="utf-8",
+    )
+    eval_path.write_text(
+        "\n".join(to_line(r) for r in eval_records) + ("\n" if eval_records else ""),
+        encoding="utf-8",
+    )
+    return train_path, eval_path, {
+        "eligible": len(eligible),
+        "train": len(train_records),
+        "eval": len(eval_records),
+        "excluded": len(records) - len(eligible),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default="../数据集_Sheet1 (1)(1).xlsx")
     parser.add_argument("--output-dir", default=str(BASE_DIR))
+    parser.add_argument(
+        "--export-sft",
+        action="store_true",
+        help="同时导出 Qwen/LLaMA-Factory 可用的 sft_train.jsonl 和 sft_eval.jsonl",
+    )
+    parser.add_argument("--eval-ratio", type=float, default=0.1)
+    parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
     corpus_path, report_path = build_dataset(Path(args.input), Path(args.output_dir))
     print(f"dataset_corpus={corpus_path}")
     print(f"quality_report={report_path}")
+    if args.export_sft:
+        train_path, eval_path, stats = build_sft_files(
+            corpus_path,
+            Path(args.output_dir),
+            eval_ratio=args.eval_ratio,
+            seed=args.seed,
+        )
+        print(f"sft_train={train_path}")
+        print(f"sft_eval={eval_path}")
+        print(f"sft_stats={json.dumps(stats, ensure_ascii=False)}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,5540 @@
+[
+  {
+    "case_id": "E28",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里果盘空了几天，今天终于把江西赣州脐橙摆上桌。1500g一箱，32.8元，个头匀称，表皮带着鲜果该有的样子。吃前记得清洗剥皮，剥开时橙香慢慢散出来，孩子凑过来问能不能先吃一瓣。我掰开分给家人，果肉清润，酸甜刚好，饭后切一盘，全家边聊边吃很舒服。产地江西赣州，净含量1500g，实实在在的家庭水果。"
+      }
+    ],
+    "ok": true,
+    "text": "家里果盘空了几天，今天终于把江西赣州脐橙摆上桌。1500g一箱，32.8元，个头匀称，表皮带着鲜果该有的样子。吃前记得清洗剥皮，剥开时橙香慢慢散出来，孩子凑过来问能不能先吃一瓣。我掰开分给家人，果肉清润，酸甜刚好，饭后切一盘，全家边聊边吃很舒服。产地江西赣州，净含量1500g，实实在在的家庭水果。",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "1500g",
+        "price": "32.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 2.0326,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "d94c5a2a992eca888c99d74faf84a420f2ef6e9586e591d44fcf7ab4835eb68b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 109,
+          "prompt_tokens": 413,
+          "total_tokens": 522,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 413
+        },
+        "finish_reason": "stop",
+        "seconds": 2.0316
+      }
+    ]
+  },
+  {
+    "case_id": "E16",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里那袋米见底的时候，我总会想起佳木斯那片黑土地。散装大米，1000g 正好是一家人两三天的饭量，11.8元拎回家，不占地方也不浪费。生米下锅，水咕嘟咕嘟滚起来，厨房飘着淡淡的米香，孩子趴在门边问“妈妈饭好了没”。煮出来粒粒分明，配一碟小菜就是踏实的一餐。不图花哨，就图个日常主食的安心。黑龙江佳木斯来的散装大米，生米需煮熟，适合小家庭慢慢吃。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里那袋米见底的时候，我总会想起佳木斯那片黑土地。散装大米，1000g 正好是一家人两三天的饭量，11.8元拎回家，不占地方也不浪费。生米下锅，水咕嘟咕嘟滚起来，厨房飘着淡淡的米香，孩子趴在门边问“妈妈饭好了没”。煮出来粒粒分明，配一碟小菜就是踏实的一餐。不图花哨，就图个日常主食的安心。黑龙江佳木斯来的散装大米，生米需煮熟，适合小家庭慢慢吃。",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.3875,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "a03919cde093362b319d42a85e2d41c3a91daf285e004211a5acc968f8c8a9de",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 127,
+          "prompt_tokens": 1143,
+          "total_tokens": 1270,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1143
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3887
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "610c92f62f351dca9c0a93c6f0b99d4a2ed2569f2a0748463a26431edd43dd05",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 228,
+          "total_tokens": 230,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 228
+        },
+        "finish_reason": "stop",
+        "seconds": 0.9979
+      }
+    ]
+  },
+  {
+    "case_id": "E22",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "来自湖北神农架的百花蜂蜜，250g一瓶，29.8元。早上冲一杯温水，舀一小勺进去，搅一搅，淡淡的甜香就散开了，不齁不腻，喝着很舒服。家里人多的，一瓶放厨房，谁想喝就自己冲，简单方便。日常冲饮的好搭配，喜欢就带一瓶回去尝尝吧。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "来自湖北神农架的百花蜂蜜，250g一瓶，29.8元。早上冲一杯温水，舀一小勺进去，搅一搅，淡淡的甜香就散开了，不齁不腻，喝着很舒服。家里人多的，一瓶放厨房，谁想喝就自己冲，简单方便。日常冲饮的好搭配，喜欢就带一瓶回去尝尝吧。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "250g",
+        "price": "29.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2309,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f9beac18d93742afa50b0b0765e5e130e585e652ee6ae4a7be0828628bc9bcc5",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 1087,
+          "total_tokens": 1166,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1087
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3785
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "8af0d7e98c19794e2f5a6ebabb179ed7b93f2cfa5e858d9f95205278a0390ed6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 180,
+          "total_tokens": 182,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 180
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8517
+      }
+    ]
+  },
+  {
+    "case_id": "E05",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里果盘又空了？换山东烟台红富士苹果上桌！1000g鲜果，个头匀称，脆甜多汁，咬一口清爽果香，全家都爱。吃前记得清洗干净。产地山东烟台，实实在在的鲜果。价格还没确认，想尝鲜的先来问问，给家人备一份脆甜好苹果！#红富士苹果 #烟台苹果 #家庭水果 #鲜果"
+      }
+    ],
+    "ok": true,
+    "text": "家里果盘又空了？换山东烟台红富士苹果上桌！1000g鲜果，个头匀称，脆甜多汁，咬一口清爽果香，全家都爱。吃前记得清洗干净。产地山东烟台，实实在在的鲜果。价格还没确认，想尝鲜的先来问问，给家人备一份脆甜好苹果！#红富士苹果 #烟台苹果 #家庭水果 #鲜果",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.6779,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "efd6f11e3319690848143b08de2b5bf688a086f47ded18d295ce4e4d1d3b8720",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 87,
+          "prompt_tokens": 881,
+          "total_tokens": 968,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 881
+        },
+        "finish_reason": "stop",
+        "seconds": 1.6775
+      }
+    ]
+  },
+  {
+    "case_id": "E13",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "带娃出门不知道塞啥零食？试试福建连城的烤红薯干，200g袋装15.8元，熟制即食撕开就吃。咬一口软糯带点嚼劲，红薯本身的清甜越嚼越香，不粘牙不齁甜，孩子爱吃大人也放心。出游路上垫垫肚子刚刚好，别等饿了才想起来没带零食，赶紧备上几袋放包里！#烤红薯干 #出游零食 #福建连城 #家庭囤货",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "带娃出门不知道塞啥零食？试试福建连城的烤红薯干，200g袋装15.8元，熟制即食撕开就吃。咬一口软糯带点嚼劲，红薯本身的清甜越嚼越香，不粘牙不齁甜，孩子爱吃大人也放心。出游路上垫垫肚子刚刚好，别等饿了才想起来没带零食，赶紧备上几袋放包里！#烤红薯干 #出游零食 #福建连城 #家庭囤货",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.6419,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "c08758981b5cb02e936d09a2797dfeecdbfef7440875a9ebb1c536db5668005a",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 105,
+          "prompt_tokens": 1034,
+          "total_tokens": 1139,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1034
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5045
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "8d623c18cf1fef53f670d1a7321dda3d595fd96810d6bb87d86d444446b7b288",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 207,
+          "total_tokens": 209,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 207
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1366
+      }
+    ]
+  },
+  {
+    "case_id": "E21",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家人们，吉林四平的鲜玉米来了！1000g只要8.8元，生鲜到家，记得一定要加热后再吃哈。煮一煮满屋飘香，啃起来清甜软糯，老人小孩都爱。日常餐桌添道粗粮，简单又实在。趁新鲜赶紧给家里囤上几根吧！#鲜玉米 #家庭好物 #东北玉米 #日常采购",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家人们，吉林四平的鲜玉米来了！1000g只要8.8元，生鲜到家，记得一定要加热后再吃哈。煮一煮满屋飘香，啃起来清甜软糯，老人小孩都爱。日常餐桌添道粗粮，简单又实在。趁新鲜赶紧给家里囤上几根吧！#鲜玉米 #家庭好物 #东北玉米 #日常采购",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "1000g",
+        "price": "8.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.7058,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0032412a5aa3711ded79edca211ca4167f4774063d171a1e1c82bdbfa4d77ddc",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 84,
+          "prompt_tokens": 1029,
+          "total_tokens": 1113,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1029
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4217
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "afa03e2e6384bc02b20b4faf8f63feb3801fff5e881e94edef2817035a34f6bf",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 186,
+          "total_tokens": 188,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 186
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2834
+      }
+    ]
+  },
+  {
+    "case_id": "E30",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里日常买水果，最近常备的就是这箱江西赣州脐橙，3000g一箱32.8元，一家人吃刚好。收到时是新鲜带皮的鲜果，吃之前洗净剥皮就行，剥开时手上会沾一点橙皮的清香。果肉水润，酸甜比较平衡，不齁不淡，饭后切两瓣，小朋友也愿意自己拿着吃。早上赶时间就剥好装小碗，晚上追剧时全家分着吃，挺省心。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里日常买水果，最近常备的就是这箱江西赣州脐橙，3000g一箱32.8元，一家人吃刚好。收到时是新鲜带皮的鲜果，吃之前洗净剥皮就行，剥开时手上会沾一点橙皮的清香。果肉水润，酸甜比较平衡，不齁不淡，饭后切两瓣，小朋友也愿意自己拿着吃。早上赶时间就剥好装小碗，晚上追剧时全家分着吃，挺省心。",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "3000g",
+        "price": "32.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.4363,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "6b736c757c7828e3969de93fefca4df831db62d68fa880e9413ff531c6115a83",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 108,
+          "prompt_tokens": 1018,
+          "total_tokens": 1126,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1018
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7935
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "71c172aff8325a91b59bb8ad385e1cad056b44b8ce0dfa16ad6b45053fa331ca",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 209,
+          "total_tokens": 211,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 209
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6423
+      }
+    ]
+  },
+  {
+    "case_id": "E05",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里水果盘又空啦？山东烟台的红富士苹果，1000g鲜果，洗洗就能端上桌。咬一口脆生生，汁水足，甜得实在不虚。饭后切一盘，全家都爱。价格还没定，想吃的先点个关注，新鲜果子不等人。#红富士苹果 #烟台苹果 #家庭水果 #脆甜多汁",
+        "qa": {
+          "passed": false,
+          "feedback": "文案中出现“价格还没定，想吃的先点个关注”，属于未明确商品价格即引导关注，不符合抖音电商内容规范，易被判定为营销引流违规；且家庭消费者更关注明确价格与购买决策信息，该表述影响转化。"
+        }
+      },
+      {
+        "round": 2,
+        "text": "家里水果盘又空啦？山东烟台的红富士苹果，1000g鲜果，洗洗就能给家人端上桌。咬下去脆生生的，清甜不齁，饭后切一盘全家都爱吃。产地直发的鲜果，吃的就是这口新鲜劲儿。家里囤点准没错，赶紧安排上！#红富士苹果 #烟台苹果 #家庭水果 #新鲜水果",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里水果盘又空啦？山东烟台的红富士苹果，1000g鲜果，洗洗就能给家人端上桌。咬下去脆生生的，清甜不齁，饭后切一盘全家都爱吃。产地直发的鲜果，吃的就是这口新鲜劲儿。家里囤点准没错，赶紧安排上！#红富士苹果 #烟台苹果 #家庭水果 #新鲜水果",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 5.9278,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "efd6f11e3319690848143b08de2b5bf688a086f47ded18d295ce4e4d1d3b8720",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 881,
+          "total_tokens": 960,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 640
+          },
+          "prompt_cache_hit_tokens": 640,
+          "prompt_cache_miss_tokens": 241
+        },
+        "finish_reason": "stop",
+        "seconds": 2.1801
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "d6d8f8a3ff9a869b614992f134352ef34c37b2ef431f0b874c973bb6fca5009b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 57,
+          "prompt_tokens": 181,
+          "total_tokens": 238,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 181
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7725
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "efd6f11e3319690848143b08de2b5bf688a086f47ded18d295ce4e4d1d3b8720",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 81,
+          "prompt_tokens": 881,
+          "total_tokens": 962,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 640
+          },
+          "prompt_cache_hit_tokens": 640,
+          "prompt_cache_miss_tokens": 241
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1646
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "e4fedbb66c0224f458bde5481dac3f0973874957e94506461b25435d0c6a5ab7",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 183,
+          "total_tokens": 185,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 183
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8094
+      }
+    ]
+  },
+  {
+    "case_id": "E02",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下午三点，办公室的空气有点闷。抽屉里摸出一袋河北遵化的熟制板栗，100g独立袋装，刚好够一次加餐。带壳熟制，剥开时指尖沾着一点温热的干爽，壳里那层薄衣轻轻一撕就掉了。咬下去是踏实的粉糯，不干不硬，嚼着嚼着有淡淡的甘甜漫上来。不用起身，不用洗杯子，安安静静吃完几颗，像给下午按了个小小的暂停键。独立袋装不占地方，放办公室抽屉里，想吃了随手拿一袋。"
+      }
+    ],
+    "ok": true,
+    "text": "下午三点，办公室的空气有点闷。抽屉里摸出一袋河北遵化的熟制板栗，100g独立袋装，刚好够一次加餐。带壳熟制，剥开时指尖沾着一点温热的干爽，壳里那层薄衣轻轻一撕就掉了。咬下去是踏实的粉糯，不干不硬，嚼着嚼着有淡淡的甘甜漫上来。不用起身，不用洗杯子，安安静静吃完几颗，像给下午按了个小小的暂停键。独立袋装不占地方，放办公室抽屉里，想吃了随手拿一袋。",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7433,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f2bd895cddf7971303cb820295f8ad83623959fed0db20ebc271bfcadbc01a13",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 128,
+          "prompt_tokens": 1049,
+          "total_tokens": 1177,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1049
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7428
+      }
+    ]
+  },
+  {
+    "case_id": "E10",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班回家不知道做什么菜的时候，我常拿鲜香菇救场。湖北随州来的鲜香菇，250g一盒9.8元，菇伞厚实，闻着有淡淡的菌香。切片跟青菜一起炒，或者丢进汤锅里煮，厨房很快就暖起来。记得一定要烹熟再吃，别图省事。家里有老人小孩的，做熟了才安心。一盒刚好炒一盘，不浪费，价格也实在。"
+      }
+    ],
+    "ok": true,
+    "text": "下班回家不知道做什么菜的时候，我常拿鲜香菇救场。湖北随州来的鲜香菇，250g一盒9.8元，菇伞厚实，闻着有淡淡的菌香。切片跟青菜一起炒，或者丢进汤锅里煮，厨房很快就暖起来。记得一定要烹熟再吃，别图省事。家里有老人小孩的，做熟了才安心。一盒刚好炒一盘，不浪费，价格也实在。",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4128,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "7cb37135978515affee8f16e3accfecfd774de6465b4bf9c0058dca459b0d48a",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 97,
+          "prompt_tokens": 1152,
+          "total_tokens": 1249,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1152
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4124
+      }
+    ]
+  },
+  {
+    "case_id": "E09",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里日常喝的茶，选这款浙江绍兴的龙井绿茶就挺合适。200g散装干茶，38.8元，实惠又实在。平时抓一小撮用热水冲泡，茶香慢慢散开，一家人饭后、待客都能喝。散装干茶记得密封存放，想喝时随手泡一杯，简单又舒服。趁现在给家里备上一份吧！#龙井绿茶 #家庭日常 #口粮茶 #绍兴龙井"
+      }
+    ],
+    "ok": true,
+    "text": "家里日常喝的茶，选这款浙江绍兴的龙井绿茶就挺合适。200g散装干茶，38.8元，实惠又实在。平时抓一小撮用热水冲泡，茶香慢慢散开，一家人饭后、待客都能喝。散装干茶记得密封存放，想喝时随手泡一杯，简单又舒服。趁现在给家里备上一份吧！#龙井绿茶 #家庭日常 #口粮茶 #绍兴龙井",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "200g",
+        "price": "38.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3983,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "e188f4c77766e50b7786288f6db463ef3aca5175f066261e8d13dc5be9171622",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 97,
+          "prompt_tokens": 1097,
+          "total_tokens": 1194,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1097
+        },
+        "finish_reason": "stop",
+        "seconds": 1.398
+      }
+    ]
+  },
+  {
+    "case_id": "E23",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "咱家百花蜂蜜来自湖北神农架，250g一瓶，液态瓶装，冲水喝刚刚好。早上温水一搅，淡淡花香就散开了，家里大人小孩都爱这口。日常冲饮简单方便，喜欢自然花香的可以试试。#百花蜂蜜 #神农架蜂蜜 #家庭冲饮 #蜂蜜日常"
+      }
+    ],
+    "ok": true,
+    "text": "咱家百花蜂蜜来自湖北神农架，250g一瓶，液态瓶装，冲水喝刚刚好。早上温水一搅，淡淡花香就散开了，家里大人小孩都爱这口。日常冲饮简单方便，喜欢自然花香的可以试试。#百花蜂蜜 #神农架蜂蜜 #家庭冲饮 #蜂蜜日常",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "250g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.0883,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f64335fbe2dd8d97d15995488071cadc92fc2b10243b0d15f09aba8400daabff",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 68,
+          "prompt_tokens": 1096,
+          "total_tokens": 1164,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1096
+        },
+        "finish_reason": "stop",
+        "seconds": 1.0879
+      }
+    ]
+  },
+  {
+    "case_id": "E15",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点啥小零食？福建连城的烤红薯干，400g一袋15.8元，熟制即食，开袋就能嚼。地瓜香味浓，甜滋滋有嚼劲，不粘牙。追剧配茶、孩子放学垫肚子都合适。日常采购顺手带一袋，全家老小都爱吃。#烤红薯干 #家庭零食 #福建连城 #地瓜干"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点啥小零食？福建连城的烤红薯干，400g一袋15.8元，熟制即食，开袋就能嚼。地瓜香味浓，甜滋滋有嚼劲，不粘牙。追剧配茶、孩子放学垫肚子都合适。日常采购顺手带一袋，全家老小都爱吃。#烤红薯干 #家庭零食 #福建连城 #地瓜干",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "400g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5255,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "cd4d7214dd1314e0ceb85f9e1ce3640e4a33ba651ee41de4636f6aa412561a7a",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 87,
+          "prompt_tokens": 945,
+          "total_tokens": 1032,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 945
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5252
+      }
+    ]
+  },
+  {
+    "case_id": "E02",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下午三点办公室有点饿，翻出这袋河北遵化的熟制板栗。100g独立袋装，熟制带壳，放抽屉里不占地方。剥开壳咬一口，粉粉糯糯的，带着板栗本身的甘甜，配杯热茶刚刚好。不用等微波炉，也不用洗盘子，撕开袋子就能慢慢剥着吃。工作间隙来几颗，嘴巴不闲着，心情也跟着松快一点。家里备几袋，大人孩子都能随手拿着吃。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "下午三点办公室有点饿，翻出这袋河北遵化的熟制板栗。100g独立袋装，熟制带壳，放抽屉里不占地方。剥开壳咬一口，粉粉糯糯的，带着板栗本身的甘甜，配杯热茶刚刚好。不用等微波炉，也不用洗盘子，撕开袋子就能慢慢剥着吃。工作间隙来几颗，嘴巴不闲着，心情也跟着松快一点。家里备几袋，大人孩子都能随手拿着吃。",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2822,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f2bd895cddf7971303cb820295f8ad83623959fed0db20ebc271bfcadbc01a13",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 108,
+          "prompt_tokens": 1049,
+          "total_tokens": 1157,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 153
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4248
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "6e206dcf73bb3743d81a547be825fe540790b14684f55233b6d83e9402b1df7b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 209,
+          "total_tokens": 211,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 209
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8567
+      }
+    ]
+  },
+  {
+    "case_id": "E23",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "早上冲一杯温水，挖一勺神农架的百花蜂蜜，甜丝丝的，带着山野花香。湖北神农架产的百花蜂蜜，250g瓶装液态，日常冲饮刚刚好。喜欢的朋友可以看看，给家里添一份自然甜～ #百花蜂蜜 #神农架 #蜂蜜冲饮 #家庭好物"
+      }
+    ],
+    "ok": true,
+    "text": "早上冲一杯温水，挖一勺神农架的百花蜂蜜，甜丝丝的，带着山野花香。湖北神农架产的百花蜂蜜，250g瓶装液态，日常冲饮刚刚好。喜欢的朋友可以看看，给家里添一份自然甜～ #百花蜂蜜 #神农架 #蜂蜜冲饮 #家庭好物",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "250g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 0.9668,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "7640ed4d3d30e30ff249beba9b81f9de70a7319059cada2fd9c4eb28bb51b72b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 67,
+          "prompt_tokens": 427,
+          "total_tokens": 494,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 171
+        },
+        "finish_reason": "stop",
+        "seconds": 0.9665
+      }
+    ]
+  },
+  {
+    "case_id": "E23",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的百花蜂蜜快见底了，湖北神农架来的250g瓶装液态蜜，日常冲饮真离不开它。温水一搅就化开，清甜不齁，早上给家人冲一杯，晚上自己兑点柠檬水，简简单单就很好喝。一瓶放厨房随手拿，刷到的可以看看。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的百花蜂蜜快见底了，湖北神农架来的250g瓶装液态蜜，日常冲饮真离不开它。温水一搅就化开，清甜不齁，早上给家人冲一杯，晚上自己兑点柠檬水，简简单单就很好喝。一瓶放厨房随手拿，刷到的可以看看。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "250g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.578,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f64335fbe2dd8d97d15995488071cadc92fc2b10243b0d15f09aba8400daabff",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 72,
+          "prompt_tokens": 1096,
+          "total_tokens": 1168,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 200
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2204
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "697c05b96ea6eb6ec5127fb2dc5b36028b7410bc1c91651c86ec6585cf227f63",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 173,
+          "total_tokens": 175,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 173
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3569
+      }
+    ]
+  },
+  {
+    "case_id": "E27",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点核桃，煮粥打浆都实在！新疆阿克苏带壳核桃，1000g才22.8元，生制硬壳，去壳取仁后按需加工，日常做菜烘焙都方便。果仁饱满，香味自然，给老人小孩备着也安心。趁着价格合适，点下方带一袋回家尝尝～ #新疆阿克苏核桃 #带壳核桃 #家庭囤货 #日常食材",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点核桃，煮粥打浆都实在！新疆阿克苏带壳核桃，1000g才22.8元，生制硬壳，去壳取仁后按需加工，日常做菜烘焙都方便。果仁饱满，香味自然，给老人小孩备着也安心。趁着价格合适，点下方带一袋回家尝尝～ #新疆阿克苏核桃 #带壳核桃 #家庭囤货 #日常食材",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "1000g",
+        "price": "22.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.5024,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "87c7ea99db708f85ff39bbeb9f7f312370ea23b01e27caf6301fc9057c60eed3",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 92,
+          "prompt_tokens": 1059,
+          "total_tokens": 1151,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1059
+        },
+        "finish_reason": "stop",
+        "seconds": 1.742
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "c79035b707b01da6a197a80799fabb16548836aefc0fafd771929214d2f5d91d",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 194,
+          "total_tokens": 196,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 194
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7596
+      }
+    ]
+  },
+  {
+    "case_id": "E17",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点实在的黑龙江佳木斯散装大米，1000g装，生米煮饭，米粒清白，煮出来一锅香喷喷，配啥菜都顺口。佳木斯的好水土养好米，家常主食就图个踏实好吃。价格还没确认，先点个关注，回头上架不迷路～ #东北大米 #家庭主食 #佳木斯大米 #囤米日常",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点实在的黑龙江佳木斯散装大米，1000g装，生米煮饭，米粒清白，煮出来一锅香喷喷，配啥菜都顺口。佳木斯的好水土养好米，家常主食就图个踏实好吃。价格还没确认，先点个关注，回头上架不迷路～ #东北大米 #家庭主食 #佳木斯大米 #囤米日常",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.3265,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f4a6b1b651c2d473f4f5622e73d893eecff1db682f6d1d62ae78843231e01b84",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 90,
+          "prompt_tokens": 1093,
+          "total_tokens": 1183,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1093
+        },
+        "finish_reason": "stop",
+        "seconds": 1.6347
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "564a67c630c085cd19baf5c4ccca36d0e20d609c4a12c5887d31f79d704bf120",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 192,
+          "total_tokens": 194,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 192
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6912
+      }
+    ]
+  },
+  {
+    "case_id": "E09",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里常备的龙井绿茶来啦！浙江绍兴产的散装干茶，200g只要38.8元，实惠又耐喝。平时在家泡上一杯，清香慢慢散开，配早饭、待客都合适。散装干茶需要冲泡，抓一小撮就能喝上好几轮，算下来很划算。想给家里添点日常口粮茶的，可以看看这款。#龙井绿茶 #家庭口粮茶 #绍兴茶叶 #日常喝茶",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里常备的龙井绿茶来啦！浙江绍兴产的散装干茶，200g只要38.8元，实惠又耐喝。平时在家泡上一杯，清香慢慢散开，配早饭、待客都合适。散装干茶需要冲泡，抓一小撮就能喝上好几轮，算下来很划算。想给家里添点日常口粮茶的，可以看看这款。#龙井绿茶 #家庭口粮茶 #绍兴茶叶 #日常喝茶",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "200g",
+        "price": "38.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.3485,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "e188f4c77766e50b7786288f6db463ef3aca5175f066261e8d13dc5be9171622",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 99,
+          "prompt_tokens": 1097,
+          "total_tokens": 1196,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 201
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7299
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "62dfab9d34fa2fe2a72f8d9867580eed24c902a2feadf2f5fd7b0323922be641",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 201,
+          "total_tokens": 203,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 201
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6179
+      }
+    ]
+  },
+  {
+    "case_id": "E29",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里水果盘该换点新鲜的了！江西赣州脐橙，1500g鲜果，洗净剥皮就能吃，果肉饱满，酸甜适口，一家人围坐分着吃刚刚好。价格还没定，先把这份新鲜记在心里，想给家里添点橙香就来看看吧！#脐橙 #江西赣州 #家庭水果 #新鲜采摘",
+        "qa": {
+          "passed": false,
+          "feedback": "文案中“价格还没定”暴露商品信息不完整，不符合抖音带货文案需明确购买决策信息的要求，易降低用户信任和转化意愿。"
+        }
+      },
+      {
+        "round": 2,
+        "text": "家里囤水果，江西赣州脐橙安排上！1500g鲜果，果香自然，饭后切一盘全家分着吃。吃前记得清洗剥皮，简单又踏实。价格还没定，先来蹲个新鲜～#脐橙 #江西赣州 #家庭水果 #应季鲜果",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤水果，江西赣州脐橙安排上！1500g鲜果，果香自然，饭后切一盘全家分着吃。吃前记得清洗剥皮，简单又踏实。价格还没定，先来蹲个新鲜～#脐橙 #江西赣州 #家庭水果 #应季鲜果",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "1500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 4.1803,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "80fa190afffa632aed7aa5d6fba8b5b29653ffa4c733db6c1d33647dc274ac71",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 77,
+          "prompt_tokens": 729,
+          "total_tokens": 806,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 729
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2222
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "93ddb33711fe72d63e648e95df30fe6fc4cfaa112b41e268c6b612cb3fed0477",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 179,
+          "total_tokens": 214,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 179
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8431
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "80fa190afffa632aed7aa5d6fba8b5b29653ffa4c733db6c1d33647dc274ac71",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 66,
+          "prompt_tokens": 729,
+          "total_tokens": 795,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 512
+          },
+          "prompt_cache_hit_tokens": 512,
+          "prompt_cache_miss_tokens": 217
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2649
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "4ec457c6a252b447feaf6836c4f6bf7d51e2f36a27ba0c35bd896f173815784b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 168,
+          "total_tokens": 170,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 168
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8489
+      }
+    ]
+  },
+  {
+    "case_id": "E07",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "忙完一天，回家泡杯龙井绿茶，散装干茶，热水一冲，清香慢慢就出来了。浙江绍兴产的，100g一包38.8元，日常喝刚刚好。不夸大，就是实实在在的口粮茶。家里备一包，随时给自己泡一杯。#龙井绿茶 #日常饮茶 #口粮茶"
+      }
+    ],
+    "ok": true,
+    "text": "忙完一天，回家泡杯龙井绿茶，散装干茶，热水一冲，清香慢慢就出来了。浙江绍兴产的，100g一包38.8元，日常喝刚刚好。不夸大，就是实实在在的口粮茶。家里备一包，随时给自己泡一杯。#龙井绿茶 #日常饮茶 #口粮茶",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g",
+        "price": "38.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7478,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "159b587f9008eda538bbe722dcaddac7e6b1fb312557e02077641c09e161eea8",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 73,
+          "prompt_tokens": 424,
+          "total_tokens": 497,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 424
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7475
+      }
+    ]
+  },
+  {
+    "case_id": "E25",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备点新疆阿克苏的带壳核桃，500g才22.8元，生制带硬壳，想吃的时候随手敲几个，剥出仁来直接吃或者做点心都行。平时追剧、给孩子加餐，边剥边聊挺有滋味。产地直发的核桃，壳硬仁香，家里囤着慢慢吃也不心疼。#带壳核桃 #新疆阿克苏 #家庭备料 #核桃"
+      }
+    ],
+    "ok": true,
+    "text": "家里备点新疆阿克苏的带壳核桃，500g才22.8元，生制带硬壳，想吃的时候随手敲几个，剥出仁来直接吃或者做点心都行。平时追剧、给孩子加餐，边剥边聊挺有滋味。产地直发的核桃，壳硬仁香，家里囤着慢慢吃也不心疼。#带壳核桃 #新疆阿克苏 #家庭备料 #核桃",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "500g",
+        "price": "22.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3292,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "131e57446f94352ed789d01f694705655c1cb4cb1c8a317e2eaf6a2d24f36aa8",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 90,
+          "prompt_tokens": 1161,
+          "total_tokens": 1251,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1161
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3289
+      }
+    ]
+  },
+  {
+    "case_id": "E22",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "日常冲一杯温水，舀一勺百花蜂蜜，淡淡花香慢慢散开，入口清甜柔和。这瓶来自湖北神农架的百花蜂蜜，250g瓶装液态，每次一勺刚刚好，29.8元的价格也实在。早晨配温水，下午兑花茶，一家人喝着舒服又安心。喜欢这种简单清甜的朋友，可以试试看。"
+      }
+    ],
+    "ok": true,
+    "text": "日常冲一杯温水，舀一勺百花蜂蜜，淡淡花香慢慢散开，入口清甜柔和。这瓶来自湖北神农架的百花蜂蜜，250g瓶装液态，每次一勺刚刚好，29.8元的价格也实在。早晨配温水，下午兑花茶，一家人喝着舒服又安心。喜欢这种简单清甜的朋友，可以试试看。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "250g",
+        "price": "29.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5135,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "6eef39d86a131ada4ad681cbd1d3f06e397040d9a55b8ebf05ce9a2ae09cfbc6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 78,
+          "prompt_tokens": 418,
+          "total_tokens": 496,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 162
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5133
+      }
+    ]
+  },
+  {
+    "case_id": "E20",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班回家路上顺手拎一袋鲜玉米，是我最近给家里备餐的小习惯。吉林四平的鲜玉米，500g一袋，生的，得加热后才能吃。晚上到家剥开外皮，锅里水一烧，玉米往上一蒸，厨房里慢慢飘出那股朴实的玉米香，孩子闻着味就跑过来了。不用费心配菜，一人一根捧着啃，软软糯糯的，就是家里最踏实的晚饭加餐。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "下班回家路上顺手拎一袋鲜玉米，是我最近给家里备餐的小习惯。吉林四平的鲜玉米，500g一袋，生的，得加热后才能吃。晚上到家剥开外皮，锅里水一烧，玉米往上一蒸，厨房里慢慢飘出那股朴实的玉米香，孩子闻着味就跑过来了。不用费心配菜，一人一根捧着啃，软软糯糯的，就是家里最踏实的晚饭加餐。",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.5582,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "8030faba5a5a9ec4a60d7ac76d033bcfe60812c6285b7c6106bc9a5134b7a7c6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 98,
+          "prompt_tokens": 1112,
+          "total_tokens": 1210,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1112
+        },
+        "finish_reason": "stop",
+        "seconds": 1.74
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "60fb71ee99df5961f868e81b8cf6576ccdede909d2be77fd68541369006d63ab",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 199,
+          "total_tokens": 201,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 199
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8178
+      }
+    ]
+  },
+  {
+    "case_id": "E05",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "山东烟台的红富士苹果来啦，1000g净含量，新鲜采摘的鲜果，洗干净就能吃。果肉脆甜，家里大人小孩都爱，饭后切一盘全家抢着吃。价格还没定，但品质先摆在这儿。想囤家庭水果的，先关注别错过～ #红富士苹果 #烟台苹果 #家庭水果 #新鲜鲜果"
+      }
+    ],
+    "ok": true,
+    "text": "山东烟台的红富士苹果来啦，1000g净含量，新鲜采摘的鲜果，洗干净就能吃。果肉脆甜，家里大人小孩都爱，饭后切一盘全家抢着吃。价格还没定，但品质先摆在这儿。想囤家庭水果的，先关注别错过～ #红富士苹果 #烟台苹果 #家庭水果 #新鲜鲜果",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.215,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "902580436087bf0b721ad53f565f1f475765835ea27e02db409cb73288db102e",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 78,
+          "prompt_tokens": 421,
+          "total_tokens": 499,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 165
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2148
+      }
+    ]
+  },
+  {
+    "case_id": "E12",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里常备的鲜香菇快吃完了，今天去市场又拎了一袋湖北随州来的鲜香菇，500g刚好够炒两顿。9.8元一袋，价格实在，菇伞厚实，摸着干爽，闻着有淡淡的菌香。晚饭切几朵配青菜一起炒，孩子说比肉还香。记得一定要烹熟再吃，鲜菇不能直接下嘴。日常做饭图的就是这份踏实，随州的菇，家常的味道。"
+      }
+    ],
+    "ok": true,
+    "text": "家里常备的鲜香菇快吃完了，今天去市场又拎了一袋湖北随州来的鲜香菇，500g刚好够炒两顿。9.8元一袋，价格实在，菇伞厚实，摸着干爽，闻着有淡淡的菌香。晚饭切几朵配青菜一起炒，孩子说比肉还香。记得一定要烹熟再吃，鲜菇不能直接下嘴。日常做饭图的就是这份踏实，随州的菇，家常的味道。",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "500g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.427,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "503aecaa431592b31e03f2ff9da6ab01c6d23627978b0d5819bcfd0170ad980e",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 102,
+          "prompt_tokens": 428,
+          "total_tokens": 530,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 428
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4268
+      }
+    ]
+  },
+  {
+    "case_id": "E17",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的米又见底了？黑龙江佳木斯散装大米，1000g装，生米现煮才够香。咱家这款米煮出来粒粒分明，配啥菜都顺口。价格还没定，但品质先摆这儿了。家里掌勺的都知道，主食选对了，一桌菜才踏实。#家庭主食 #佳木斯大米 #散装大米 #煮饭日常"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的米又见底了？黑龙江佳木斯散装大米，1000g装，生米现煮才够香。咱家这款米煮出来粒粒分明，配啥菜都顺口。价格还没定，但品质先摆这儿了。家里掌勺的都知道，主食选对了，一桌菜才踏实。#家庭主食 #佳木斯大米 #散装大米 #煮饭日常",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7084,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "b076456b47eed201a3069ca26ee842104622fc689948038e9368e9ceb7892453",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 89,
+          "prompt_tokens": 423,
+          "total_tokens": 512,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 167
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7081
+      }
+    ]
+  },
+  {
+    "case_id": "E03",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点熟制板栗，追剧、待客都省事！河北遵化产的熟制板栗，200g一袋12.8元，熟制带壳、独立袋装，吃着方便不脏手。粉粉糯糯带点自然甘甜，老人孩子都爱。日常采购顺手带两袋，放家里慢慢吃。#熟制板栗 #河北遵化 #家庭零食 #日常采购"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点熟制板栗，追剧、待客都省事！河北遵化产的熟制板栗，200g一袋12.8元，熟制带壳、独立袋装，吃着方便不脏手。粉粉糯糯带点自然甘甜，老人孩子都爱。日常采购顺手带两袋，放家里慢慢吃。#熟制板栗 #河北遵化 #家庭零食 #日常采购",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "200g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.116,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "b156a4705d79e1a0d314cd7a13206641d74c6523b9919cb6092a1c8aa0950d43",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 91,
+          "prompt_tokens": 994,
+          "total_tokens": 1085,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 994
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1156
+      }
+    ]
+  },
+  {
+    "case_id": "E16",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的这袋散装大米，是黑龙江佳木斯来的，1000g刚好够一家人吃上几顿。打开袋子米粒清清爽爽，煮饭时满屋都是淡淡的米香，煮好掀开锅盖热气一扑，颗粒饱满不黏糊，孩子扒拉着碗说今天的饭特别香。11.8元一袋，实实在在的家常主食，生米下锅煮透就好，配啥菜都顺口。每天认真做饭的踏实感，大概就是从这一碗米饭开始的吧。"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的这袋散装大米，是黑龙江佳木斯来的，1000g刚好够一家人吃上几顿。打开袋子米粒清清爽爽，煮饭时满屋都是淡淡的米香，煮好掀开锅盖热气一扑，颗粒饱满不黏糊，孩子扒拉着碗说今天的饭特别香。11.8元一袋，实实在在的家常主食，生米下锅煮透就好，配啥菜都顺口。每天认真做饭的踏实感，大概就是从这一碗米饭开始的吧。",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7999,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "a03919cde093362b319d42a85e2d41c3a91daf285e004211a5acc968f8c8a9de",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 113,
+          "prompt_tokens": 1143,
+          "total_tokens": 1256,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 247
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7995
+      }
+    ]
+  },
+  {
+    "case_id": "E30",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里日常采购水果，我总会挑些耐放又好吃的。最近入手了江西赣州的脐橙，净含量3000g，价格32.8元，一箱够全家吃上一阵子。鲜果需要清洗剥皮，剥开时橙香自然散出来，果肉饱满，饭后切一盘，孩子也愿意主动拿。产地江西赣州，脐橙风味清爽，平时放家里慢慢吃，招待来客也合适。"
+      }
+    ],
+    "ok": true,
+    "text": "家里日常采购水果，我总会挑些耐放又好吃的。最近入手了江西赣州的脐橙，净含量3000g，价格32.8元，一箱够全家吃上一阵子。鲜果需要清洗剥皮，剥开时橙香自然散出来，果肉饱满，饭后切一盘，孩子也愿意主动拿。产地江西赣州，脐橙风味清爽，平时放家里慢慢吃，招待来客也合适。",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "3000g",
+        "price": "32.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3232,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "808f0bd582f932094cdfcb86440a040e3064e0212ac850ff59098f064a60e4d5",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 432,
+          "total_tokens": 528,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 176
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3229
+      }
+    ]
+  },
+  {
+    "case_id": "E11",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里做饭想提鲜，试试湖北随州来的鲜香菇，250g一袋正合适。鲜菇得烹熟再吃，炒菜炖汤都行，厨房里随手抓一把，饭菜香味就上来了。价格还没定，先把品质摆这儿，吃着放心最要紧。家里常备点，做饭省心不少。#鲜香菇 #湖北随州 #家庭做饭 #农产品"
+      }
+    ],
+    "ok": true,
+    "text": "家里做饭想提鲜，试试湖北随州来的鲜香菇，250g一袋正合适。鲜菇得烹熟再吃，炒菜炖汤都行，厨房里随手抓一把，饭菜香味就上来了。价格还没定，先把品质摆这儿，吃着放心最要紧。家里常备点，做饭省心不少。#鲜香菇 #湖北随州 #家庭做饭 #农产品",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4894,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "435eb781c8ca7ca4142ab314233f1c16320beb7d3faa997818c6550604ec6982",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 83,
+          "prompt_tokens": 418,
+          "total_tokens": 501,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 418
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4891
+      }
+    ]
+  },
+  {
+    "case_id": "E25",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备点带壳核桃，随吃随取真方便。新疆阿克苏带壳核桃，500g只要22.8元，生制带硬壳，去壳取仁后按需加工，煮粥、烘焙、做馅都合适。壳硬仁香，慢慢剥着吃，一家人围坐聊聊天，日子就该有点这样的踏实劲儿。趁现在给厨房添一袋吧。#带壳核桃 #新疆阿克苏 #家庭备料"
+      }
+    ],
+    "ok": true,
+    "text": "家里备点带壳核桃，随吃随取真方便。新疆阿克苏带壳核桃，500g只要22.8元，生制带硬壳，去壳取仁后按需加工，煮粥、烘焙、做馅都合适。壳硬仁香，慢慢剥着吃，一家人围坐聊聊天，日子就该有点这样的踏实劲儿。趁现在给厨房添一袋吧。#带壳核桃 #新疆阿克苏 #家庭备料",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "500g",
+        "price": "22.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4207,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "2b992b93129a00eff6e892e4ea5d553f7eda26fc7cbf5f5b0a527486d23067a6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 97,
+          "prompt_tokens": 442,
+          "total_tokens": 539,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 186
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4204
+      }
+    ]
+  },
+  {
+    "case_id": "E03",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点熟制板栗，200g一袋12.8元，河北遵化来的熟制带壳板栗，独立袋装，平时当个家常小零食挺合适。下班回家拆一袋，和家人边聊边吃，省事又踏实。想尝尝的朋友可以看看～ #熟制板栗 #河北遵化 #家庭零食 #日常采购",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点熟制板栗，200g一袋12.8元，河北遵化来的熟制带壳板栗，独立袋装，平时当个家常小零食挺合适。下班回家拆一袋，和家人边聊边吃，省事又踏实。想尝尝的朋友可以看看～ #熟制板栗 #河北遵化 #家庭零食 #日常采购",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "200g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2896,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "b156a4705d79e1a0d314cd7a13206641d74c6523b9919cb6092a1c8aa0950d43",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 994,
+          "total_tokens": 1073,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 226
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4009
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "9aeeefed00e9fd037f54e84e9e1f3afe8cf66e9b097775764e0f0f9ae92b7d8f",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 181,
+          "total_tokens": 183,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 181
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8877
+      }
+    ]
+  },
+  {
+    "case_id": "E26",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "周末在家给娃备点小零食，我都会提前剥好一碗核桃仁放着。这次入的是新疆阿克苏的带壳核桃，500g一袋，生制带硬壳，得自己动手去壳取仁，再按需加工。剥的时候能闻到淡淡的坚果清香，仁儿饱满，边剥边吃有种踏实的满足感。家里备料嘛，煮粥、拌酸奶、做烘焙都能随手抓一把，比买现成仁儿多了点动手的乐趣。产地是新疆阿克苏，价格还没确认，等问好了再跟你们说～",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "周末在家给娃备点小零食，我都会提前剥好一碗核桃仁放着。这次入的是新疆阿克苏的带壳核桃，500g一袋，生制带硬壳，得自己动手去壳取仁，再按需加工。剥的时候能闻到淡淡的坚果清香，仁儿饱满，边剥边吃有种踏实的满足感。家里备料嘛，煮粥、拌酸奶、做烘焙都能随手抓一把，比买现成仁儿多了点动手的乐趣。产地是新疆阿克苏，价格还没确认，等问好了再跟你们说～",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.4556,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "41b4d370a868d079bacd6cd9b379e06ce75ae39894e36af7e717517aa57cf0b1",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 123,
+          "prompt_tokens": 1148,
+          "total_tokens": 1271,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1148
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5948
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "bda47b257c7a27704144373fb2f338aeacbc8009a2190f5d79ad217f718bd626",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 224,
+          "total_tokens": 226,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 224
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8598
+      }
+    ]
+  },
+  {
+    "case_id": "E06",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "昨天接孩子放学路过水果摊，他指着红彤彤的苹果说想吃。回家洗了两个烟台红富士，切开递给他一半，小家伙咔嚓咬下去，脆生生地说“妈妈这个苹果好甜”。果肉紧实脆嫩，清甜的汁水在嘴里漫开，是很自然的苹果香。一箱2000g正好够家里吃上一阵，26.8元的价格日常囤着也不心疼。山东烟台来的鲜果，吃之前记得清洗干净，给家人入口的东西，踏实最重要。"
+      }
+    ],
+    "ok": true,
+    "text": "昨天接孩子放学路过水果摊，他指着红彤彤的苹果说想吃。回家洗了两个烟台红富士，切开递给他一半，小家伙咔嚓咬下去，脆生生地说“妈妈这个苹果好甜”。果肉紧实脆嫩，清甜的汁水在嘴里漫开，是很自然的苹果香。一箱2000g正好够家里吃上一阵，26.8元的价格日常囤着也不心疼。山东烟台来的鲜果，吃之前记得清洗干净，给家人入口的东西，踏实最重要。",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "2000g",
+        "price": "26.8元"
+      },
+      "missing": [
+        "product"
+      ],
+      "covered": 3,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": false
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4062,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "ea95cdd27645aa4bb5ed3b25dfc3cec6e6c213315c372cf43c3e16a34237be62",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 109,
+          "prompt_tokens": 1028,
+          "total_tokens": 1137,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1028
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4059
+      }
+    ]
+  },
+  {
+    "case_id": "E30",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里日常采购水果，最近常买的是江西赣州的脐橙，3000g一箱32.8元，鲜果需要清洗剥皮。收到后外皮带着产地过来的自然样子，洗一洗剥开，果肉清清爽爽，饭后切一盘全家分着吃刚好。小朋友自己剥得认真，大人也省心。价格实在，分量够家里吃上一阵，日常囤着慢慢吃，不夸大也不将就。"
+      }
+    ],
+    "ok": true,
+    "text": "家里日常采购水果，最近常买的是江西赣州的脐橙，3000g一箱32.8元，鲜果需要清洗剥皮。收到后外皮带着产地过来的自然样子，洗一洗剥开，果肉清清爽爽，饭后切一盘全家分着吃刚好。小朋友自己剥得认真，大人也省心。价格实在，分量够家里吃上一阵，日常囤着慢慢吃，不夸大也不将就。",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "3000g",
+        "price": "32.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.986,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "6b736c757c7828e3969de93fefca4df831db62d68fa880e9413ff531c6115a83",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 1018,
+          "total_tokens": 1114,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 250
+        },
+        "finish_reason": "stop",
+        "seconds": 1.9856
+      }
+    ]
+  },
+  {
+    "case_id": "E07",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的茶叶喝完了？试试这款浙江绍兴的龙井绿茶，散装干茶100g只要38.8元，日常泡一杯清香解腻，全家人都能喝。早上来一杯提提神，饭后泡一壶刮刮油，简单又舒服。实实在在的口粮茶，不搞虚的，喜欢喝茶的朋友放心入。#龙井绿茶 #口粮茶 #日常饮茶 #茶叶推荐"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的茶叶喝完了？试试这款浙江绍兴的龙井绿茶，散装干茶100g只要38.8元，日常泡一杯清香解腻，全家人都能喝。早上来一杯提提神，饭后泡一壶刮刮油，简单又舒服。实实在在的口粮茶，不搞虚的，喜欢喝茶的朋友放心入。#龙井绿茶 #口粮茶 #日常饮茶 #茶叶推荐",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g",
+        "price": "38.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4643,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0f0bc028db84ca47c1335429e9de46e6b905e1a470d9ebfee7df8926c251f6db",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 89,
+          "prompt_tokens": 1186,
+          "total_tokens": 1275,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 384
+          },
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 802
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4637
+      }
+    ]
+  },
+  {
+    "case_id": "E25",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备点新疆阿克苏的带壳核桃，500g只要22.8元，生制带硬壳，吃之前去壳取仁，煮粥、烘焙、给孩子做小零食都行。产地直供的实在货，价格也实在，家里日常备料囤一袋不心疼。趁着价格合适，给厨房添点香，点下方看看，合适就带回家～ #新疆阿克苏核桃 #带壳核桃 #家庭备料 #厨房好物",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里备点新疆阿克苏的带壳核桃，500g只要22.8元，生制带硬壳，吃之前去壳取仁，煮粥、烘焙、给孩子做小零食都行。产地直供的实在货，价格也实在，家里日常备料囤一袋不心疼。趁着价格合适，给厨房添点香，点下方看看，合适就带回家～ #新疆阿克苏核桃 #带壳核桃 #家庭备料 #厨房好物",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "500g",
+        "price": "22.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.0293,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "131e57446f94352ed789d01f694705655c1cb4cb1c8a317e2eaf6a2d24f36aa8",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 101,
+          "prompt_tokens": 1161,
+          "total_tokens": 1262,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 1024
+          },
+          "prompt_cache_hit_tokens": 1024,
+          "prompt_cache_miss_tokens": 137
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2113
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "75699c7842aa3724cbdff69fa49c6b9d83a03d0577790abe1930c28c4d439d4e",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 203,
+          "total_tokens": 205,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 203
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8173
+      }
+    ]
+  },
+  {
+    "case_id": "E18",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的这袋散装大米快见底了，赶紧又补上。黑龙江佳木斯来的，2000g一袋才11.8元，日常煮饭煮粥都合适。生米淘洗两遍，电饭煲一按就等着满屋米香。煮出来粒粒分明，配个家常小炒，老人小孩都吃得惯。每次掀开锅盖那股热气腾腾的米味，就觉得日子踏实。家里做饭的朋友可以试试。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的这袋散装大米快见底了，赶紧又补上。黑龙江佳木斯来的，2000g一袋才11.8元，日常煮饭煮粥都合适。生米淘洗两遍，电饭煲一按就等着满屋米香。煮出来粒粒分明，配个家常小炒，老人小孩都吃得惯。每次掀开锅盖那股热气腾腾的米味，就觉得日子踏实。家里做饭的朋友可以试试。",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "2000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2735,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "3d314d9bca8a3070e3ed90de26fe68b897476241aea2e57cc3fe741bfc6d1084",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 102,
+          "prompt_tokens": 1019,
+          "total_tokens": 1121,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1019
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4184
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "692cb783e18ee7d447dc6d96f870b7e931c6bf33ea646a05ddaf88bde6ae2102",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 203,
+          "total_tokens": 205,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 203
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8544
+      }
+    ]
+  },
+  {
+    "case_id": "E16",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里那袋米快见底的时候，我拆开了这袋黑龙江佳木斯来的散装大米。1000g的分量刚好够煮上几顿，11.8元的价格让人心里踏实。淘米时水一冲就清，煮出来粒粒分明，不软塌也不夹生。孩子扒着碗说“妈妈今天的饭好香”，那一刻觉得灶台边的烟火气最抚人心。生米得耐心等它煮熟，可掀开锅盖那阵白汽扑上来，就觉得这顿家常饭值得。"
+      }
+    ],
+    "ok": true,
+    "text": "家里那袋米快见底的时候，我拆开了这袋黑龙江佳木斯来的散装大米。1000g的分量刚好够煮上几顿，11.8元的价格让人心里踏实。淘米时水一冲就清，煮出来粒粒分明，不软塌也不夹生。孩子扒着碗说“妈妈今天的饭好香”，那一刻觉得灶台边的烟火气最抚人心。生米得耐心等它煮熟，可掀开锅盖那阵白汽扑上来，就觉得这顿家常饭值得。",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.46,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0be0529e0fd39008f35b801488093770d2c7ae97f5acdd4de30042292bf11c72",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 116,
+          "prompt_tokens": 414,
+          "total_tokens": 530,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 158
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4596
+      }
+    ]
+  },
+  {
+    "case_id": "E11",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里做饭想提鲜，抓一把鲜香菇就对了。湖北随州来的鲜香菇，250g一袋，菇肉厚实，炒菜炖汤都香得很。记得一定要烹熟再吃哈，鲜菇可不能生着下锅。给家人做饭，食材新鲜比啥都强，这袋香菇就是厨房里的小帮手。想尝尝随州鲜香菇的，赶紧安排上！#鲜香菇 #湖北随州 #家庭做饭 #厨房好物"
+      }
+    ],
+    "ok": true,
+    "text": "家里做饭想提鲜，抓一把鲜香菇就对了。湖北随州来的鲜香菇，250g一袋，菇肉厚实，炒菜炖汤都香得很。记得一定要烹熟再吃哈，鲜菇可不能生着下锅。给家人做饭，食材新鲜比啥都强，这袋香菇就是厨房里的小帮手。想尝尝随州鲜香菇的，赶紧安排上！#鲜香菇 #湖北随州 #家庭做饭 #厨房好物",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 2.0901,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f02ae9b65b154ede97dce3aba740cdb364cd917a4d2314f8c5dd88c10e6f9a2d",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 99,
+          "prompt_tokens": 1161,
+          "total_tokens": 1260,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 384
+          },
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 777
+        },
+        "finish_reason": "stop",
+        "seconds": 2.0898
+      }
+    ]
+  },
+  {
+    "case_id": "E07",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里老爸天天泡的那杯茶，今天必须安利给你们！浙江绍兴的龙井绿茶，散装干茶100g才38.8元，抓一小撮热水一冲，满屋子都是清香味。日常饭后解腻、下午提神都合适，一家人喝刚刚好。实实在在的口粮茶，喜欢就带一份回去尝尝！#龙井绿茶 #绍兴茶叶 #日常饮茶 #口粮茶 #家庭好物",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里老爸天天泡的那杯茶，今天必须安利给你们！浙江绍兴的龙井绿茶，散装干茶100g才38.8元，抓一小撮热水一冲，满屋子都是清香味。日常饭后解腻、下午提神都合适，一家人喝刚刚好。实实在在的口粮茶，喜欢就带一份回去尝尝！#龙井绿茶 #绍兴茶叶 #日常饮茶 #口粮茶 #家庭好物",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g",
+        "price": "38.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 1.9688,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0f0bc028db84ca47c1335429e9de46e6b905e1a470d9ebfee7df8926c251f6db",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 92,
+          "prompt_tokens": 1186,
+          "total_tokens": 1278,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 1024
+          },
+          "prompt_cache_hit_tokens": 1024,
+          "prompt_cache_miss_tokens": 162
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1767
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "eedc5107dae83af721abe1b49a4ba121c5c2b45ceb7a5ee0291362971645a8a3",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 194,
+          "total_tokens": 196,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 194
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7919
+      }
+    ]
+  },
+  {
+    "case_id": "E08",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "🍵最近家里囤的茶喝完了，翻出这包浙江绍兴的龙井绿茶，100g散装干茶，简简单单的包装，倒也挺实在。下午孩子写作业，我烧了壶水泡了一杯，热水冲下去，茶叶慢慢舒展开，那股豆香就飘上来了。喝一口清清淡淡的，不苦不涩，配两块小饼干刚好。散装茶嘛，每次抓一小撮，自己控制浓淡，挺适合一家人日常喝。价格还没确认，等问了农户再说，先喝着看。"
+      }
+    ],
+    "ok": true,
+    "text": "🍵最近家里囤的茶喝完了，翻出这包浙江绍兴的龙井绿茶，100g散装干茶，简简单单的包装，倒也挺实在。下午孩子写作业，我烧了壶水泡了一杯，热水冲下去，茶叶慢慢舒展开，那股豆香就飘上来了。喝一口清清淡淡的，不苦不涩，配两块小饼干刚好。散装茶嘛，每次抓一小撮，自己控制浓淡，挺适合一家人日常喝。价格还没确认，等问了农户再说，先喝着看。",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4387,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "d9e90ccb1469ace8053bd5bbeaba9f3cc176bf2733432b81bea0b76671114428",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 118,
+          "prompt_tokens": 1173,
+          "total_tokens": 1291,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1173
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4386
+      }
+    ]
+  },
+  {
+    "case_id": "E27",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点新疆阿克苏带壳核桃，1000g才22.8元，真划算！生制带硬壳，追剧唠嗑时自己动手剥，满屋都是核桃香，孩子老人都爱凑热闹。每天抓几颗，去壳取仁按需加工，打豆浆煮粥都方便。趁现在给家里备上，点下方看看～ #带壳核桃 #新疆阿克苏 #家庭囤货 #实惠好物"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点新疆阿克苏带壳核桃，1000g才22.8元，真划算！生制带硬壳，追剧唠嗑时自己动手剥，满屋都是核桃香，孩子老人都爱凑热闹。每天抓几颗，去壳取仁按需加工，打豆浆煮粥都方便。趁现在给家里备上，点下方看看～ #带壳核桃 #新疆阿克苏 #家庭囤货 #实惠好物",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "1000g",
+        "price": "22.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5672,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "812b863390e0e0f54ff6eca2f783dd0d6f96d4953947aec97d5dafbb315ae231",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 98,
+          "prompt_tokens": 462,
+          "total_tokens": 560,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 206
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5671
+      }
+    ]
+  },
+  {
+    "case_id": "E09",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点啥茶好？浙江绍兴的龙井绿茶，200g散装干茶才38.8元，实惠又耐喝。平时泡上一杯，清香慢慢出来，一家人围着桌子聊聊天，日子就有滋有味。干茶需要冲泡，别当零食吃哈。想给家里添点茶香的，可以看看这款。#龙井绿茶 #家庭日常 #口粮茶 #绍兴龙井"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点啥茶好？浙江绍兴的龙井绿茶，200g散装干茶才38.8元，实惠又耐喝。平时泡上一杯，清香慢慢出来，一家人围着桌子聊聊天，日子就有滋有味。干茶需要冲泡，别当零食吃哈。想给家里添点茶香的，可以看看这款。#龙井绿茶 #家庭日常 #口粮茶 #绍兴龙井",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "200g",
+        "price": "38.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5221,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "8b0248620e507e6ba84650619291d720f081db19cb29a7272c07d699ff2c8802",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 88,
+          "prompt_tokens": 442,
+          "total_tokens": 530,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 186
+        },
+        "finish_reason": "stop",
+        "seconds": 1.522
+      }
+    ]
+  },
+  {
+    "case_id": "E26",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备料总想囤点耐放的，新疆阿克苏的带壳核桃我最近刚拎回一袋。500g拎着沉甸甸的，生制带硬壳，得自己动手去壳取仁，周末窝在沙发上边追剧边剥，壳碎声咔咔的还挺解压。剥出来的仁按需分装，早上拌酸奶或者煮粥时撒一把，厨房里随手就能取用。产地是新疆阿克苏，净含量500g，价格还没确认，等问清楚了再跟你们说。"
+      }
+    ],
+    "ok": true,
+    "text": "家里备料总想囤点耐放的，新疆阿克苏的带壳核桃我最近刚拎回一袋。500g拎着沉甸甸的，生制带硬壳，得自己动手去壳取仁，周末窝在沙发上边追剧边剥，壳碎声咔咔的还挺解压。剥出来的仁按需分装，早上拌酸奶或者煮粥时撒一把，厨房里随手就能取用。产地是新疆阿克苏，净含量500g，价格还没确认，等问清楚了再跟你们说。",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 2.1057,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "41b4d370a868d079bacd6cd9b379e06ce75ae39894e36af7e717517aa57cf0b1",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 116,
+          "prompt_tokens": 1148,
+          "total_tokens": 1264,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 252
+        },
+        "finish_reason": "stop",
+        "seconds": 2.1056
+      }
+    ]
+  },
+  {
+    "case_id": "E01",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "办公室下午饿了别硬扛，来袋河北遵化熟制板栗，100g独立袋装，12.8元，熟制带壳，放抽屉里随吃随拿。咬开是板栗自然的甘甜，粉粉糯糯，解馋又顶饱，工作间隙来几颗刚刚好。嘴馋的家人可以试试。#熟制板栗 #办公室零食 #遵化板栗 #打工人加餐",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "办公室下午饿了别硬扛，来袋河北遵化熟制板栗，100g独立袋装，12.8元，熟制带壳，放抽屉里随吃随拿。咬开是板栗自然的甘甜，粉粉糯糯，解馋又顶饱，工作间隙来几颗刚刚好。嘴馋的家人可以试试。#熟制板栗 #办公室零食 #遵化板栗 #打工人加餐",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.278,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "96a06c21b193fa1169eec63a815625fab7523452d03fd4339fcbb02447282ce6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 93,
+          "prompt_tokens": 1062,
+          "total_tokens": 1155,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1062
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3613
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "bf61968f73b0ebbfb1d58584e95ae525865173c7b93f7e7d2f8a664e95c8ad8f",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 195,
+          "total_tokens": 197,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 195
+        },
+        "finish_reason": "stop",
+        "seconds": 0.9165
+      }
+    ]
+  },
+  {
+    "case_id": "E14",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "带娃出门最怕零食不好拿，这次包里塞了几袋烤红薯干，福建连城来的，200g一袋刚刚好。撕开分着吃，软糯里带点嚼劲，孩子坐车不闹了，我也能安心看会儿风景。熟制即食，袋装不占地方，出游带着省心。"
+      }
+    ],
+    "ok": true,
+    "text": "带娃出门最怕零食不好拿，这次包里塞了几袋烤红薯干，福建连城来的，200g一袋刚刚好。撕开分着吃，软糯里带点嚼劲，孩子坐车不闹了，我也能安心看会儿风景。熟制即食，袋装不占地方，出游带着省心。",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3185,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "c336a313081c914141b88238f059523ef082496b695e3d60e9a65aefbf209d05",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 74,
+          "prompt_tokens": 412,
+          "total_tokens": 486,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 412
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3184
+      }
+    ]
+  },
+  {
+    "case_id": "E22",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "每天早上给家人冲一杯温水，挖一小勺百花蜂蜜搅开，淡淡的甜香就漫开了。这瓶来自湖北神农架的百花蜂蜜，250g一瓶29.8元，瓶装液态，冲饮很方便。我自己习惯在早餐桌上放一瓶，孩子喝温水时加一点，味道清甜不腻口，家里人都爱这个味道。神农架的山野气息仿佛就藏在这瓶蜜里，简单日常里多了一份自然的温柔。"
+      }
+    ],
+    "ok": true,
+    "text": "每天早上给家人冲一杯温水，挖一小勺百花蜂蜜搅开，淡淡的甜香就漫开了。这瓶来自湖北神农架的百花蜂蜜，250g一瓶29.8元，瓶装液态，冲饮很方便。我自己习惯在早餐桌上放一瓶，孩子喝温水时加一点，味道清甜不腻口，家里人都爱这个味道。神农架的山野气息仿佛就藏在这瓶蜜里，简单日常里多了一份自然的温柔。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "250g",
+        "price": "29.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4632,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f9beac18d93742afa50b0b0765e5e130e585e652ee6ae4a7be0828628bc9bcc5",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 1087,
+          "total_tokens": 1183,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 191
+        },
+        "finish_reason": "stop",
+        "seconds": 1.463
+      }
+    ]
+  },
+  {
+    "case_id": "E03",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点熟制板栗，追剧饿了来一袋。河北遵化产的熟制板栗，200g装12.8元，熟制带壳，独立袋装，剥着吃刚刚好。不用等外卖，嘴馋时随手拿一包，大人孩子都爱吃。想尝尝这口软糯的，赶紧下单吧！#板栗 #遵化板栗 #家庭零食 #农产品"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点熟制板栗，追剧饿了来一袋。河北遵化产的熟制板栗，200g装12.8元，熟制带壳，独立袋装，剥着吃刚刚好。不用等外卖，嘴馋时随手拿一包，大人孩子都爱吃。想尝尝这口软糯的，赶紧下单吧！#板栗 #遵化板栗 #家庭零食 #农产品",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "200g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4023,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "906c9b8d071033d8443a9e46ce0b498364240085204a6951e1d5f0af5e3bf9f5",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 88,
+          "prompt_tokens": 449,
+          "total_tokens": 537,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 193
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4022
+      }
+    ]
+  },
+  {
+    "case_id": "E13",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "带娃出门总要备点零食，试试福建连城的烤红薯干，200g袋装往包里一塞就走。熟制即食，撕开就能吃，不用洗不用削，孩子闹嘴时递一根刚刚好。15.8元一袋，全家分着吃也不心疼。红薯干软糯带点嚼劲，出游路上解馋又顶饱，比膨化零食踏实多了。趁周末出门，包里备上两袋，大人小孩都吃得开心。#烤红薯干 #出游零食 #家庭囤货"
+      }
+    ],
+    "ok": true,
+    "text": "带娃出门总要备点零食，试试福建连城的烤红薯干，200g袋装往包里一塞就走。熟制即食，撕开就能吃，不用洗不用削，孩子闹嘴时递一根刚刚好。15.8元一袋，全家分着吃也不心疼。红薯干软糯带点嚼劲，出游路上解馋又顶饱，比膨化零食踏实多了。趁周末出门，包里备上两袋，大人小孩都吃得开心。#烤红薯干 #出游零食 #家庭囤货",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.565,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "c55d287ab3b38bf23f7bf2d10bac3817d8c5d4b5d3fa353db9f307bd378cffd0",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 114,
+          "prompt_tokens": 425,
+          "total_tokens": 539,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 169
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5648
+      }
+    ]
+  },
+  {
+    "case_id": "E04",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "昨晚饭后切了一盘山东烟台红富士，孩子凑过来闻了闻说“妈妈这个苹果好香”。咬下去脆生生的，汁水清甜不腻，一家人围着茶几一会儿就吃了好几个。净含量1000g，26.8元，洗洗干净就能端上桌，当家里的日常水果刚刚好。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "昨晚饭后切了一盘山东烟台红富士，孩子凑过来闻了闻说“妈妈这个苹果好香”。咬下去脆生生的，汁水清甜不腻，一家人围着茶几一会儿就吃了好几个。净含量1000g，26.8元，洗洗干净就能端上桌，当家里的日常水果刚刚好。",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g",
+        "price": "26.8元"
+      },
+      "missing": [
+        "product"
+      ],
+      "covered": 3,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": false
+    },
+    "final_qa_pass": true,
+    "seconds": 2.0368,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f79025797edbc43ee1d105800ba6eaf88d33ede02ee54a2831fd14a1e2cdf96d",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 69,
+          "prompt_tokens": 978,
+          "total_tokens": 1047,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 978
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3179
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "811829fdd9507583e72d47090a4620d3ec55e10c144cd281f7944936eae453a4",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 170,
+          "total_tokens": 172,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 170
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7187
+      }
+    ]
+  },
+  {
+    "case_id": "E18",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的散装大米快见底了，这次特意换了黑龙江佳木斯来的。2000g一袋，11.8元，拆开袋子米粒清清爽爽的，看着就踏实。晚上煮了一锅，生米在锅里翻滚的时候，厨房飘着淡淡的米香，孩子跑过来问“妈妈今天饭好香呀”。盛出来粒粒分明，配个家常小炒，一家人围桌吃完，碗底干干净净。不是什么贵重东西，就是日常灶台上那口热乎饭，佳木斯的黑土地长出来的米，煮着省心，吃着顺口。"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的散装大米快见底了，这次特意换了黑龙江佳木斯来的。2000g一袋，11.8元，拆开袋子米粒清清爽爽的，看着就踏实。晚上煮了一锅，生米在锅里翻滚的时候，厨房飘着淡淡的米香，孩子跑过来问“妈妈今天饭好香呀”。盛出来粒粒分明，配个家常小炒，一家人围桌吃完，碗底干干净净。不是什么贵重东西，就是日常灶台上那口热乎饭，佳木斯的黑土地长出来的米，煮着省心，吃着顺口。",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "2000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4802,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "3d314d9bca8a3070e3ed90de26fe68b897476241aea2e57cc3fe741bfc6d1084",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 129,
+          "prompt_tokens": 1019,
+          "total_tokens": 1148,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 251
+        },
+        "finish_reason": "stop",
+        "seconds": 1.48
+      }
+    ]
+  },
+  {
+    "case_id": "E27",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点核桃，煮粥打浆都用得上！新疆阿克苏带壳核桃，1000g才22.8元，生制带硬壳，去壳取仁后按需加工，平时做点心、拌酸奶都方便。果仁饱满，吃着踏实。趁现在给家里备一袋，日常做饭随手就能用～ #新疆阿克苏核桃 #带壳核桃 #家庭囤货 #日常食材"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点核桃，煮粥打浆都用得上！新疆阿克苏带壳核桃，1000g才22.8元，生制带硬壳，去壳取仁后按需加工，平时做点心、拌酸奶都方便。果仁饱满，吃着踏实。趁现在给家里备一袋，日常做饭随手就能用～ #新疆阿克苏核桃 #带壳核桃 #家庭囤货 #日常食材",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "1000g",
+        "price": "22.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.348,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "87c7ea99db708f85ff39bbeb9f7f312370ea23b01e27caf6301fc9057c60eed3",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 89,
+          "prompt_tokens": 1059,
+          "total_tokens": 1148,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 163
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3478
+      }
+    ]
+  },
+  {
+    "case_id": "E29",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里水果盘又空啦？江西赣州脐橙来咯，整整1500g鲜果，全家围桌剥着吃刚刚好～果皮记得洗洗再剥，橙香清爽，饭后切一盘，孩子大人都爱。价格还没确认，想吃的先来问问，别让果盘空着呀！#脐橙 #江西赣州 #家庭水果 #应季鲜果"
+      }
+    ],
+    "ok": true,
+    "text": "家里水果盘又空啦？江西赣州脐橙来咯，整整1500g鲜果，全家围桌剥着吃刚刚好～果皮记得洗洗再剥，橙香清爽，饭后切一盘，孩子大人都爱。价格还没确认，想吃的先来问问，别让果盘空着呀！#脐橙 #江西赣州 #家庭水果 #应季鲜果",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "1500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4351,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "80fa190afffa632aed7aa5d6fba8b5b29653ffa4c733db6c1d33647dc274ac71",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 84,
+          "prompt_tokens": 729,
+          "total_tokens": 813,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 512
+          },
+          "prompt_cache_hit_tokens": 512,
+          "prompt_cache_miss_tokens": 217
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4349
+      }
+    ]
+  },
+  {
+    "case_id": "E15",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点烤红薯干，福建连城来的，400g一袋15.8元，熟制袋装，打开就能吃。平时追剧、孩子放学垫垫肚子都合适。别错过这口软糯香甜，点下方带回家尝尝！ #烤红薯干 #福建连城 #家庭零食 #囤货推荐"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点烤红薯干，福建连城来的，400g一袋15.8元，熟制袋装，打开就能吃。平时追剧、孩子放学垫垫肚子都合适。别错过这口软糯香甜，点下方带回家尝尝！ #烤红薯干 #福建连城 #家庭零食 #囤货推荐",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "400g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.2079,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0319e980f325e9edd3a85a4d0d23abd2129ad3e843721e255d0a478b85bbd2dc",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 71,
+          "prompt_tokens": 444,
+          "total_tokens": 515,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 188
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2078
+      }
+    ]
+  },
+  {
+    "case_id": "E19",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备餐不知道加啥？试试吉林四平来的鲜玉米，500g只要8.8元。生鲜到家，上锅蒸煮加热后再吃，玉米香软糯清甜，端上桌大人小孩都爱啃。日常配菜加一根，省心又实在，趁新鲜给家里囤一点吧！#鲜玉米 #家庭备餐 #东北农产品"
+      }
+    ],
+    "ok": true,
+    "text": "家里备餐不知道加啥？试试吉林四平来的鲜玉米，500g只要8.8元。生鲜到家，上锅蒸煮加热后再吃，玉米香软糯清甜，端上桌大人小孩都爱啃。日常配菜加一根，省心又实在，趁新鲜给家里囤一点吧！#鲜玉米 #家庭备餐 #东北农产品",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g",
+        "price": "8.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4651,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "69b7f70e16401e4d61c4070021234f1e5f0bc4e5bae625e835b66c775466ad82",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 1125,
+          "total_tokens": 1204,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1125
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4649
+      }
+    ]
+  },
+  {
+    "case_id": "E12",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班顺路买了500g鲜香菇，湖北随州来的，9.8元。回家洗净切片，跟青菜一起炒，满厨房都是菌菇的香气。孩子闻着味跑过来问什么时候开饭，那一刻觉得日常采购的小确幸就是这么简单。鲜菇记得一定要烹熟再吃哦，家常小炒里添一把，鲜灵灵的很下饭。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "下班顺路买了500g鲜香菇，湖北随州来的，9.8元。回家洗净切片，跟青菜一起炒，满厨房都是菌菇的香气。孩子闻着味跑过来问什么时候开饭，那一刻觉得日常采购的小确幸就是这么简单。鲜菇记得一定要烹熟再吃哦，家常小炒里添一把，鲜灵灵的很下饭。",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "500g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2563,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "3e991f25576cd3d32c26f98f534b0ccfce058f0218c3f1ee80062d1671fa6b88",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 81,
+          "prompt_tokens": 1014,
+          "total_tokens": 1095,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 384
+          },
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 630
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4208
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "3403c4a566ea00554985a922f36b299cc372dc3549a749c5d03f8aceafda7089",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 182,
+          "total_tokens": 184,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 182
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8353
+      }
+    ]
+  },
+  {
+    "case_id": "E21",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家人们，吉林四平的鲜玉米来了！净含量1000g，只要8.8元，生的啊，拿回家上锅蒸一蒸或者煮一煮，满屋都是玉米香。早上给娃煮一根，软软糯糯，一家人早餐就搞定啦。日常囤货不心疼，趁现在给餐桌添点粗粮，赶紧安排上！#鲜玉米 #家庭囤货 #东北农产品 #日常采购"
+      }
+    ],
+    "ok": true,
+    "text": "家人们，吉林四平的鲜玉米来了！净含量1000g，只要8.8元，生的啊，拿回家上锅蒸一蒸或者煮一煮，满屋都是玉米香。早上给娃煮一根，软软糯糯，一家人早餐就搞定啦。日常囤货不心疼，趁现在给餐桌添点粗粮，赶紧安排上！#鲜玉米 #家庭囤货 #东北农产品 #日常采购",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "1000g",
+        "price": "8.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5051,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0032412a5aa3711ded79edca211ca4167f4774063d171a1e1c82bdbfa4d77ddc",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 91,
+          "prompt_tokens": 1029,
+          "total_tokens": 1120,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 895
+          },
+          "prompt_cache_hit_tokens": 895,
+          "prompt_cache_miss_tokens": 134
+        },
+        "finish_reason": "stop",
+        "seconds": 1.505
+      }
+    ]
+  },
+  {
+    "case_id": "E01",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下午三点办公室嘴巴寂寞？来袋河北遵化熟制板栗🌰熟制带壳，独立袋装，100g随手塞抽屉，12.8元一袋，拆开就能吃，粉粉糯糯带点甘甜，剥着吃还挺解压～工作再忙，也给自己加个餐吧！#办公室零食 #板栗 #打工人加餐 #遵化板栗"
+      }
+    ],
+    "ok": true,
+    "text": "下午三点办公室嘴巴寂寞？来袋河北遵化熟制板栗🌰熟制带壳，独立袋装，100g随手塞抽屉，12.8元一袋，拆开就能吃，粉粉糯糯带点甘甜，剥着吃还挺解压～工作再忙，也给自己加个餐吧！#办公室零食 #板栗 #打工人加餐 #遵化板栗",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4013,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "96a06c21b193fa1169eec63a815625fab7523452d03fd4339fcbb02447282ce6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 86,
+          "prompt_tokens": 1062,
+          "total_tokens": 1148,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 166
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4012
+      }
+    ]
+  },
+  {
+    "case_id": "E08",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "午后阳光斜照进厨房，烧一壶水，取一小撮散装干茶放进玻璃杯里。看着叶片在热水里慢慢舒展开，茶汤渐渐染上清透的绿，整个屋子都安静下来了。这罐浙江绍兴的龙井绿茶，100g 的分量刚好够家里喝上一阵子，每天泡一杯，配着点心或闲坐发呆都合适。散装干茶需要自己冲泡，但正是这个过程让人心里踏实。"
+      }
+    ],
+    "ok": true,
+    "text": "午后阳光斜照进厨房，烧一壶水，取一小撮散装干茶放进玻璃杯里。看着叶片在热水里慢慢舒展开，茶汤渐渐染上清透的绿，整个屋子都安静下来了。这罐浙江绍兴的龙井绿茶，100g 的分量刚好够家里喝上一阵子，每天泡一杯，配着点心或闲坐发呆都合适。散装干茶需要自己冲泡，但正是这个过程让人心里踏实。",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5885,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0934649bf9708963a5e87e0935e0cd845978091e1bf164d92246a4366ba428e9",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 100,
+          "prompt_tokens": 411,
+          "total_tokens": 511,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 155
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5884
+      }
+    ]
+  },
+  {
+    "case_id": "E19",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备餐不知道加啥菜？试试吉林四平来的鲜玉米，500g装，8.8元，生鲜到家。记得要加热后再吃哦，蒸煮都行，给家人添道粗粮小菜刚刚好。新鲜实在，做饭省心～ #鲜玉米 #家庭备餐 #吉林四平"
+      }
+    ],
+    "ok": true,
+    "text": "家里备餐不知道加啥菜？试试吉林四平来的鲜玉米，500g装，8.8元，生鲜到家。记得要加热后再吃哦，蒸煮都行，给家人添道粗粮小菜刚刚好。新鲜实在，做饭省心～ #鲜玉米 #家庭备餐 #吉林四平",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g",
+        "price": "8.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.0154,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "4c880556ca372ef46afbcdd58a201a210c66c0c92e4aebe03b0740d3be42436b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 70,
+          "prompt_tokens": 423,
+          "total_tokens": 493,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 167
+        },
+        "finish_reason": "stop",
+        "seconds": 1.0153
+      }
+    ]
+  },
+  {
+    "case_id": "E20",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班回家路过菜场，顺手拎了袋吉林四平的鲜玉米，500g刚好够一家人吃一顿。到家剥开外皮，玉米粒整整齐齐码在穗上，看着就踏实。上锅蒸十来分钟，厨房里飘起淡淡的玉米香，孩子闻着味儿就跑过来了。端上桌，一家人围着啃，软糯里带着清甜，不抢菜的味道，就是家常饭里那个让人安心的配角。这是生鲜玉米，得加热透了再吃，别图省事。产地是吉林四平，净含量500g，价格还没定，等农户那边确认了再说。家里备餐想添个粗粮的，可以留意着。"
+      }
+    ],
+    "ok": true,
+    "text": "下班回家路过菜场，顺手拎了袋吉林四平的鲜玉米，500g刚好够一家人吃一顿。到家剥开外皮，玉米粒整整齐齐码在穗上，看着就踏实。上锅蒸十来分钟，厨房里飘起淡淡的玉米香，孩子闻着味儿就跑过来了。端上桌，一家人围着啃，软糯里带着清甜，不抢菜的味道，就是家常饭里那个让人安心的配角。这是生鲜玉米，得加热透了再吃，别图省事。产地是吉林四平，净含量500g，价格还没定，等农户那边确认了再说。家里备餐想添个粗粮的，可以留意着。",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7788,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "8030faba5a5a9ec4a60d7ac76d033bcfe60812c6285b7c6106bc9a5134b7a7c6",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 147,
+          "prompt_tokens": 1112,
+          "total_tokens": 1259,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 216
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7787
+      }
+    ]
+  },
+  {
+    "case_id": "E18",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里常备的这袋散装大米，是黑龙江佳木斯来的，2000g拎着刚刚好。每天下班回家，电饭煲咕嘟咕嘟冒着热气，米香慢慢飘满厨房，心里也跟着踏实下来。11.8元一袋，生米得煮熟再吃，煮出来粒粒分明，配个家常小炒就是舒服的一餐。普通家庭日常采购，图的就是这份实在和安心。"
+      }
+    ],
+    "ok": true,
+    "text": "家里常备的这袋散装大米，是黑龙江佳木斯来的，2000g拎着刚刚好。每天下班回家，电饭煲咕嘟咕嘟冒着热气，米香慢慢飘满厨房，心里也跟着踏实下来。11.8元一袋，生米得煮熟再吃，煮出来粒粒分明，配个家常小炒就是舒服的一餐。普通家庭日常采购，图的就是这份实在和安心。",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "2000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.1912,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "0bd1d21f3921c3f831d506fabf134fbaa287a159ef7c0377d73dba5511710448",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 93,
+          "prompt_tokens": 433,
+          "total_tokens": 526,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 177
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1911
+      }
+    ]
+  },
+  {
+    "case_id": "E08",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "周末在家收拾完厨房，烧一壶水，顺手泡了杯龙井绿茶🍵。散装干茶倒出来条索匀整，热水一冲，豆香慢慢飘出来，整个客厅都暖了。这袋100g正好放办公室或家里慢慢喝，产自浙江绍兴，日常口粮茶不心疼。入口清爽，回甘淡淡的，配早饭或下午发呆都合适。价格还没定，但农户自家炒的茶，喝的就是这份踏实。喜欢绿茶的朋友可以留意下～",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "周末在家收拾完厨房，烧一壶水，顺手泡了杯龙井绿茶🍵。散装干茶倒出来条索匀整，热水一冲，豆香慢慢飘出来，整个客厅都暖了。这袋100g正好放办公室或家里慢慢喝，产自浙江绍兴，日常口粮茶不心疼。入口清爽，回甘淡淡的，配早饭或下午发呆都合适。价格还没定，但农户自家炒的茶，喝的就是这份踏实。喜欢绿茶的朋友可以留意下～",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2367,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "d9e90ccb1469ace8053bd5bbeaba9f3cc176bf2733432b81bea0b76671114428",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 110,
+          "prompt_tokens": 1173,
+          "total_tokens": 1283,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 1024
+          },
+          "prompt_cache_hit_tokens": 1024,
+          "prompt_cache_miss_tokens": 149
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7475
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "8e5df349111b7cce14677bf811c3a9520134061273a7fc1c359228081fe433ce",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 211,
+          "total_tokens": 213,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 211
+        },
+        "finish_reason": "stop",
+        "seconds": 0.4889
+      }
+    ]
+  },
+  {
+    "case_id": "E24",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的这瓶百花蜂蜜快见底了，来自湖北神农架，500g一瓶才29.8元。早上给娃抹馒头、下午自己泡杯温水，淡淡的花香不齁甜，全家都爱这个味儿。玻璃瓶装拿在手里挺实在，舀一勺能拉出细丝，液态的拌酸奶也方便。日常采购碰上这么一瓶，感觉厨房里多了点山里的清甜气，喝完再囤两瓶慢慢吃。"
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的这瓶百花蜂蜜快见底了，来自湖北神农架，500g一瓶才29.8元。早上给娃抹馒头、下午自己泡杯温水，淡淡的花香不齁甜，全家都爱这个味儿。玻璃瓶装拿在手里挺实在，舀一勺能拉出细丝，液态的拌酸奶也方便。日常采购碰上这么一瓶，感觉厨房里多了点山里的清甜气，喝完再囤两瓶慢慢吃。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "500g",
+        "price": "29.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4634,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "64bb99199bc9e8e195e9803532a244e492e103944d74d5be2fd11f11232d680b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 103,
+          "prompt_tokens": 1022,
+          "total_tokens": 1125,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1022
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4633
+      }
+    ]
+  },
+  {
+    "case_id": "E20",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班回家顺手煮上两根鲜玉米，厨房里慢慢飘出清甜的香气，孩子闻到就凑过来问好了没。这款鲜玉米来自吉林四平，500g装，生鲜到家需要加热后再吃，煮或蒸都行。晚饭桌上多一盘热腾腾的玉米，一家人分着吃，简单也踏实。"
+      }
+    ],
+    "ok": true,
+    "text": "下班回家顺手煮上两根鲜玉米，厨房里慢慢飘出清甜的香气，孩子闻到就凑过来问好了没。这款鲜玉米来自吉林四平，500g装，生鲜到家需要加热后再吃，煮或蒸都行。晚饭桌上多一盘热腾腾的玉米，一家人分着吃，简单也踏实。",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.1647,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "d5ba89ac74e132cf55618b3d0774d181b4a6d13a844e073b0c9ac4021bd3e529",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 71,
+          "prompt_tokens": 410,
+          "total_tokens": 481,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 154
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1646
+      }
+    ]
+  },
+  {
+    "case_id": "E10",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班回家不知道吃什么的时候，我总会从冰箱摸出这袋湖北随州的鲜香菇。250g刚好一顿的量，9.8元一袋，对做饭的家庭来说很实在。拆开袋子能闻到淡淡的菌香，菇肉厚实，洗一洗切片，跟青菜一起下锅炒，或者丢进汤里煮，厨房里慢慢飘出鲜味，整个人也跟着放松下来。需要提醒的是，这是鲜菇，一定要烹熟再吃哦。一袋家常的鲜香菇，不张扬，却能让一顿饭多几分踏实的烟火气。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "下班回家不知道吃什么的时候，我总会从冰箱摸出这袋湖北随州的鲜香菇。250g刚好一顿的量，9.8元一袋，对做饭的家庭来说很实在。拆开袋子能闻到淡淡的菌香，菇肉厚实，洗一洗切片，跟青菜一起下锅炒，或者丢进汤里煮，厨房里慢慢飘出鲜味，整个人也跟着放松下来。需要提醒的是，这是鲜菇，一定要烹熟再吃哦。一袋家常的鲜香菇，不张扬，却能让一顿饭多几分踏实的烟火气。",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.4531,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "7cb37135978515affee8f16e3accfecfd774de6465b4bf9c0058dca459b0d48a",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 122,
+          "prompt_tokens": 1152,
+          "total_tokens": 1274,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 256
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7885
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "ed40e38d3796f90761571865d88bfd2876125367613037f7050fe4e5099cff04",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 223,
+          "total_tokens": 225,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 223
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6644
+      }
+    ]
+  },
+  {
+    "case_id": "E11",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里做饭想提鲜，抓一把鲜香菇就对了。湖北随州来的鲜香菇，250g一袋，菇肉厚实，炒菜炖汤都香得很。记得一定要烹熟再吃哈，鲜菇不能生吃。给家人做饭，食材新鲜比啥都强，这袋香菇值得试试～ #鲜香菇 #湖北随州 #家庭做饭 #新鲜食材",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里做饭想提鲜，抓一把鲜香菇就对了。湖北随州来的鲜香菇，250g一袋，菇肉厚实，炒菜炖汤都香得很。记得一定要烹熟再吃哈，鲜菇不能生吃。给家人做饭，食材新鲜比啥都强，这袋香菇值得试试～ #鲜香菇 #湖北随州 #家庭做饭 #新鲜食材",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2435,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f02ae9b65b154ede97dce3aba740cdb364cd917a4d2314f8c5dd88c10e6f9a2d",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 82,
+          "prompt_tokens": 1161,
+          "total_tokens": 1243,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 1024
+          },
+          "prompt_cache_hit_tokens": 1024,
+          "prompt_cache_miss_tokens": 137
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5227
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "c15cccd74dca086d37715c1de3f859c1d5e45c387f3b72a4c57390fef274b1b4",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 184,
+          "total_tokens": 186,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 184
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7206
+      }
+    ]
+  },
+  {
+    "case_id": "E17",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里煮饭，米选对了，一锅白饭都能多吃两碗。黑龙江佳木斯散装大米，1000g装，生米得煮熟，煮出来米粒饱满，饭香实在。不用整袋扛回家，先来一小份试试锅，合适再囤。家常主食天天见，选对米，全家吃得香。#东北大米 #佳木斯大米 #家庭主食 #散装大米"
+      }
+    ],
+    "ok": true,
+    "text": "家里煮饭，米选对了，一锅白饭都能多吃两碗。黑龙江佳木斯散装大米，1000g装，生米得煮熟，煮出来米粒饱满，饭香实在。不用整袋扛回家，先来一小份试试锅，合适再囤。家常主食天天见，选对米，全家吃得香。#东北大米 #佳木斯大米 #家庭主食 #散装大米",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3334,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f4a6b1b651c2d473f4f5622e73d893eecff1db682f6d1d62ae78843231e01b84",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 89,
+          "prompt_tokens": 1093,
+          "total_tokens": 1182,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 197
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3332
+      }
+    ]
+  },
+  {
+    "case_id": "E04",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "昨天饭后洗了一盘红富士苹果，端上桌全家都伸手拿。咬一口脆生生的，清甜汁水在嘴里漫开，是那种很朴实的苹果香。这苹果来自山东烟台，1000g一袋，26.8元，洗干净就能直接吃。不用切不用摆盘，往果盘里一放，追剧时拿一个、孩子放学回来啃一个，就是家里最顺手的那口新鲜。"
+      }
+    ],
+    "ok": true,
+    "text": "昨天饭后洗了一盘红富士苹果，端上桌全家都伸手拿。咬一口脆生生的，清甜汁水在嘴里漫开，是那种很朴实的苹果香。这苹果来自山东烟台，1000g一袋，26.8元，洗干净就能直接吃。不用切不用摆盘，往果盘里一放，追剧时拿一个、孩子放学回来啃一个，就是家里最顺手的那口新鲜。",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g",
+        "price": "26.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.4124,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f79025797edbc43ee1d105800ba6eaf88d33ede02ee54a2831fd14a1e2cdf96d",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 94,
+          "prompt_tokens": 978,
+          "total_tokens": 1072,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 210
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4123
+      }
+    ]
+  },
+  {
+    "case_id": "E04",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "接孩子放学回家，小家伙嚷着要吃水果，我从厨房端出刚洗好的红富士苹果。1000g山东烟台红富士，26.8元，果皮红润，咬一口清脆多汁，甜得刚刚好。全家人围坐一起，边吃边聊今天的小事，这份日常的甜很踏实。鲜果食用前记得清洗干净，给家人吃的东西，产地实在才放心。"
+      }
+    ],
+    "ok": true,
+    "text": "接孩子放学回家，小家伙嚷着要吃水果，我从厨房端出刚洗好的红富士苹果。1000g山东烟台红富士，26.8元，果皮红润，咬一口清脆多汁，甜得刚刚好。全家人围坐一起，边吃边聊今天的小事，这份日常的甜很踏实。鲜果食用前记得清洗干净，给家人吃的东西，产地实在才放心。",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g",
+        "price": "26.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5716,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "aa9ff4d2c94c130149bba389b1332ae86c2e74baa3669e43280a52974ce624e5",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 90,
+          "prompt_tokens": 412,
+          "total_tokens": 502,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 156
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5715
+      }
+    ]
+  },
+  {
+    "case_id": "E14",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "带娃出门最怕零食不好带，这次包里塞了几袋烤红薯干，没想到成了路上最受欢迎的小零嘴。福建连城来的，200g一袋，熟制即食，撕开就能吃，不用洗不用剥，手也不黏。咬下去软软糯糯，红薯本身的清甜慢慢嚼出来，孩子吃得开心，大人也放心。坐在路边歇脚时，一家人分着吃，甜滋滋的味道混着出游的好心情，简单又踏实。"
+      }
+    ],
+    "ok": true,
+    "text": "带娃出门最怕零食不好带，这次包里塞了几袋烤红薯干，没想到成了路上最受欢迎的小零嘴。福建连城来的，200g一袋，熟制即食，撕开就能吃，不用洗不用剥，手也不黏。咬下去软软糯糯，红薯本身的清甜慢慢嚼出来，孩子吃得开心，大人也放心。坐在路边歇脚时，一家人分着吃，甜滋滋的味道混着出游的好心情，简单又踏实。",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 2.0373,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "ecb1952ca6664622827a7bbcf0a4749a25f3e626ecf60d3bb7e0cc715c840a01",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 103,
+          "prompt_tokens": 1021,
+          "total_tokens": 1124,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 384
+          },
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 637
+        },
+        "finish_reason": "stop",
+        "seconds": 2.0372
+      }
+    ]
+  },
+  {
+    "case_id": "E24",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤的这瓶百花蜂蜜快见底了，500g一瓶，湖北神农架来的。早上给娃冲杯蜂蜜水，自己抹片吐司，淡淡花香不齁甜，全家都爱这个味。29.8元一瓶，日常吃着不心疼，喝完再添。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤的这瓶百花蜂蜜快见底了，500g一瓶，湖北神农架来的。早上给娃冲杯蜂蜜水，自己抹片吐司，淡淡花香不齁甜，全家都爱这个味。29.8元一瓶，日常吃着不心疼，喝完再添。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "500g",
+        "price": "29.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.3648,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "64bb99199bc9e8e195e9803532a244e492e103944d74d5be2fd11f11232d680b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 1022,
+          "total_tokens": 1085,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 254
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2528
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "7670d3d09ca59e69b10e4bc201bc56d2a031b99976e9caf2944ec52c029d5182",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 164,
+          "total_tokens": 166,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 164
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1118
+      }
+    ]
+  },
+  {
+    "case_id": "E28",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "剥开一个江西赣州脐橙，满手都是清新的橙香。1500g鲜果装，32.8元，够家里吃上好几天。果肉饱满，汁水丰盈，咬下去酸甜刚好，孩子放学回来就惦记着剥一个。晚饭后切一盘，一家人围坐分享，清甜的滋味让平常日子也多了几分满足。鲜果需清洗剥皮，趁新鲜尝尝这份来自赣州的自然味道。"
+      }
+    ],
+    "ok": true,
+    "text": "剥开一个江西赣州脐橙，满手都是清新的橙香。1500g鲜果装，32.8元，够家里吃上好几天。果肉饱满，汁水丰盈，咬下去酸甜刚好，孩子放学回来就惦记着剥一个。晚饭后切一盘，一家人围坐分享，清甜的滋味让平常日子也多了几分满足。鲜果需清洗剥皮，趁新鲜尝尝这份来自赣州的自然味道。",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "1500g",
+        "price": "32.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.177,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "270958e07f2d56b6987dbf869f27b1fb4aaf04d3a5f211ca40932cc98eaee6d3",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 95,
+          "prompt_tokens": 720,
+          "total_tokens": 815,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 384
+          },
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 336
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1769
+      }
+    ]
+  },
+  {
+    "case_id": "E19",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里备餐不知道加啥？吉林四平鲜玉米来啦！500g只要8.8元，生鲜到家，上锅一蒸满屋飘香，煮汤加一根也清甜。大人孩子都爱吃，简单加热就能端上桌。家常饭添个新鲜味，趁现在给餐桌加份香甜！#鲜玉米 #家庭备餐 #东北好物",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里备餐不知道加啥？吉林四平鲜玉米来啦！500g只要8.8元，生鲜到家，上锅一蒸满屋飘香，煮汤加一根也清甜。大人孩子都爱吃，简单加热就能端上桌。家常饭添个新鲜味，趁现在给餐桌加份香甜！#鲜玉米 #家庭备餐 #东北好物",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g",
+        "price": "8.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.2341,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "69b7f70e16401e4d61c4070021234f1e5f0bc4e5bae625e835b66c775466ad82",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 81,
+          "prompt_tokens": 1125,
+          "total_tokens": 1206,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 229
+        },
+        "finish_reason": "stop",
+        "seconds": 1.4548
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "a3c74fef502efd7cccc61dfdf13b4934dcb79b52832440c4ee13d70e71ca335c",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 183,
+          "total_tokens": 185,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 183
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7791
+      }
+    ]
+  },
+  {
+    "case_id": "E28",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "周末在家切一盘脐橙，满屋子都是清新的橙香。江西赣州来的脐橙，1500g一箱32.8元，鲜果到手先清洗再剥皮，果肉一瓣瓣分好，孩子吃得开心，大人也顺手。饭后摆上桌，一家人边聊边吃，甜甜的汁水在嘴里化开，日子也跟着温柔起来。家里常备一箱，想吃就洗一个，简单又踏实。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "周末在家切一盘脐橙，满屋子都是清新的橙香。江西赣州来的脐橙，1500g一箱32.8元，鲜果到手先清洗再剥皮，果肉一瓣瓣分好，孩子吃得开心，大人也顺手。饭后摆上桌，一家人边聊边吃，甜甜的汁水在嘴里化开，日子也跟着温柔起来。家里常备一箱，想吃就洗一个，简单又踏实。",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "1500g",
+        "price": "32.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.6087,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "270958e07f2d56b6987dbf869f27b1fb4aaf04d3a5f211ca40932cc98eaee6d3",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 720,
+          "total_tokens": 816,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 512
+          },
+          "prompt_cache_hit_tokens": 512,
+          "prompt_cache_miss_tokens": 208
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5435
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "d6955f6ee8464bf53b50fd6551f16faecb48896c1e948e7345972a69b2b986e9",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 197,
+          "total_tokens": 199,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 197
+        },
+        "finish_reason": "stop",
+        "seconds": 1.065
+      }
+    ]
+  },
+  {
+    "case_id": "E29",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里水果盘空了没？江西赣州脐橙来了，1500g鲜果，洗净剥皮就能吃，果香清新，饭后切一盘全家都爱。产地江西赣州，品质看得见。价格还没定，先点关注，上架第一时间告诉你～ #脐橙 #江西赣州 #家庭水果 #应季鲜果"
+      }
+    ],
+    "ok": true,
+    "text": "家里水果盘空了没？江西赣州脐橙来了，1500g鲜果，洗净剥皮就能吃，果香清新，饭后切一盘全家都爱。产地江西赣州，品质看得见。价格还没定，先点关注，上架第一时间告诉你～ #脐橙 #江西赣州 #家庭水果 #应季鲜果",
+    "field_check": {
+      "required": {
+        "product": "脐橙",
+        "origin": "江西赣州",
+        "weight": "1500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.5001,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "c4e978f70c61b84c6ee29c71aa7eadea4e9456b9b000027ce97c86f896fa2975",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 73,
+          "prompt_tokens": 422,
+          "total_tokens": 495,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 166
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5
+      }
+    ]
+  },
+  {
+    "case_id": "E01",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下午办公室嘴馋，来一袋河北遵化的熟制板栗，100g独立袋装，熟制带壳，剥开就能吃，12.8元一袋，放抽屉里当加餐刚刚好。想吃就点下方，安排上！ #熟制板栗 #办公室零食 #遵化板栗"
+      }
+    ],
+    "ok": true,
+    "text": "下午办公室嘴馋，来一袋河北遵化的熟制板栗，100g独立袋装，熟制带壳，剥开就能吃，12.8元一袋，放抽屉里当加餐刚刚好。想吃就点下方，安排上！ #熟制板栗 #办公室零食 #遵化板栗",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3165,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "a8645a85e4a66b2d5cedd90f4b6291ddce5ede5971ffd1b4dc0ccfb06c4b4754",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 69,
+          "prompt_tokens": 431,
+          "total_tokens": 500,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 175
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3164
+      }
+    ]
+  },
+  {
+    "case_id": "E06",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "昨天去菜场拎回一袋山东烟台的红富士苹果，2000g沉甸甸的，26.8元，够家里吃上好几天。晚饭后洗了一个，切开时咔嚓一声脆响，果肉紧实，清甜的果香散开来。孩子凑过来咬一口，说比之前买的都脆。不用挑不用等，日常采购里的小满足。鲜果食用前清洗就好，一家人分着吃，踏实又舒心。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "昨天去菜场拎回一袋山东烟台的红富士苹果，2000g沉甸甸的，26.8元，够家里吃上好几天。晚饭后洗了一个，切开时咔嚓一声脆响，果肉紧实，清甜的果香散开来。孩子凑过来咬一口，说比之前买的都脆。不用挑不用等，日常采购里的小满足。鲜果食用前清洗就好，一家人分着吃，踏实又舒心。",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "2000g",
+        "price": "26.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.7396,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "ea95cdd27645aa4bb5ed3b25dfc3cec6e6c213315c372cf43c3e16a34237be62",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 98,
+          "prompt_tokens": 1028,
+          "total_tokens": 1126,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 894
+          },
+          "prompt_cache_hit_tokens": 894,
+          "prompt_cache_miss_tokens": 134
+        },
+        "finish_reason": "stop",
+        "seconds": 1.6793
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "7f30fc8350a2dd29ec5d214d82bcb528f9d32473bb511abef34db2e00ddb4482",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 199,
+          "total_tokens": 201,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 199
+        },
+        "finish_reason": "stop",
+        "seconds": 1.0602
+      }
+    ]
+  },
+  {
+    "case_id": "E15",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里囤点啥小零嘴？福建连城的烤红薯干了解下～400g一大袋15.8元，熟制袋装，撕开就能嚼，软糯有嚼劲，红薯香很浓。追剧、上班饿了来两根，老人小孩都爱吃。日常采购顺手带一袋，实惠又省事。#烤红薯干 #福建连城 #家庭零食 #日常囤货",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "家里囤点啥小零嘴？福建连城的烤红薯干了解下～400g一大袋15.8元，熟制袋装，撕开就能嚼，软糯有嚼劲，红薯香很浓。追剧、上班饿了来两根，老人小孩都爱吃。日常采购顺手带一袋，实惠又省事。#烤红薯干 #福建连城 #家庭零食 #日常囤货",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "400g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 1.9793,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "cd4d7214dd1314e0ceb85f9e1ce3640e4a33ba651ee41de4636f6aa412561a7a",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 86,
+          "prompt_tokens": 945,
+          "total_tokens": 1031,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 177
+        },
+        "finish_reason": "stop",
+        "seconds": 1.2989
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "5ab1eb347a4a22d4a93bf17d4c1734486d116fa035f111462cd85ba0adbd475b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 188,
+          "total_tokens": 190,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 188
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6802
+      }
+    ]
+  },
+  {
+    "case_id": "E02",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下午三点办公室加餐，拆一袋熟制板栗。河北遵化来的，100g独立袋装，带壳熟制，剥起来不费劲，配着热茶慢慢吃，工作间隙也有点小满足。"
+      }
+    ],
+    "ok": true,
+    "text": "下午三点办公室加餐，拆一袋熟制板栗。河北遵化来的，100g独立袋装，带壳熟制，剥起来不费劲，配着热茶慢慢吃，工作间隙也有点小满足。",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.0366,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "342e4e5f96f7d94e501406c0ba3b857dbbd096a4afb3b3adf51bebb8c10facdf",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 50,
+          "prompt_tokens": 418,
+          "total_tokens": 468,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 162
+        },
+        "finish_reason": "stop",
+        "seconds": 1.0364
+      }
+    ]
+  },
+  {
+    "case_id": "E12",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班顺路拎回一袋鲜香菇，500g沉甸甸的，9.8元，够炒两盘菜。湖北随州来的，菌盖厚实，摸着干爽，没有水汽沤着的味道。回家切片，热锅少油，蒜末爆香，香菇倒进去滋啦一声，慢慢变软出汁，满厨房都是菌子特有的鲜气。孩子扒着厨房门问今天吃什么，我说香菇炒肉，他眼睛立马亮了。记得一定要烹熟再吃，生鲜菇不能直接下嘴。这样一袋家常的鲜香菇，不声不响，就把一顿晚饭熨帖得舒舒服服。"
+      }
+    ],
+    "ok": true,
+    "text": "下班顺路拎回一袋鲜香菇，500g沉甸甸的，9.8元，够炒两盘菜。湖北随州来的，菌盖厚实，摸着干爽，没有水汽沤着的味道。回家切片，热锅少油，蒜末爆香，香菇倒进去滋啦一声，慢慢变软出汁，满厨房都是菌子特有的鲜气。孩子扒着厨房门问今天吃什么，我说香菇炒肉，他眼睛立马亮了。记得一定要烹熟再吃，生鲜菇不能直接下嘴。这样一袋家常的鲜香菇，不声不响，就把一顿晚饭熨帖得舒舒服服。",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "500g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7273,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "3e991f25576cd3d32c26f98f534b0ccfce058f0218c3f1ee80062d1671fa6b88",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 142,
+          "prompt_tokens": 1014,
+          "total_tokens": 1156,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 246
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7271
+      }
+    ]
+  },
+  {
+    "case_id": "E13",
+    "variant": "writer_rag",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "带娃出门总得备点零食，试试福建连城的烤红薯干，200g袋装往包里一塞就走。熟制即食，撕开就能吃，不用洗不用剥，娃在后座馋了随手递一根，你也跟着嚼两片，软糯里带着红薯自己的清甜，越嚼越香不粘牙。15.8元一袋，出游路上全家分着吃刚好。#烤红薯干 #出游零食 #家庭囤货 #福建连城 #红薯干"
+      }
+    ],
+    "ok": true,
+    "text": "带娃出门总得备点零食，试试福建连城的烤红薯干，200g袋装往包里一塞就走。熟制即食，撕开就能吃，不用洗不用剥，娃在后座馋了随手递一根，你也跟着嚼两片，软糯里带着红薯自己的清甜，越嚼越香不粘牙。15.8元一袋，出游路上全家分着吃刚好。#烤红薯干 #出游零食 #家庭囤货 #福建连城 #红薯干",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.6855,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "c08758981b5cb02e936d09a2797dfeecdbfef7440875a9ebb1c536db5668005a",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 106,
+          "prompt_tokens": 1034,
+          "total_tokens": 1140,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 896
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 138
+        },
+        "finish_reason": "stop",
+        "seconds": 1.6854
+      }
+    ]
+  },
+  {
+    "case_id": "E24",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家里蜂蜜快见底了，趁周末补上一瓶百花蜂蜜。产自湖北神农架的，500g一瓶，29.8元，价格实在，日常冲水、抹面包都合适。瓶装液态，用起来顺手，一家人慢慢吃刚好。"
+      }
+    ],
+    "ok": true,
+    "text": "家里蜂蜜快见底了，趁周末补上一瓶百花蜂蜜。产自湖北神农架的，500g一瓶，29.8元，价格实在，日常冲水、抹面包都合适。瓶装液态，用起来顺手，一家人慢慢吃刚好。",
+    "field_check": {
+      "required": {
+        "product": "百花蜂蜜",
+        "origin": "湖北神农架",
+        "weight": "500g",
+        "price": "29.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.0198,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "b63f6602340298a44c953fd79fab92ac89817ed5123969c61e6a84205ea8a97b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 55,
+          "prompt_tokens": 436,
+          "total_tokens": 491,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 180
+        },
+        "finish_reason": "stop",
+        "seconds": 1.0197
+      }
+    ]
+  },
+  {
+    "case_id": "E21",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "家人们，吉林四平来的鲜玉米了解下！1000g才8.8元，实打实的生鲜，拿回家得加热了再吃哈。早上给娃煮一根，软糯香甜，全家都爱吃。这价格这分量，日常囤着不心疼，赶紧安排上！#鲜玉米 #家庭好物 #实惠农产品"
+      }
+    ],
+    "ok": true,
+    "text": "家人们，吉林四平来的鲜玉米了解下！1000g才8.8元，实打实的生鲜，拿回家得加热了再吃哈。早上给娃煮一根，软糯香甜，全家都爱吃。这价格这分量，日常囤着不心疼，赶紧安排上！#鲜玉米 #家庭好物 #实惠农产品",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "1000g",
+        "price": "8.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.1587,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "3cd0be8a0840cbfe07442c17f89ec498b6f62569c427391ca079387e9e571001",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 74,
+          "prompt_tokens": 443,
+          "total_tokens": 517,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 187
+        },
+        "finish_reason": "stop",
+        "seconds": 1.1586
+      }
+    ]
+  },
+  {
+    "case_id": "E10",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "下班回家不知道吃什么的时候，我总会从冰箱里翻出一盒鲜香菇。湖北随州来的鲜香菇，250g一盒，9.8元，菌盖厚实、闻着有股淡淡的菌香。切片下锅，和青菜肉片一起翻炒，必须烹熟再吃，几分钟就满屋飘香。孩子说比肉还下饭，一盒正好做一顿。家常日子里的踏实滋味，大概就是这样吧。"
+      }
+    ],
+    "ok": true,
+    "text": "下班回家不知道吃什么的时候，我总会从冰箱里翻出一盒鲜香菇。湖北随州来的鲜香菇，250g一盒，9.8元，菌盖厚实、闻着有股淡淡的菌香。切片下锅，和青菜肉片一起翻炒，必须烹熟再吃，几分钟就满屋飘香。孩子说比肉还下饭，一盒正好做一顿。家常日子里的踏实滋味，大概就是这样吧。",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.7811,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "8ee9b15af5fc7d1c39fdd7b18217bfa60db41e630c05bb5adf10f729c3a25b57",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 95,
+          "prompt_tokens": 409,
+          "total_tokens": 504,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 153
+        },
+        "finish_reason": "stop",
+        "seconds": 1.7809
+      }
+    ]
+  },
+  {
+    "case_id": "E06",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "周末带孩子逛市场，顺手拎回一袋山东烟台的红富士苹果，2000g沉甸甸的，才26.8元。回家洗上几个，果皮红润透亮，咬下去咔嚓脆响，汁水顺着嘴角淌，孩子边吃边喊甜。切成小块摆上桌，一家人围坐着聊天，苹果香混着笑声，日子就有了滋味。鲜果食用前记得清洗干净，给家人吃的东西，图的就是这份踏实。"
+      }
+    ],
+    "ok": true,
+    "text": "周末带孩子逛市场，顺手拎回一袋山东烟台的红富士苹果，2000g沉甸甸的，才26.8元。回家洗上几个，果皮红润透亮，咬下去咔嚓脆响，汁水顺着嘴角淌，孩子边吃边喊甜。切成小块摆上桌，一家人围坐着聊天，苹果香混着笑声，日子就有了滋味。鲜果食用前记得清洗干净，给家人吃的东西，图的就是这份踏实。",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "2000g",
+        "price": "26.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.3219,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "5743827edbae0b4019639c80ab87df1b9aa51149d895b40c42187c9b26f0b22b",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 100,
+          "prompt_tokens": 431,
+          "total_tokens": 531,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 175
+        },
+        "finish_reason": "stop",
+        "seconds": 1.3218
+      }
+    ]
+  },
+  {
+    "case_id": "E14",
+    "variant": "writer_rag_qa",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "周末带孩子去公园，包里塞了几袋烤红薯干，没想到成了全家抢着吃的小零食。拆开袋子就能闻到淡淡的红薯香，咬下去软糯中带着一点嚼劲，不粘牙也不齁甜，就是红薯本身清清甜甜的味道。福建连城产的，200g一袋刚好装进出游背包，熟制即食，撕开就能分着吃。坐在草地上晒着太阳，一人一根慢慢嚼，孩子吃得开心，大人也放心。",
+        "qa": {
+          "passed": true,
+          "feedback": ""
+        }
+      }
+    ],
+    "ok": true,
+    "text": "周末带孩子去公园，包里塞了几袋烤红薯干，没想到成了全家抢着吃的小零食。拆开袋子就能闻到淡淡的红薯香，咬下去软糯中带着一点嚼劲，不粘牙也不齁甜，就是红薯本身清清甜甜的味道。福建连城产的，200g一袋刚好装进出游背包，熟制即食，撕开就能分着吃。坐在草地上晒着太阳，一人一根慢慢嚼，孩子吃得开心，大人也放心。",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": true,
+    "seconds": 2.5131,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "ecb1952ca6664622827a7bbcf0a4749a25f3e626ecf60d3bb7e0cc715c840a01",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 102,
+          "prompt_tokens": 1021,
+          "total_tokens": 1123,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 768
+          },
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 253
+        },
+        "finish_reason": "stop",
+        "seconds": 1.6546
+      },
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 100,
+        "temperature": 0.2,
+        "prompt_sha256": "7b3f1bc7b531e5efbd82ce3dd02a1e91d8ab5740661a12b1fe1ac3169e179525",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 203,
+          "total_tokens": 205,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 203
+        },
+        "finish_reason": "stop",
+        "seconds": 0.8583
+      }
+    ]
+  },
+  {
+    "case_id": "E26",
+    "variant": "writer_only",
+    "scope": "original CopywriterAgent and QAAgent; isolated controlled-context benchmark",
+    "drafts": [
+      {
+        "round": 1,
+        "text": "新疆阿克苏的带壳核桃，500g装，生制带硬壳，家里备着正合适。周末下午窝在沙发上，拿小锤轻轻敲开硬壳，挑出核桃仁，孩子凑过来抢着吃，边剥边聊学校的事。剥好的仁可以煮粥、拌酸奶，按需加工，不急着一次用完。壳厚实，剥起来有耐心，倒成了全家慢下来的小仪式。价格还没定，等确认了再告诉你们。"
+      }
+    ],
+    "ok": true,
+    "text": "新疆阿克苏的带壳核桃，500g装，生制带硬壳，家里备着正合适。周末下午窝在沙发上，拿小锤轻轻敲开硬壳，挑出核桃仁，孩子凑过来抢着吃，边剥边聊学校的事。剥好的仁可以煮粥、拌酸奶，按需加工，不急着一次用完。壳厚实，剥起来有耐心，倒成了全家慢下来的小仪式。价格还没定，等确认了再告诉你们。",
+    "field_check": {
+      "required": {
+        "product": "带壳核桃",
+        "origin": "新疆阿克苏",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "final_qa_pass": null,
+    "seconds": 1.8042,
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 800,
+        "temperature": 0.75,
+        "prompt_sha256": "f2b707d9c146500c0879d1ee31c019d65120d724ffb19bb0ec5d7abc00f5ed89",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 105,
+          "prompt_tokens": 429,
+          "total_tokens": 534,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 256
+          },
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 173
+        },
+        "finish_reason": "stop",
+        "seconds": 1.8041
+      }
+    ]
+  }
+]

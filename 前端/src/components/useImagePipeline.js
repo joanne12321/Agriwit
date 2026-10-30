@@ -3,7 +3,7 @@
 
 import { ref } from 'vue'
 
-const IMG_API = 'http://localhost:5003'
+const IMG_API = import.meta.env.VITE_IMG_API || 'http://localhost:5003'
 
 export function useImagePipeline() {
     const isProcessing   = ref(false)

@@ -1,0 +1,332 @@
+[
+  {
+    "case_id": "E01",
+    "seconds": 0.4543,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E02",
+    "seconds": 0.3627,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E03",
+    "seconds": 0.3527,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E04",
+    "seconds": 0.3687,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E05",
+    "seconds": 0.4145,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E06",
+    "seconds": 0.3634,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E07",
+    "seconds": 0.3564,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E08",
+    "seconds": 0.3566,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E09",
+    "seconds": 0.3507,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E10",
+    "seconds": 0.3625,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E11",
+    "seconds": 0.3618,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E12",
+    "seconds": 0.4265,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E13",
+    "seconds": 0.398,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E14",
+    "seconds": 0.4195,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E15",
+    "seconds": 0.3319,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E16",
+    "seconds": 0.3467,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E17",
+    "seconds": 0.3469,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E18",
+    "seconds": 0.344,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E19",
+    "seconds": 0.4151,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E20",
+    "seconds": 0.3762,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E21",
+    "seconds": 0.4936,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E22",
+    "seconds": 0.3663,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E23",
+    "seconds": 0.4127,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E24",
+    "seconds": 0.377,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E25",
+    "seconds": 0.417,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E26",
+    "seconds": 0.379,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E27",
+    "seconds": 0.3855,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E28",
+    "seconds": 0.5122,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E29",
+    "seconds": 0.3674,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "E30",
+    "seconds": 0.3952,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  }
+]

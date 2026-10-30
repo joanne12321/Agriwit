@@ -1,0 +1,149 @@
+{
+  "writer_only": {
+    "n": 30,
+    "complete": 30,
+    "p50": 1.4207,
+    "p95": 1.8042,
+    "covered_fields": 110,
+    "total_fields": 110,
+    "field_pass": 30,
+    "risk_tasks": 0,
+    "calls": 30,
+    "successful_calls": 30,
+    "total_tokens": 15368,
+    "mean_tokens": 512.2666666666667,
+    "model_returned": [
+      "deepseek-flash"
+    ],
+    "finish_reasons": [
+      "stop"
+    ]
+  },
+  "writer_rag": {
+    "n": 30,
+    "complete": 30,
+    "p50": 1.4634,
+    "p95": 2.0901,
+    "covered_fields": 109,
+    "total_fields": 110,
+    "field_pass": 29,
+    "risk_tasks": 1,
+    "calls": 30,
+    "successful_calls": 30,
+    "total_tokens": 34354,
+    "mean_tokens": 1145.1333333333334,
+    "model_returned": [
+      "deepseek-flash"
+    ],
+    "finish_reasons": [
+      "stop"
+    ]
+  },
+  "writer_rag_qa": {
+    "n": 30,
+    "complete": 30,
+    "p50": 2.3485,
+    "p95": 4.1803,
+    "covered_fields": 109,
+    "total_fields": 110,
+    "field_pass": 29,
+    "risk_tasks": 2,
+    "calls": 64,
+    "successful_calls": 64,
+    "total_tokens": 42236,
+    "mean_tokens": 1407.8666666666666,
+    "model_returned": [
+      "deepseek-flash"
+    ],
+    "finish_reasons": [
+      "stop"
+    ]
+  },
+  "live_script": {
+    "n": 30,
+    "complete": 30,
+    "p50": 3.4412,
+    "p95": 4.269,
+    "covered_fields": 110,
+    "total_fields": 110,
+    "field_pass": 30,
+    "risk_tasks": 0,
+    "calls": 30,
+    "successful_calls": 30,
+    "total_tokens": 26720,
+    "mean_tokens": 890.6666666666666,
+    "model_returned": [
+      "deepseek-flash"
+    ],
+    "finish_reasons": [
+      "stop"
+    ]
+  },
+  "poster_text_render": {
+    "n": 30,
+    "complete": 30,
+    "p50": 0.3687,
+    "p95": 0.4936,
+    "covered_fields": 0,
+    "total_fields": 0,
+    "field_pass": 0,
+    "risk_tasks": 0,
+    "calls": 0,
+    "successful_calls": 0,
+    "total_tokens": 0,
+    "mean_tokens": 0.0,
+    "model_returned": [],
+    "finish_reasons": []
+  },
+  "audit": {
+    "first_pass": 28,
+    "final_pass": 30,
+    "rounds": {
+      "E16": 1,
+      "E22": 1,
+      "E13": 1,
+      "E21": 1,
+      "E30": 1,
+      "E05": 2,
+      "E02": 1,
+      "E23": 1,
+      "E27": 1,
+      "E17": 1,
+      "E09": 1,
+      "E29": 2,
+      "E20": 1,
+      "E03": 1,
+      "E26": 1,
+      "E25": 1,
+      "E18": 1,
+      "E07": 1,
+      "E01": 1,
+      "E04": 1,
+      "E12": 1,
+      "E08": 1,
+      "E10": 1,
+      "E11": 1,
+      "E24": 1,
+      "E19": 1,
+      "E28": 1,
+      "E06": 1,
+      "E15": 1,
+      "E14": 1
+    }
+  },
+  "errors": {
+    "n": 5,
+    "json_error_returned": 5,
+    "controlled_4xx": 4,
+    "p50": 0.0194,
+    "p95": 0.0658
+  },
+  "risk_rule": "产地直发|产地直供|现采|抽[^。！!？?\\n]{0,40}送",
+  "design": {
+    "product_archetypes": 10,
+    "information_conditions": 3,
+    "tasks": 30,
+    "repetitions": 1,
+    "pilot_included": false
+  }
+}

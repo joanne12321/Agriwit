@@ -116,8 +116,8 @@ import { ref, computed, onMounted } from 'vue'
 import { getUser, isLoggedIn } from '@/api'
 import { useRouter } from 'vue-router'
 
-const AI_API   = 'http://localhost:5001'
-const MAIN_API = 'http://localhost:5000'
+const AI_API   = import.meta.env.VITE_AI_API || 'http://localhost:5001'
+const MAIN_API = import.meta.env.VITE_HOST || 'http://localhost:5000'
 const router   = useRouter()
 
 // ── 状态 ──

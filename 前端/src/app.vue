@@ -1,19 +1,22 @@
 <template>
   <div class="screen">
-    <Sidebar />
+    <Sidebar v-if="!isMobileRoute" />
     <router-view />
     <AuthModal v-model="authModalOpen" @login-success="handleLoginSuccess" />
   </div>
 </template>
 
 <script setup>
-import { ref, provide, onMounted } from 'vue'
+import { computed, ref, provide, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import Sidebar   from './components/Sidebar.vue'
 import AuthModal from './components/AuthModal.vue'
 import { getUser, isLoggedIn, clearAuth } from './api'
 
 const authModalOpen = ref(false)
 const user          = ref(null)
+const route         = useRoute()
+const isMobileRoute = computed(() => route.path === '/mobile')
 
 onMounted(() => {
   if (isLoggedIn()) {

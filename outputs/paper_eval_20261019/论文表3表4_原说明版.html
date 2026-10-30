@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>云稼集论文：表3与表4替换稿</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: #202620; font: 16px/1.8 "Microsoft YaHei", sans-serif; }
+    main { max-width: 1080px; margin: 0 auto; padding: 36px 24px 72px; }
+    h1 { margin: 0 0 16px; font-size: 24px; }
+    h2 { margin: 0; font-size: 20px; }
+    h3 { margin: 26px 0 12px; text-align: center; font-size: 18px; }
+    p { margin: 12px 0; }
+    .note { padding: 14px 0; border-block: 1px solid #cdd7ce; color: #4a554c; font-size: 14px; }
+    section { margin-top: 36px; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    button { padding: 8px 14px; border: 1px solid #a4b5a7; border-radius: 4px; background: #f4f8f4; color: #24482e; cursor: pointer; font: inherit; font-size: 14px; }
+    button:focus-visible { outline: 2px solid #366a45; outline-offset: 3px; }
+    .table-scroll { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; min-width: 650px; table-layout: fixed; font: 14px/1.65 "Microsoft YaHei", sans-serif; }
+    th, td { border: 1px solid #bdc8bf; padding: 10px 12px; vertical-align: top; overflow-wrap: anywhere; }
+    th { background: #eef3ef; text-align: left; font-weight: 700; }
+    .footnote { font-size: 13px; color: #505b52; }
+    .editorial { margin-top: 36px; border-top: 1px solid #cdd7ce; padding-top: 16px; font-size: 14px; }
+    #copy-status { min-height: 26px; color: #315d3d; font-size: 14px; }
+    @media (max-width: 600px) { main { padding: 24px 16px 48px; } }
+    @media print { main { max-width: none; padding: 0; } .note, .toolbar, .editorial, #copy-status, body > main > h1 { display: none; } section { margin-top: 0; } section + section { break-before: page; } table { min-width: 0; } tr { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>论文表3与表4替换稿</h1>
+  <p class="note">建议替换原来的两张空白结果表，并同步替换表前后相关段落。以下内容区分当前代码能力与未来实验，不包含虚构的成功率、时延、费用或消融结果；原始 Word 文件未改动。这里的“已具备”仅表示原型中存在相应代码或接口，不等于完成真实业务验收。</p>
+  <p id="copy-status" role="status" aria-live="polite"></p>
+
+  <section>
+    <div class="toolbar"><h2>表3：改为功能实现与验证范围</h2><button type="button" data-copy="table3-content">复制表3及配套正文</button></div>
+    <div id="table3-content">
+      <p>现阶段系统以原型功能集成与业务流程可行为验证重点。本文依据现有代码与接口，对文案生成、海报合成、直播脚本和任务反馈等能力进行梳理，其实现边界及后续验收重点见表3。代码具备调用路径不等于生成结果达到发布要求；涉及事实正确性、产品形态和宣传合规性的内容，仍需结合真实任务及人工审校开展验证。</p>
+      <h3>表3 原型系统功能实现与验证范围</h3>
+      <div class="table-scroll"><table>
+        <colgroup><col style="width:14%"><col style="width:34%"><col style="width:34%"><col style="width:18%"></colgroup>
+        <thead><tr><th scope="col">功能模块</th><th scope="col">当前实现内容</th><th scope="col">后续验收重点</th><th scope="col">实现与验证状态</th></tr></thead>
+        <tbody>
+          <tr><td>文案生成与修改</td><td>已设置生成、结果展示及修改接口，结合产品资料与平台要求组织营销文本。</td><td>核对产品名称、规格、产地及认证等事实；评估平台适配性与人工修改工作量。</td><td>已具备调用路径；质量及稳定性待实测。</td></tr>
+          <tr><td>海报素材合成</td><td>已设置产品图片处理、背景合成、文字排版及异步任务查询路径。</td><td>核对主体与包装真实性、文字准确性、版式完整性及素材授权范围。</td><td>已具备合成路径；业务可用性待实测。</td></tr>
+          <tr><td>直播脚本生成</td><td>已设置直播脚本接口，输出分段文本、时间安排与动作提示。</td><td>检查事实与口播一致性、内容可执行性及时间安排；结构化分镜作为后续扩展。</td><td>已具备文本输出路径；非成片视频功能。</td></tr>
+          <tr><td>多物料创作入口</td><td>创作页面已整合文案、图片处理及可选直播脚本入口，分别呈现对应结果。</td><td>检查跨物料字段一致性、单项失败反馈与用户修改流程；补充完整任务包验收。</td><td>页面入口已集成；不等同于完整任务包验收通过。</td></tr>
+          <tr><td>异常反馈与重试</td><td>已设置请求失败提示、异步状态轮询及用户重新提交路径。</td><td>开展超时、网络中断与进程重启测试；核验重复提交、重复扣费与持久化恢复。</td><td>已具备基础反馈；持久化断点恢复待完善验证。</td></tr>
+        </tbody>
+      </table></div>
+      <p class="footnote">注：本表为原型实现范围说明，不属于性能测试结果。当前直播脚本接口存在模板降级路径，海报处理存在可选步骤跳过路径，后续统计应区分正常生成、降级返回及失败，不得仅凭接口返回成功判定业务可用。</p>
+      <p>在后续功能与稳定性测试中，将按任务类型记录请求数、正常完成数、降级返回数、失败原因、端到端时延及调用费用。技术完成率以在规定时限内正常完成必要步骤的请求数占全部测试请求数的比例计算；业务可用率以通过事实核验和人工业务验收的请求数占全部测试请求数的比例计算，并单列降级结果。时延报告P50与P95，同时注明统计样本范围和超时数量，不以剔除失败请求后的时延替代整体运行情况。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="toolbar"><h2>表4：改为对比与消融实验设计</h2><button type="button" data-copy="table4-content">复制表4及配套正文</button></div>
+    <div id="table4-content">
+      <p>为检验检索增强、任务分工、共享语义简报及审核机制的作用，本文设计基线对比与模块消融方案，如表4所示。该部分为后续实验计划，尚不构成已取得的性能结论。目标方案拟采用LangChain集成模型与工具，并使用LangGraph组织有状态工作流；待框架迁移及各模块联调完成后，再开展统一条件下的对比测试。</p>
+      <h3>表4 基线对比与消融实验设计</h3>
+      <div class="table-scroll"><table>
+        <colgroup><col style="width:20%"><col style="width:42%"><col style="width:26%"><col style="width:12%"></colgroup>
+        <thead><tr><th scope="col">对比方案</th><th scope="col">方案设置</th><th scope="col">主要检验问题</th><th scope="col">实验状态</th></tr></thead>
+        <tbody>
+          <tr><td>通用模型直接生成</td><td>输入相同任务简述与基础产品信息，不使用知识检索、角色分工或独立审核。</td><td>作为基础参照，观察事实错误与人工修改需求。</td><td>待实施</td></tr>
+          <tr><td>相同证据单Agent</td><td>提供与完整方案相同的检索证据、输出约束及字段要求，由单一Agent完成各项物料及自检。</td><td>在证据一致时，比较角色分工的质量收益与额外开销。</td><td>待实施</td></tr>
+          <tr><td>完整目标方案</td><td>集成检索增强、角色分工、共享语义简报及独立审核；关键事实核验不通过时退回修正。</td><td>评估事实可靠性、跨物料一致性和业务可用性。</td><td>联调后实施</td></tr>
+          <tr><td>完整方案去除RAG</td><td>保留角色分工、共享简报与审核，仅使用相同的基础产品信息，不调用外部证据检索。</td><td>检验检索增强对证据覆盖与事实正确性的作用。</td><td>待实施</td></tr>
+          <tr><td>完整方案去除共享简报</td><td>保留相同基础信息、检索证据及审核，各角色分别接收任务要求，不共享结构化语义简报。</td><td>检验共享表示对规格、场景和卖点一致性的作用。</td><td>待实施</td></tr>
+          <tr><td>完整方案去除独立审核</td><td>保留检索增强、角色分工与共享简报，取消独立审核节点及其触发的自动纠错。</td><td>检验审核对错误拦截、可用性及耗时费用的影响。</td><td>待实施</td></tr>
+        </tbody>
+      </table></div>
+      <p class="footnote">注：各组均为预定实验设置，不代表当前已实现或已完成测试。“完整方案”指拟建设的目标架构，而非当前原型。微调尚未完成训练与独立评估，暂不列入本轮对比；后续具备条件时，在其他设置相同的前提下追加基座模型与微调模型的配对实验。</p>
+      <p>实验拟选取具有明确事实档案的产品任务，覆盖资料完整、关键信息缺失及证据存在冲突等情形，并按企业或产品系列划分开发集与独立测试集。同一测试任务在各方案中采用相同的基座模型及版本、输出类型、生成参数和总预算上限；除预设消融项外，基础产品信息保持一致。检索组使用同一知识库快照，不从测试参考答案中构建证据。各方案保留必要的中间记录，并按相同任务进行配对比较。</p>
+      <p>拟统计的指标包括：①事实错误率，即与独立事实档案冲突或缺乏必要证据的事实陈述数占全部可核验事实陈述数的比例，同时记录必填事实遗漏率，防止通过少写事实降低错误率；②物料冲突率，即存在至少一项跨物料硬约束冲突的任务数占具备可比较物料的任务数的比例，并单列物料缺失任务；③业务可用率，即经人工审核判定可直接使用或仅需轻微编辑的任务数占全部测试任务数的比例；④端到端耗时与实际调用费用，分别以秒和元记录。人工评价采用统一标准、隐藏方案名称，记录审核分歧及复核结果。对于审核拦截但未能交付的任务，同时记录拦截原因与未完成状态，不将其直接视为质量提升。</p>
+      <p>上述实验用于验证各模块的实际贡献，而不预设多Agent方案必然优于单Agent方案。只有在独立测试中观察到可重复的质量改善，且时延、费用与人工返工成本可接受时，才将相应模块作为推荐配置。</p>
+    </div>
+  </section>
+
+  <aside class="editorial">
+    <strong>同步修改提醒（不属于论文正文）</strong>
+    <p>原表3中的“分镜脚本”改为当前实际具备的“直播脚本”；“完整任务包”改为“多物料创作入口”，避免将页面集成写成完整链路验收。原表4的“结果”改为“设计”，删除尚未开展的微调结果行。若本节原来写有“实验表明”“显著提升”“成功率达到”等结论，应一并删除或改为待验证表述。实际性能数据补齐后，再恢复结果型表格。</p>
+    <p>多Agent章节可写“拟基于LangChain与LangGraph构建”，不能仅因论文采用目标架构，就将当前自定义编排写成已完成框架迁移。真实模型质量与费用需要另行测试，本次前端模拟接口检查不能充当这两张表的实验数据。</p>
+  </aside>
+</main>
+<script>
+  const status = document.getElementById('copy-status');
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const content = document.getElementById(button.dataset.copy);
+      const cloned = content.cloneNode(true);
+      cloned.querySelectorAll('table').forEach(table => { table.setAttribute('border', '1'); table.setAttribute('cellpadding', '8'); table.style.cssText = 'border-collapse:collapse;width:100%;font-size:10.5pt;'; });
+      cloned.querySelectorAll('th,td').forEach(cell => { cell.style.cssText = 'border:1px solid #888;padding:6pt;vertical-align:top;'; });
+      try {
+        if (!navigator.clipboard?.write || typeof ClipboardItem === 'undefined') throw new Error('clipboard unavailable');
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html': new Blob([cloned.innerHTML], { type: 'text/html' }),
+          'text/plain': new Blob([content.innerText], { type: 'text/plain' })
+        })]);
+        status.textContent = '已复制正文与表格，可直接粘贴到 Word。';
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(content);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = document.execCommand('copy') ? '已复制，可粘贴到 Word。' : '已选中对应内容，可按 Ctrl+C 复制到 Word。';
+      }
+    });
+  });
+</script>
+</body>
+</html>

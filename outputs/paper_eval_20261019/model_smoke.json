@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "content": "连接正常",
+  "calls": [
+    {
+      "model_requested": "deepseek-chat",
+      "max_tokens": 16,
+      "temperature": 0,
+      "prompt_sha256": "59c3c2ae3bdbe22056011e56d28124ef57b01ce1d79d3685a3a9525bc192fcf4",
+      "ok": true,
+      "model_returned": "deepseek-flash",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 9,
+        "total_tokens": 11,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9
+      },
+      "finish_reason": "stop",
+      "seconds": 1.583
+    }
+  ]
+}

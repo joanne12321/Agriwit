@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>云稼集论文：表3与表4实测版</title><style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: #202620; font: 16px/1.8 "Microsoft YaHei", sans-serif; }
+    main { max-width: 1080px; margin: 0 auto; padding: 36px 24px 72px; }
+    h1 { margin: 0 0 16px; font-size: 24px; }
+    h2 { margin: 0; font-size: 20px; }
+    h3 { margin: 26px 0 12px; text-align: center; font-size: 18px; }
+    p { margin: 12px 0; }
+    .note { padding: 14px 0; border-block: 1px solid #cdd7ce; color: #4a554c; font-size: 14px; }
+    section { margin-top: 36px; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    button { padding: 8px 14px; border: 1px solid #a4b5a7; border-radius: 4px; background: #f4f8f4; color: #24482e; cursor: pointer; font: inherit; font-size: 14px; }
+    button:focus-visible { outline: 2px solid #366a45; outline-offset: 3px; }
+    .table-scroll { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; min-width: 650px; table-layout: fixed; font: 14px/1.65 "Microsoft YaHei", sans-serif; }
+    th, td { border: 1px solid #bdc8bf; padding: 10px 12px; vertical-align: top; overflow-wrap: anywhere; }
+    th { background: #eef3ef; text-align: left; font-weight: 700; }
+    .footnote { font-size: 13px; color: #505b52; }
+    .editorial { margin-top: 36px; border-top: 1px solid #cdd7ce; padding-top: 16px; font-size: 14px; }
+    #copy-status { min-height: 26px; color: #315d3d; font-size: 14px; }
+    @media (max-width: 600px) { main { padding: 24px 16px 48px; } }
+    @media print { main { max-width: none; padding: 0; } .note, .toolbar, .editorial, #copy-status, body > main > h1 { display: none; } section { margin-top: 0; } section + section { break-before: page; } table { min-width: 0; } tr { break-inside: avoid; } }
+  </style></head>
+<body><main><h1>论文表3与表4：真实小样本实测版</h1>
+<p class="note">已由说明表改为实测结果表。数据来自2026年10月19日保存的真实调用记录，不是模拟成功率。请将表格与表前后文字、注释一并替换；原始Word未改动。当前证据只支持模块级小样本结论，不支持完整系统或业务验收结论。</p>
+<p id="copy-status" role="status" aria-live="polite"></p>
+<section><div class="toolbar"><h2>表3：功能与响应实测</h2><button type="button" data-copy="table3-content">复制表3及配套正文</button></div><div id="table3-content"><p>为获得可复核的原型运行记录，本研究于2026年10月19日开展小样本模块测试。测试采用8份合成产品档案，覆盖熟制板栗、生板栗、苹果、绿茶、鲜香菇、红薯干、大米及鲜玉米，包含已知价格与价格缺失情形。档案中的产地、规格及价格仅为测试设定，不对应真实企业产品。各任务顺序执行、每个配置每项任务运行1次，结果见表3。</p>
+<h3>表3 原型模块功能与响应测试结果（小样本）</h3><div class="table-scroll"><table><colgroup><col style="width:27%"><col style="width:8%"><col style="width:16%"><col style="width:22%"><col style="width:27%"></colgroup><thead><tr><th scope="col">测试任务与范围</th><th scope="col">样本数</th><th scope="col">P50 / P95（秒）</th><th scope="col">技术完成／规范响应</th><th scope="col">字段保留／验收情况</th></tr></thead><tbody><tr><td>文案生成：既有创作节点＋案例检索＋审核</td><td>8</td><td>2.796 / 6.952</td><td>8/8（100%）</td><td>指定字段30/30；人工业务验收未开展</td></tr><tr><td>海报文字排版：本地HTTP接口、合成测试底图</td><td>8</td><td>2.157 / 3.263</td><td>8/8（100%）</td><td>8张均可解码且为1080×1080；未做OCR与产品真实性验收</td></tr><tr><td>直播脚本：现有接口函数、真实模型调用</td><td>8</td><td>3.427 / 3.989</td><td>8/8（100%）；模板降级0次</td><td>指定字段30/30；真实口播时长未核验</td></tr><tr><td>完整任务包：从资料到多物料交付</td><td>未测</td><td>不适用</td><td>未测</td><td>未开展端到端验收，不由单模块结果推算</td></tr><tr><td>异常响应：缺参、未知任务、无效图像</td><td>5个用例</td><td>0.041 / 0.204</td><td>规范4xx：4/5（80%）</td><td>5/5返回JSON错误；1项返回500，尚不规范；未测试断点恢复</td></tr></tbody></table></div>
+<p class="footnote">注：本次不是完整系统负载测试。文案通过直接调用现有CopywriterAgent、DatasetRetriever及QAAgent测试；直播脚本通过Flask测试客户端调用现有路由函数，两者均使用真实模型。海报仅测试运行中服务的文字渲染HTTP接口，不包含生成式背景、抠图及产品实拍。各行计时边界不同，不宜横向比较快慢。技术完成不等于业务可用。</p>
+<p>文案与脚本的技术完成定义为模型调用成功且返回非空结果，模板降级不计入正常完成；文字排版的技术完成定义为HTTP调用成功、返回图像可解码且尺寸符合设定。指定字段仅检查产品名、产地、净含量及已提供价格的原样保留情况；8份档案共30个必查字段，价格未确认的2项不要求补全。字段保留不核验其他新增陈述，也不能等同事实正确率。P50与P95采用最近秩法计算，样本数为8时P95即最大观测值，不代表稳定的生产环境尾时延。</p>
+<p>本轮8次文案、8次脚本和8次排版均完成规定输出。5个异常用例均返回JSON错误信息，其中缺少图片、缺少底图、未知图像任务及未知工作流4项返回预期的400或404；无效Base64图像返回500，因此规范错误响应率为80%，不能据此宣称已实现异常恢复。尚未开展经营者盲评、OCR核验及完整任务包测试，原表中的业务可用率暂不报告，也不以自动字段检查代替人工业务验收。</p></div></section>
+<section><div class="toolbar"><h2>表4：受控对比实测</h2><button type="button" data-copy="table4-content">复制表4及配套正文</button></div><div id="table4-content"><p>为初步观察案例检索和现有审核带来的质量与开销变化，使用同一组8份合成产品档案开展三组受控对比。A组调用既有创作节点；B组在A组基础上加入本地案例检索；C组在B组基础上加入现有QA节点，最多执行3轮生成与审核。三组的基础产品资料、平台要求和生成温度一致；B、C组使用相同的检索结果。实验按固定随机顺序执行，结果见表4。</p>
+<h3>表4 现有文案模块受控对比结果（小样本）</h3><div class="table-scroll"><table><colgroup><col style="width:22%"><col style="width:7%"><col style="width:15%"><col style="width:16%"><col style="width:17%"><col style="width:11%"><col style="width:12%"></colgroup><thead><tr><th scope="col">受控对比配置</th><th scope="col">样本数</th><th scope="col">指定字段保留率</th><th scope="col">指定风险短语命中任务率</th><th scope="col">P50 / P95（秒）</th><th scope="col">模型调用总次数</th><th scope="col">平均Token／任务</th></tr></thead><tbody><tr><td>A：既有创作节点</td><td>8</td><td>30/30（100%）</td><td>0/8（0%）</td><td>1.508 / 2.090</td><td>8</td><td>469.25</td></tr><tr><td>B：A＋案例检索</td><td>8</td><td>30/30（100%）</td><td>1/8（12.5%）</td><td>1.595 / 1.719</td><td>8</td><td>1178.63</td></tr><tr><td>C：B＋现有审核（最多3轮）</td><td>8</td><td>30/30（100%）</td><td>3/8（37.5%）</td><td>2.796 / 6.952</td><td>20</td><td>1693.63</td></tr></tbody></table></div>
+<p class="footnote">注：平均Token为接口报告的输入与输出Token之和，累计该任务的全部生成、重写与模型审核调用；不是人民币费用。无统一账单价格依据，故不估算费用。指定风险短语命中任务率采用固定规则扫描“产地直发”“产地直供”“现采”及“抽……送”表达，分母为每组8项任务；这些履约或促销信息均未包含在合成档案中。命中为待核实线索，不是逐条事实错误率；未命中也不表示没有其他事实风险。</p>
+<p>三组技术完成率均为8/8，指定字段均保留30/30，但这一结果只说明给定字段未被遗漏，不能证明文案不存在编造。A、B、C组分别有0、1、3项任务命中上述指定风险短语。C组中7项首轮通过现有审核，另1项运行至第3轮后通过；尽管最终8项均通过，仍有3项新增了档案未提供的产地直发或直供表述，说明现有审核不能替代基于证据的事实核验。另有熟制板栗文案新增“不用剥壳”等未经提供的包装或加工细节，亦应列为后续事实审核重点。</p>
+<p>与A组相比，C组P50由1.508秒增加至2.796秒，约为1.85倍；平均Token由469.25增加至1693.63，约为3.61倍。本轮未观察到指定字段保留率的进一步改善，不能据此宣称检索或多节点协作显著优于单节点。样本量仅8项、每项仅运行1次，也不足以检验统计显著性。当前检索内容为营销案例而非经过授权核验的产品事实库，本实验不构成产品知识RAG有效性的完整验证。</p>
+<p>原计划中的完整多Agent架构、去除共享语义简报、跨物料冲突率及领域微调对比，因相关模块尚未形成可独立评估的完整链路，未纳入本轮结果。后续应完成框架与证据链联调，在独立企业或产品系列上扩展样本，增加重复运行和人工盲评，再报告逐条事实错误率、跨物料冲突率、业务可用率与实际账单费用。</p></div></section>
+<aside class="editorial"><h2>实验条件与证据（核对用）</h2>
+<p>环境：Windows-11-10.0.26200-SP0；Python 3.13.9；OpenAI兼容客户端2.38.0。请求模型名deepseek-chat，所有保存的模型响应名均为deepseek-flash，论文中应同时说明两者，不据别名推断其他版本。文案温度0.75、max_tokens=800；模型文风审核温度0.2、max_tokens=100；直播脚本温度0.75、max_tokens=2000；SDK自动重试关闭，单次调用超时60秒。共44次计入文案与脚本的成功模型请求，另有一次最小连通性检查，不计入表格。</p>
+<p>本轮按8份档案×3组文案配置＋8份脚本执行；4种生鲜或需加工产品明确写明需加热。8次排版使用相同1080×1080合成图，逐次替换产品字段，不代表8张真实产品照片。没有启动完整Orchestrator、用户档案写入或历史保存，未修改生产代码。受控对比不包含档案读取、标签推荐、数据库持久化或线上HTTP传输等开销；文案检索结果预先固定，表中耗时不计检索索引初始化与召回耗时。</p>
+<p>发现的具体风险：C01直播脚本新增“抽一位家人送一袋”，C04新增“抽一位宝子送小礼物”，C06新增抽赠承诺，均不在测试档案中；C01的C组文案新增“不用剥壳”。这些示例说明字段全部保留也不等于可直接发布。本次不是两名人工审核员的独立标注，不报告人工业务可用率。</p>
+<p>原表的研究方向可以保留，但当前无法实测的行不能填预期数值冒充结果。后续完善后再扩展“完整方案、去共享简报、去审核、微调”等组；LangChain/LangGraph迁移未包含在本轮测试中。</p>
+<details><summary>查看原始记录与复算文件</summary><ul><li><a href="paper_eval_20261019/verified_summary.json">离线复算汇总</a></li><li><a href="paper_eval_20261019/cases.json">8份合成产品档案</a></li><li><a href="paper_eval_20261019/text_results.json">24份文案、审核轮次与逐调用记录</a></li><li><a href="paper_eval_20261019/script_results.json">8份脚本与逐调用记录</a></li><li><a href="paper_eval_20261019/image_results.json">排版接口记录</a></li><li><a href="paper_eval_20261019/error_results.json">异常响应记录</a></li><li><a href="paper_eval_20261019/risk_screening.json">指定风险短语命中及上下文</a></li><li><a href="paper_eval_20261019/environment.json">环境与代码哈希</a></li><li><a href="paper_eval_20261019/run_eval.py">原始测试脚本（运行会调用付费模型）</a></li><li><a href="paper_eval_20261019/finalize_report.py">离线复算与生成脚本（不调用模型）</a></li></ul></details>
+</aside></main><script>
+  const status = document.getElementById('copy-status');
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const content = document.getElementById(button.dataset.copy);
+      const cloned = content.cloneNode(true);
+      cloned.querySelectorAll('table').forEach(table => { table.setAttribute('border', '1'); table.setAttribute('cellpadding', '8'); table.style.cssText = 'border-collapse:collapse;width:100%;font-size:10.5pt;'; });
+      cloned.querySelectorAll('th,td').forEach(cell => { cell.style.cssText = 'border:1px solid #888;padding:6pt;vertical-align:top;'; });
+      try {
+        if (!navigator.clipboard?.write || typeof ClipboardItem === 'undefined') throw new Error('clipboard unavailable');
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html': new Blob([cloned.innerHTML], { type: 'text/html' }),
+          'text/plain': new Blob([content.innerText], { type: 'text/plain' })
+        })]);
+        status.textContent = '已复制正文与表格，可直接粘贴到 Word。';
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(content);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = document.execCommand('copy') ? '已复制，可粘贴到 Word。' : '已选中对应内容，可按 Ctrl+C 复制到 Word。';
+      }
+    });
+  });
+</script></body></html>

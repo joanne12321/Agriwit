@@ -1,0 +1,90 @@
+[
+  {
+    "case_id": "C01",
+    "seconds": 3.2634,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C02",
+    "seconds": 2.8143,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C03",
+    "seconds": 2.0274,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C04",
+    "seconds": 2.2144,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C05",
+    "seconds": 1.7362,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C06",
+    "seconds": 2.1569,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C07",
+    "seconds": 1.7951,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  },
+  {
+    "case_id": "C08",
+    "seconds": 2.5168,
+    "status": 200,
+    "ok": true,
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "scope": "live HTTP text-render endpoint only; synthetic raster fixture; no background removal or image generation"
+  }
+]

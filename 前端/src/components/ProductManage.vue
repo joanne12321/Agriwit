@@ -112,7 +112,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { getUser } from '@/api'
 
-const MAIN_API = 'http://localhost:5000'
+const MAIN_API = import.meta.env.VITE_HOST || 'http://localhost:5000'
 
 const CATEGORY_LABELS = {
   fruit: '水果', vegetable: '蔬菜', grain: '粮油',

@@ -124,7 +124,7 @@ import { ref, computed, watch } from 'vue'
 const props = defineProps({ modelValue: Boolean })
 const emit  = defineEmits(['update:modelValue', 'select'])
 
-const IMG_API = 'http://localhost:5003'
+const IMG_API = import.meta.env.VITE_IMG_API || 'http://localhost:5003'
 
 // ===== 状态 =====
 const loading           = ref(false)

@@ -176,6 +176,8 @@
 import { ref, reactive, watch } from 'vue'
 import { login, register, registerProduct } from '../api'
 
+const MAIN_API = import.meta.env.VITE_HOST || 'http://localhost:5000'
+
 const props = defineProps({ modelValue: Boolean })
 const emit  = defineEmits(['update:modelValue', 'login-success'])
 
@@ -346,7 +348,7 @@ const handleRegister = async () => {
         try {
           const formData = new FormData()
           formData.append('file', registerData.productImage)
-          await fetch(`http://localhost:5000/api/product/${productId}/image`, {
+          await fetch(`${MAIN_API}/api/product/${productId}/image`, {
             method: 'POST',
             body: formData   // 不设 Content-Type，浏览器自动加 boundary
           })

@@ -1,0 +1,85 @@
+{
+  "type": "synthetic test fixtures, not real company facts",
+  "cases": [
+    {
+      "id": "C01",
+      "product": "熟制板栗",
+      "origin": "河北遵化",
+      "weight": "100g",
+      "price": "12.8元",
+      "process": "熟制",
+      "scene": "办公室加餐",
+      "platform": "抖音"
+    },
+    {
+      "id": "C02",
+      "product": "生板栗",
+      "origin": "河北迁西",
+      "weight": "500g",
+      "price": "18.6元",
+      "process": "生鲜，必须加热后食用",
+      "scene": "家庭烹饪",
+      "platform": "抖音"
+    },
+    {
+      "id": "C03",
+      "product": "红富士苹果",
+      "origin": "山东烟台",
+      "weight": "1000g",
+      "price": "26.8元",
+      "process": "鲜果",
+      "scene": "办公室水果",
+      "platform": "小红书"
+    },
+    {
+      "id": "C04",
+      "product": "龙井绿茶",
+      "origin": "浙江绍兴",
+      "weight": "100g",
+      "price": "认证未提供；价格未确认",
+      "process": "散装干茶，需冲泡",
+      "scene": "日常饮茶",
+      "platform": "小红书"
+    },
+    {
+      "id": "C05",
+      "product": "鲜香菇",
+      "origin": "湖北随州",
+      "weight": "250g",
+      "price": "9.8元",
+      "process": "鲜菇，必须烹熟",
+      "scene": "家庭做饭",
+      "platform": "抖音"
+    },
+    {
+      "id": "C06",
+      "product": "烤红薯干",
+      "origin": "福建连城",
+      "weight": "200g",
+      "price": "15.8元",
+      "process": "熟制即食",
+      "scene": "出游零食",
+      "platform": "小红书"
+    },
+    {
+      "id": "C07",
+      "product": "散装大米",
+      "origin": "黑龙江佳木斯",
+      "weight": "1000g",
+      "price": "11.8元",
+      "process": "生米，需煮熟",
+      "scene": "家庭主食",
+      "platform": "抖音"
+    },
+    {
+      "id": "C08",
+      "product": "鲜玉米",
+      "origin": "吉林四平",
+      "weight": "500g",
+      "price": "价格未确认",
+      "process": "生鲜，需煮熟",
+      "scene": "家庭备餐",
+      "platform": "小红书"
+    }
+  ]
+}

@@ -14,6 +14,14 @@ html, body {
   min-width: 1440px;
 }
 
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+}
+
 /* 焦点样式 */
 :focus-visible {
   outline: 2px solid #4a90e2;

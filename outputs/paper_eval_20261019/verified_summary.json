@@ -1,0 +1,102 @@
+{
+  "writer_only": {
+    "n": 8,
+    "complete": 8,
+    "p50": 1.5076,
+    "p95": 2.0901,
+    "field_pass": 8,
+    "covered_fields": 30,
+    "total_fields": 30,
+    "risk_tasks": 0,
+    "calls": 8,
+    "total_tokens": 3754,
+    "mean_tokens": 469.25,
+    "model_returned": [
+      "deepseek-flash"
+    ]
+  },
+  "writer_rag": {
+    "n": 8,
+    "complete": 8,
+    "p50": 1.5953,
+    "p95": 1.7186,
+    "field_pass": 8,
+    "covered_fields": 30,
+    "total_fields": 30,
+    "risk_tasks": 1,
+    "calls": 8,
+    "total_tokens": 9429,
+    "mean_tokens": 1178.625,
+    "model_returned": [
+      "deepseek-flash"
+    ]
+  },
+  "writer_rag_qa": {
+    "n": 8,
+    "complete": 8,
+    "p50": 2.7957,
+    "p95": 6.9522,
+    "field_pass": 8,
+    "covered_fields": 30,
+    "total_fields": 30,
+    "risk_tasks": 3,
+    "calls": 20,
+    "total_tokens": 13549,
+    "mean_tokens": 1693.625,
+    "model_returned": [
+      "deepseek-flash"
+    ]
+  },
+  "live_script": {
+    "n": 8,
+    "complete": 8,
+    "p50": 3.4271,
+    "p95": 3.9886,
+    "field_pass": 8,
+    "covered_fields": 30,
+    "total_fields": 30,
+    "risk_tasks": 3,
+    "calls": 8,
+    "total_tokens": 6867,
+    "mean_tokens": 858.375,
+    "model_returned": [
+      "deepseek-flash"
+    ]
+  },
+  "poster_text_render": {
+    "n": 8,
+    "complete": 8,
+    "p50": 2.1569,
+    "p95": 3.2634,
+    "field_pass": 0,
+    "covered_fields": 0,
+    "total_fields": 0,
+    "risk_tasks": 0,
+    "calls": 0,
+    "total_tokens": 0,
+    "mean_tokens": 0,
+    "model_returned": []
+  },
+  "audit": {
+    "first_pass": 7,
+    "final_pass": 8,
+    "rounds": {
+      "C05": 1,
+      "C07": 1,
+      "C08": 1,
+      "C04": 1,
+      "C01": 3,
+      "C02": 1,
+      "C03": 1,
+      "C06": 1
+    }
+  },
+  "errors": {
+    "responses": 5,
+    "json_error_returned": 5,
+    "controlled_4xx": 4,
+    "p50": 0.041,
+    "p95": 0.2037
+  },
+  "risk_rule": "产地直发|产地直供|现采|抽[^。！!？?\\n]{0,40}送"
+}

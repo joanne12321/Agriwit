@@ -92,7 +92,7 @@
 import { ref, onMounted } from 'vue'
 import { getUser } from '@/api'
 
-const MAIN_API = 'http://localhost:5000'
+const MAIN_API = import.meta.env.VITE_HOST || 'http://localhost:5000'
 
 const infoText = ref('')
 const saving = ref(false)

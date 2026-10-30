@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-19T18:17:53+0800",
+  "python": "3.13.9",
+  "os": "Windows-11-10.0.26200-SP0",
+  "model": "deepseek-chat",
+  "openai_sdk": "2.38.0",
+  "source_hashes": {
+    "ai_service.py": "19b43b0afb410dad803f7792061ff4f18dee6cfca24fe6c1ba53672401bc9c58",
+    "image_service.py": "8010bee9095c3e962b5313f78e714a7dc8119c59b034d6ced3e906ee10a98ee7",
+    "dataset_rag.py": "51efc7329a90f9d8f8e8694d407808b1c48f3f886793e95eaee1734d0c78e33c",
+    "dataset_corpus.json": "18b51354caada2a0c084f7303b84efbb8591b09ed6ad3f21fe88099b8a73c81a"
+  },
+  "design": "8 synthetic tasks, 3 randomized controlled-context text variants; real model; unchanged production classes; persistence not called; one repetition; sequential; no claims of human usability or full-system performance",
+  "network": "real model requests, zero SDK retries, 60-second per-call timeout",
+  "pricing": "not available; token usage only"
+}

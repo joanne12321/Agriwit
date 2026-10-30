@@ -1,0 +1,429 @@
+{
+  "scope": "Frontend only, API fixtures; not model performance measurements",
+  "results": [
+    {
+      "width": 1920,
+      "geometry": {
+        "viewport": 1920,
+        "scrollWidth": 1920,
+        "panel": {
+          "left": 290,
+          "top": 124.78125,
+          "right": 1486,
+          "bottom": 638.34375,
+          "width": 1196,
+          "height": 513.5625
+        },
+        "textarea": {
+          "left": 497,
+          "top": 445.34375,
+          "right": 1281,
+          "bottom": 537.34375,
+          "width": 784,
+          "height": 92
+        },
+        "tools": {
+          "left": 1297,
+          "top": 483.34375,
+          "right": 1457,
+          "bottom": 537.34375,
+          "width": 160,
+          "height": 54
+        },
+        "submit": {
+          "left": 497,
+          "top": 557.34375,
+          "right": 1457,
+          "bottom": 609.34375,
+          "width": 960,
+          "height": 52
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 258,
+          "bottom": 1000,
+          "width": 258,
+          "height": 1000
+        },
+        "position": "static",
+        "titleSize": "28px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 1440,
+      "geometry": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "panel": {
+          "left": 290,
+          "top": 124.78125,
+          "right": 1308,
+          "bottom": 674.03125,
+          "width": 1018,
+          "height": 549.25
+        },
+        "textarea": {
+          "left": 497,
+          "top": 481.03125,
+          "right": 1103,
+          "bottom": 573.03125,
+          "width": 606,
+          "height": 92
+        },
+        "tools": {
+          "left": 1119,
+          "top": 519.03125,
+          "right": 1279,
+          "bottom": 573.03125,
+          "width": 160,
+          "height": 54
+        },
+        "submit": {
+          "left": 497,
+          "top": 593.03125,
+          "right": 1279,
+          "bottom": 645.03125,
+          "width": 782,
+          "height": 52
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 258,
+          "bottom": 1000,
+          "width": 258,
+          "height": 1000
+        },
+        "position": "static",
+        "titleSize": "28px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 1280,
+      "geometry": {
+        "viewport": 1280,
+        "scrollWidth": 1280,
+        "panel": {
+          "left": 290,
+          "top": 124.78125,
+          "right": 1148,
+          "bottom": 674.03125,
+          "width": 858,
+          "height": 549.25
+        },
+        "textarea": {
+          "left": 497,
+          "top": 481.03125,
+          "right": 943,
+          "bottom": 573.03125,
+          "width": 446,
+          "height": 92
+        },
+        "tools": {
+          "left": 959,
+          "top": 519.03125,
+          "right": 1119,
+          "bottom": 573.03125,
+          "width": 160,
+          "height": 54
+        },
+        "submit": {
+          "left": 497,
+          "top": 593.03125,
+          "right": 1119,
+          "bottom": 645.03125,
+          "width": 622,
+          "height": 52
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 258,
+          "bottom": 1000,
+          "width": 258,
+          "height": 1000
+        },
+        "position": "static",
+        "titleSize": "28px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 1024,
+      "geometry": {
+        "viewport": 1024,
+        "scrollWidth": 1024,
+        "panel": {
+          "left": 278,
+          "top": 142.78125,
+          "right": 904,
+          "bottom": 862.03125,
+          "width": 626,
+          "height": 719.25
+        },
+        "textarea": {
+          "left": 299,
+          "top": 615.03125,
+          "right": 883,
+          "bottom": 707.03125,
+          "width": 584,
+          "height": 92
+        },
+        "tools": {
+          "left": 299,
+          "top": 715.03125,
+          "right": 883,
+          "bottom": 769.03125,
+          "width": 584,
+          "height": 54
+        },
+        "submit": {
+          "left": 299,
+          "top": 789.03125,
+          "right": 883,
+          "bottom": 841.03125,
+          "width": 584,
+          "height": 52
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 258,
+          "bottom": 1000,
+          "width": 258,
+          "height": 1000
+        },
+        "position": "static",
+        "titleSize": "28px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 820,
+      "geometry": {
+        "viewport": 820,
+        "scrollWidth": 820,
+        "panel": {
+          "left": 278,
+          "top": 142.78125,
+          "right": 700,
+          "bottom": 933.40625,
+          "width": 422,
+          "height": 790.625
+        },
+        "textarea": {
+          "left": 299,
+          "top": 686.40625,
+          "right": 679,
+          "bottom": 778.40625,
+          "width": 380,
+          "height": 92
+        },
+        "tools": {
+          "left": 299,
+          "top": 786.40625,
+          "right": 679,
+          "bottom": 840.40625,
+          "width": 380,
+          "height": 54
+        },
+        "submit": {
+          "left": 299,
+          "top": 860.40625,
+          "right": 679,
+          "bottom": 912.40625,
+          "width": 380,
+          "height": 52
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 258,
+          "bottom": 1000,
+          "width": 258,
+          "height": 1000
+        },
+        "position": "static",
+        "titleSize": "28px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 768,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "panel": {
+          "left": 16,
+          "top": 125.578125,
+          "right": 752,
+          "bottom": 782.578125,
+          "width": 736,
+          "height": 657
+        },
+        "textarea": {
+          "left": 33,
+          "top": 541.578125,
+          "right": 735,
+          "bottom": 645.578125,
+          "width": 702,
+          "height": 104
+        },
+        "tools": {
+          "left": 33,
+          "top": 653.578125,
+          "right": 735,
+          "bottom": 701.578125,
+          "width": 702,
+          "height": 48
+        },
+        "submit": {
+          "left": 33,
+          "top": 715.578125,
+          "right": 735,
+          "bottom": 765.578125,
+          "width": 702,
+          "height": 50
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "position": "static",
+        "titleSize": "24px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 390,
+      "geometry": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "panel": {
+          "left": 16,
+          "top": 125.578125,
+          "right": 374,
+          "bottom": 866.578125,
+          "width": 358,
+          "height": 741
+        },
+        "textarea": {
+          "left": 33,
+          "top": 625.578125,
+          "right": 357,
+          "bottom": 729.578125,
+          "width": 324,
+          "height": 104
+        },
+        "tools": {
+          "left": 33,
+          "top": 737.578125,
+          "right": 357,
+          "bottom": 785.578125,
+          "width": 324,
+          "height": 48
+        },
+        "submit": {
+          "left": 33,
+          "top": 799.578125,
+          "right": 357,
+          "bottom": 849.578125,
+          "width": 324,
+          "height": 50
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "position": "static",
+        "titleSize": "24px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    },
+    {
+      "width": 320,
+      "geometry": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "panel": {
+          "left": 16,
+          "top": 125.578125,
+          "right": 304,
+          "bottom": 958.578125,
+          "width": 288,
+          "height": 833
+        },
+        "textarea": {
+          "left": 33,
+          "top": 717.578125,
+          "right": 287,
+          "bottom": 821.578125,
+          "width": 254,
+          "height": 104
+        },
+        "tools": {
+          "left": 33,
+          "top": 829.578125,
+          "right": 287,
+          "bottom": 877.578125,
+          "width": 254,
+          "height": 48
+        },
+        "submit": {
+          "left": 33,
+          "top": 891.578125,
+          "right": 287,
+          "bottom": 941.578125,
+          "width": 254,
+          "height": 50
+        },
+        "sidebar": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "position": "static",
+        "titleSize": "24px"
+      },
+      "dropdown": "passed",
+      "scriptToggle": "passed",
+      "fixtureSubmit": "passed",
+      "runtimeErrors": []
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+[
+  {
+    "case_id": "C01",
+    "status": 200,
+    "seconds": 3.2478,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 熟制板栗\n**平台**：抖音 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n（微笑挥手，镜头前放一盘剥好的板栗）\n“嗨，家人们好呀～欢迎来到直播间！今天给大家带来一款我最近超爱的办公室小零食——熟制板栗，先别划走，看完你一定会心动～”\n[动作：拿起一颗板栗对着镜头展示，语气轻快]\n\n### 📦 产品介绍（0:10 - 0:30）\n（掰开一颗板栗，展示内里）\n“这款熟制板栗来自河北遵化，净含量100g，一袋刚好放办公室抽屉里。下午三四点嘴巴寂寞的时候，撕开一袋，软软糯糯的口感，配杯热茶，就是打工人自己的小确幸～”\n[动作：掰开板栗特写，表情满足]\n“12.8元一袋，产地直发的好味道，咱们不整虚的～”\n\n### 💬 互动环节（0:30 - 0:45）\n（凑近镜头）\n“来，评论区告诉我，你们下午加餐最爱吃什么？打‘板栗’两个字，我看看有多少同款爱好者～顺便抽一位家人送一袋尝尝鲜！”\n[动作：看屏幕读评论，笑着回应]\n\n### 🎁 福利时间（0:45 - 0:55）\n（举起产品袋）\n“今天直播间价格就是12.8元一袋，100g熟制板栗，河北遵化产地，办公室加餐刚刚好。喜欢糯糯口感的家人别错过～”\n[动作：手指指向下方小黄车]\n\n### 🛒 引导下单（0:55 - 1:00）\n（挥手）\n“点击下方小黄车就能带走啦，感谢家人们陪伴，咱们下次见～”\n[动作：微笑挥手，镜头定格产品]",
+    "field_check": {
+      "required": {
+        "product": "熟制板栗",
+        "origin": "河北遵化",
+        "weight": "100g",
+        "price": "12.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "0ad45cab0493ed74343964590cb81e22de0c0b7aba0fd5e669e8a403d40e404c",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 429,
+          "prompt_tokens": 408,
+          "total_tokens": 837,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 408
+        },
+        "finish_reason": "stop",
+        "seconds": 3.1347
+      }
+    ]
+  },
+  {
+    "case_id": "C02",
+    "status": 200,
+    "seconds": 3.396,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 生板栗\n**平台**：抖音 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n\"哈喽大家好呀，欢迎来到直播间～今天给大家带来一份秋天的味道——生板栗！\"[微笑挥手，镜头前举起一小筐板栗]\n\"先别急着划走，看完你就知道它有多适合端上家里的餐桌啦～\"[眨眼，语气轻快]\n\n### 📦 产品介绍（0:10 - 0:30）\n\"看，这就是咱们的生板栗，来自河北迁西，净含量500g。\"[双手捧起板栗凑近镜头，展示颗粒饱满]\n\"它是生鲜形态哦，记得一定要加热后再吃，煮、蒸、烤都行，热乎乎端上桌，一家人围着吃特别有氛围～\"[做剥壳动作示意，表情温暖]\n\"500g一袋，家里做一顿刚刚好。\"[把袋子正面转向镜头]\n\n### 💬 互动环节（0:30 - 0:42）\n\"来，评论区告诉我，你家板栗最爱怎么吃？煮着吃扣1，烤着吃扣2～\"[指向屏幕，笑着读评论]\n\"看到有朋友扣2啦，烤板栗确实香～\"[点头回应，语气亲切]\n\n### 🎁 福利时间（0:42 - 0:52）\n\"价格也很实在，500g只要18.6元！\"[竖起手指比价，语气上扬]\n\"想给家里添点秋天味道的，别错过啦～\"[双手合十，真诚看向镜头]\n\n### 🛒 引导下单（0:52 - 1:00）\n\"下方小黄车就能拍，拍完记得回家加热再吃哦～\"[手指指向下方购物车]\n\"感谢大家陪伴，咱们下次直播见，拜拜～\"[挥手告别，笑容温暖]",
+    "field_check": {
+      "required": {
+        "product": "生板栗",
+        "origin": "河北迁西",
+        "weight": "500g",
+        "price": "18.6元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "1ea743edf5e2fc61091916da5563ca5a2342df1b549db40b344aef0ed7272db0",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 416,
+          "prompt_tokens": 409,
+          "total_tokens": 825,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 409
+        },
+        "finish_reason": "stop",
+        "seconds": 3.3893
+      }
+    ]
+  },
+  {
+    "case_id": "C03",
+    "status": 200,
+    "seconds": 3.452,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 红富士苹果\n**平台**：小红书 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n\"嗨～姐妹们下午好呀，欢迎来到我的直播间！今天给大家带来一款我最近的心头好，先不卖关子，看这个红彤彤的小可爱——\"[双手捧起一颗苹果凑近镜头，笑得眼睛弯弯]\n\n### 📦 产品介绍（0:10 - 0:30）\n\"就是它啦，红富士苹果，产地山东烟台，净含量1000g，一箱满满都是鲜果。\"[拿起苹果缓缓转动，展示色泽] \"你们看这个红，是不是特别讨喜～我平时上班就爱在办公室抽屉里放两个，下午嘴馋了洗一个，咔嚓一口，清脆又水润，整个下午都变得甜甜的。\"[做出咬一口的满足表情] \"烟台的果子，阳光足、口感好，真的值得尝尝～\"\n\n### 💬 互动环节（0:30 - 0:42）\n\"来，姐妹们评论区告诉我，你们平时爱吃脆苹果还是面苹果呀？\"[侧头看屏幕] \"我看好多姐妹说脆的～跟我一样！那这款真的很对味。评论区扣个'想吃'，让我看看有多少小馋猫～\"[笑着比心]\n\n### 🎁 福利时间（0:42 - 0:52）\n\"重点来啦！这款红富士苹果1000g，今天直播间只要26.8元！\"[举起苹果箱展示] \"这个价格真的很适合先入手尝尝鲜，办公室囤着、家里放着都合适～\"[眨眼] \"喜欢的姐妹别犹豫啦～\"\n\n### 🛒 引导下单（0:52 - 1:00）\n\"下方小黄车已经给大家上好啦，点进去就能拍～\"[手指向屏幕下方] \"26.8元带走这箱烟台红富士，先到先得哦！感谢姐妹们的陪伴，我们下次直播再见啦，拜拜～\"[挥手，甜甜微笑]",
+    "field_check": {
+      "required": {
+        "product": "红富士苹果",
+        "origin": "山东烟台",
+        "weight": "1000g",
+        "price": "26.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "596200334327713256e7721f57b9ff4ec135b068ce867c148fe599112cfaeaca",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 449,
+          "prompt_tokens": 404,
+          "total_tokens": 853,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 404
+        },
+        "finish_reason": "stop",
+        "seconds": 3.4443
+      }
+    ]
+  },
+  {
+    "case_id": "C04",
+    "status": 200,
+    "seconds": 3.4732,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 龙井绿茶\n**平台**：小红书 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n\"嗨～宝子们下午好呀，欢迎来到我的直播间！今天给大家带来一款我自己日常超爱喝的茶——龙井绿茶，喜欢喝茶的姐妹先别划走哦～\"\n[动作/表情提示：微笑着对镜头挥手，手持一杯刚泡好的龙井，镜头前展示茶汤清透的颜色]\n\n### 📦 产品介绍（0:10 - 0:30）\n\"这款龙井绿茶来自浙江绍兴，净含量100g，是散装干茶，需要冲泡的哦～大家看，条索扁平挺直，泡开后茶汤清亮，日常在家泡上一杯，清新又舒服～\"\n[动作/表情提示：打开茶罐近距离展示干茶形态，再端起茶杯轻轻晃一晃，让镜头拍到茶汤]\n\n### 💬 互动环节（0:30 - 0:42）\n\"有没有平时爱喝绿茶的宝子？评论区扣个'1'让我看看～今天想问大家，你们平时泡茶喜欢用玻璃杯还是盖碗呀？评论区告诉我，我一会儿抽一位宝子送小礼物哦～\"\n[动作/表情提示：凑近镜头看评论区，边读留言边点头回应，语气轻快]\n\n### 🎁 福利时间（0:42 - 0:52）\n\"关于价格和优惠，宝子们以直播间下方小黄车实际显示为准哈，我不乱承诺～想入手的可以先点进去看看详情，喜欢再拍，理性消费哦～\"\n[动作/表情提示：手指指向屏幕下方，语气真诚，不夸大不催促]\n\n### 🛒 引导下单（0:52 - 1:00）\n\"好啦，今天的龙井绿茶就介绍到这里～喜欢日常饮茶的宝子可以点开小黄车看看，有任何问题评论区问我，我都会一一回复～感谢陪伴，我们下次直播见，拜拜～\"\n[动作/表情提示：双手合十感谢，微笑挥手告别，镜头缓缓拉远]",
+    "field_check": {
+      "required": {
+        "product": "龙井绿茶",
+        "origin": "浙江绍兴",
+        "weight": "100g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "7b471320104cd4da248eb9b369dacd28c2143b0c5ec58337f50e5dec34abd939",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 468,
+          "prompt_tokens": 412,
+          "total_tokens": 880,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 412
+        },
+        "finish_reason": "stop",
+        "seconds": 3.468
+      }
+    ]
+  },
+  {
+    "case_id": "C05",
+    "status": 200,
+    "seconds": 2.8439,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 鲜香菇\n**平台**：抖音 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n[镜头前微笑挥手，手里端着一小筐鲜香菇]\n\"哈喽大家好呀～欢迎来到直播间！今天给大家带来一样厨房里的宝藏食材——鲜香菇！平时炒菜、炖汤都少不了它，咱们一起来看看～\"\n\n### 📦 产品介绍（0:10 - 0:30）\n[拿起一朵鲜香菇凑近镜头，展示菇形和色泽]\n\"看这个鲜香菇，来自湖北随州，净含量250g，菇形饱满、菇肉厚实。咱们这个是鲜菇，回家一定要烹熟再吃哦～家里做饭切几朵，炒个青菜、炖个汤，鲜香又下饭，特别适合一家人日常餐桌～\"\n\n### 💬 互动环节（0:30 - 0:42）\n[看向镜头，语气亲切]\n\"家人们平时都用香菇做什么菜呀？炒着吃还是炖汤？打在评论区告诉我～我看看谁是咱们直播间的厨房小能手！\"\n\n### 🎁 福利时间（0:42 - 0:52）\n[竖起手指，语气轻快]\n\"重点来啦！这份250g的鲜香菇，只要9.8元！产地湖北随州，价格实在，日常备一点放冰箱超方便～\"\n\n### 🛒 引导下单（0:52 - 1:00）\n[指向下方购物车，语气热情]\n\"喜欢的家人点下方小黄车下单，鲜香菇带回家，今晚就能安排上！记得要烹熟吃哦～咱们直播间不见不散，拜拜！\"",
+    "field_check": {
+      "required": {
+        "product": "鲜香菇",
+        "origin": "湖北随州",
+        "weight": "250g",
+        "price": "9.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "337d6b94fb59ccf25706b9bf69e193fdd7177c5192899712334732787aafedb0",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 375,
+          "prompt_tokens": 405,
+          "total_tokens": 780,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 405
+        },
+        "finish_reason": "stop",
+        "seconds": 2.8377
+      }
+    ]
+  },
+  {
+    "case_id": "C06",
+    "status": 200,
+    "seconds": 3.659,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 烤红薯干\n**平台**：小红书 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n“哈喽宝宝们，欢迎来到直播间～今天想跟你们分享一款我最近出门必带的小零食，甜甜糯糯的，超治愈！先不说是啥，往下看就知道啦～”\n[动作/表情提示：微笑挥手，镜头前自然坐姿，手边放一包产品，语气轻快]\n\n### 📦 产品介绍（0:10 - 0:30）\n“登登～就是这款烤红薯干！来自福建连城，净含量200g，熟制即食，撕开就能吃。出游的时候塞包里，饿了来一根，软糯香甜，特别有满足感。连城的红薯本身就很出名，做成红薯干保留了那股自然的薯香，越嚼越香～”\n[动作/表情提示：拿起产品展示包装正面和背面，撕开一包对着镜头展示红薯干质地，轻轻掰开示意软糯]\n\n### 💬 互动环节（0:30 - 0:45）\n“宝宝们平时出去玩都爱带什么零食呀？评论区告诉我～有没有吃过连城红薯干的，也来打个卡！等下我会在评论区抽一位宝宝送一包尝尝哦～”\n[动作/表情提示：身体微微前倾看屏幕，读评论、点头回应，制造互动感]\n\n### 🎁 福利时间（0:45 - 0:55）\n“重点来啦！这款烤红薯干200g，直播间价格15.8元，出游囤着刚刚好～喜欢糯叽叽口感的宝宝别错过！”\n[动作/表情提示：举起产品，手指比价，语气自然不夸张，强调“出游囤着刚好”]\n\n### 🛒 引导下单（0:55 - 1:00）\n“想要的宝宝点下方小黄车，15.8元带走这包连城烤红薯干～今天就聊到这儿，记得关注我，下次继续给你们挖好吃的！”\n[动作/表情提示：手指向屏幕下方购物车位置，微笑挥手告别，节奏干脆不拖沓]",
+    "field_check": {
+      "required": {
+        "product": "烤红薯干",
+        "origin": "福建连城",
+        "weight": "200g",
+        "price": "15.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "aef8063514f0417fa760da4ccdd52f19ba914f19bdbea6b1176bdd0e35f9ef5f",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 475,
+          "prompt_tokens": 406,
+          "total_tokens": 881,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 406
+        },
+        "finish_reason": "stop",
+        "seconds": 3.6536
+      }
+    ]
+  },
+  {
+    "case_id": "C07",
+    "status": 200,
+    "seconds": 3.4271,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 散装大米\n**平台**：抖音 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n\"家人们好呀，欢迎来到直播间～今天给大家带来一款家里天天都离不开的主食好物，就是咱们的散装大米！先别划走，听我慢慢说～\"\n[动作：微笑挥手，双手捧起一小把大米凑近镜头]\n[表情：亲切温柔，眼神看向镜头]\n\n### 📦 产品介绍（0:10 - 0:30）\n\"这款散装大米来自黑龙江佳木斯，净含量1000g，颗粒饱满，米香清新。它就是咱们餐桌上最朴实的那碗米饭，回家淘洗干净、下锅煮熟，热腾腾一开盖，满屋都是家的味道～\"\n[动作：将大米缓缓从指缝洒落，展示颗粒；再端起一碗煮好的米饭示意]\n[表情：自然放松，语气温暖]\n\n### 💬 互动环节（0:30 - 0:42）\n\"家人们，平时家里做饭，你们更喜欢软一点还是稍微有嚼劲的米饭呀？评论区扣个'软'或者'韧'，我看看咱们口味是不是一样～\"\n[动作：侧身看屏幕，手指评论区方向]\n[表情：好奇期待，带笑]\n\n### 🎁 福利时间（0:42 - 0:52）\n\"重点来啦，这款1000g散装大米，价格11.8元！就是日常家里煮饭的量，实实在在，不玩虚的～\"\n[动作：竖起手指报价格，另一只手轻拍米袋]\n[表情：真诚实在，语气轻快]\n\n### 🛒 引导下单（0:52 - 1:00）\n\"喜欢的家人可以点下方小黄车看看，按需下单就好～感谢大家陪我聊这一分钟，咱们下次直播再见，记得好好吃饭哦！\"\n[动作：手指下方购物车，最后挥手]\n[表情：温暖告别，微笑收尾]",
+    "field_check": {
+      "required": {
+        "product": "散装大米",
+        "origin": "黑龙江佳木斯",
+        "weight": "1000g",
+        "price": "11.8元"
+      },
+      "missing": [],
+      "covered": 4,
+      "total": 4,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "4c76a3b0e6e73f7acd38d67d477d844bff681af4d6fe6c2ad46d6ab362f57030",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 447,
+          "prompt_tokens": 409,
+          "total_tokens": 856,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 409
+        },
+        "finish_reason": "stop",
+        "seconds": 3.4218
+      }
+    ]
+  },
+  {
+    "case_id": "C08",
+    "status": 200,
+    "seconds": 3.9886,
+    "ok": true,
+    "fallback": false,
+    "text": "## 🎬 直播脚本 · 鲜玉米\n**平台**：小红书 | **时长**：1分钟 | **风格**：清新自然、亲切温暖\n\n### 🎤 开场（0:00 - 0:10）\n\"哈喽宝子们～欢迎来到直播间，我是你们的小X！今天给大家带来一款我家餐桌上离不开的好东西——鲜玉米！先别划走，看完这一分钟你一定会心动～\"\n[动作/表情提示：微笑挥手，镜头前举起一根带着苞叶的鲜玉米，自然光拍摄，语气轻快]\n\n### 📦 产品介绍（0:10 - 0:30）\n\"看这个，咱们的鲜玉米，产自吉林四平，净含量500g，是生鲜形态的哦，收到后需要煮熟再吃～剥开苞叶，颗粒饱满、色泽金黄，煮上一锅，满屋都是玉米的清香。家里备餐煮几根，早餐、加餐都方便，一家人围着餐桌啃玉米的感觉，真的很幸福～\"\n[动作/表情提示：现场剥开苞叶展示玉米粒，凑近镜头给特写，语气温柔，说到\"幸福\"时眼神真诚看镜头]\n\n### 💬 互动环节（0:30 - 0:40）\n\"宝子们，平时家里玉米都怎么吃呀？水煮还是炖汤？评论区告诉我～顺便问一句，有没有四平的老乡在直播间？扣个'1'让我看看！\"\n[动作/表情提示：侧头看评论区，念出两三条评论并回应，表情亲切，适当点头互动]\n\n### 🎁 福利时间（0:40 - 0:50）\n\"价格方面宝子们先别急，具体优惠以直播间小黄车显示为准哈～想入手的宝子先点个关注，开播福利不错过，有任何问题评论区问我，我一一给大家解答～\"\n[动作/表情提示：手指指向小黄车位置，语气真诚不催促，说到\"关注\"时做个比心手势]\n\n### 🛒 引导下单（0:50 - 1:00）\n\"喜欢的宝子可以点下方小黄车看看详情，记得煮熟再吃哦～今天的分享就到这里，感谢陪伴，我们下期见，拜拜～\"\n[动作/表情提示：双手挥别，最后定格微笑，镜头缓缓拉远]\n\n---\n**备注**：价格未确认，脚本中不报具体价格与优惠；未提及任何认证、营养功效、库存及发货承诺；已明确提示生鲜需煮熟，未描述为开袋即食。",
+    "field_check": {
+      "required": {
+        "product": "鲜玉米",
+        "origin": "吉林四平",
+        "weight": "500g"
+      },
+      "missing": [],
+      "covered": 3,
+      "total": 3,
+      "literal_risk_hits": [],
+      "strict_field_pass": true
+    },
+    "calls": [
+      {
+        "model_requested": "deepseek-chat",
+        "max_tokens": 2000,
+        "temperature": 0.75,
+        "prompt_sha256": "ab91741f0506615e2c6e868393b6cf2f785a4b75f887a4c03cc62e1209c19796",
+        "ok": true,
+        "model_returned": "deepseek-flash",
+        "usage": {
+          "completion_tokens": 551,
+          "prompt_tokens": 404,
+          "total_tokens": 955,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 404
+        },
+        "finish_reason": "stop",
+        "seconds": 3.9819
+      }
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "missing_image_pipeline",
+    "status": 400,
+    "expected": 400,
+    "seconds": 0.0307,
+    "contract_pass": true
+  },
+  {
+    "name": "missing_base_render",
+    "status": 400,
+    "expected": 400,
+    "seconds": 0.0488,
+    "contract_pass": true
+  },
+  {
+    "name": "unknown_image_task",
+    "status": 404,
+    "expected": 404,
+    "seconds": 0.041,
+    "contract_pass": true
+  },
+  {
+    "name": "unknown_workflow",
+    "status": 404,
+    "expected": 404,
+    "seconds": 0.0363,
+    "contract_pass": true
+  },
+  {
+    "name": "invalid_image_render",
+    "status": 500,
+    "expected": 500,
+    "seconds": 0.2037,
+    "contract_pass": true
+  }
+]

@@ -1,9 +1,9 @@
 // src/api.js  ── 修复版
-const HOST = 'http://localhost:5000'
-const API_BASE_URL = 'http://localhost:5000/api'
-const AI_API       = 'http://localhost:5001'
-const TAG_API      = 'http://localhost:5002'
-const IMG_API      = 'http://localhost:5003'
+const HOST = import.meta.env.VITE_HOST || 'http://localhost:5000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'
+const AI_API       = import.meta.env.VITE_AI_API || 'http://localhost:5001'
+const TAG_API      = import.meta.env.VITE_TAG_API || 'http://localhost:5002'
+const IMG_API      = import.meta.env.VITE_IMG_API || 'http://localhost:5003'
 
 const TOKEN_KEY = 'auth_token'
 const USER_KEY  = 'user_info'
@@ -137,7 +137,7 @@ export async function getMyRegionStyle(region) {
 export async function getHistory(limit = 20) {
   const user = getUser()
   const userId = user?.id || ''
-  const url = `http://localhost:5001/api/history?limit=${limit}&user_id=${userId}`
+  const url = `${AI_API}/api/history?limit=${limit}&user_id=${userId}`
   try {
     const res = await fetch(url)
     return await res.json()

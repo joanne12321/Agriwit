@@ -4,32 +4,47 @@
 
       <!-- ===== 初始状态 ===== -->
       <div v-if="!submitted" class="initial-content">
-        <div class="welcome-title">欢迎来到云稼集·AgriWit</div>
+        <div class="creation-intro">
+          <div class="creation-kicker">云稼集 · AgriWit</div>
+          <h2 class="welcome-title">创作中心</h2>
+        </div>
 
         <section class="view-16">
-
-          <!-- 左上：选择背景模板按钮 -->
-          <button class="view-25" type="button" @click="templateModalOpen = true">
-            <img v-if="templateThumbnail" :src="templateThumbnail" class="thumbnail-preview" alt="已选模板" />
-            <div v-else class="btn-inner-hint">
-              <span class="text-wrapper-17">+</span>
-              <span class="btn-label">背景模板</span>
+          <div class="composer-head">
+            <div>
+              <span class="composer-eyebrow">开始创作</span>
+              <h3>先补齐这次宣传的基本信息</h3>
             </div>
-            <div v-if="selectedTemplate" class="selected-badge">✓</div>
-          </button>
+            <span class="composer-note">约 1 分钟</span>
+          </div>
 
-          <!-- 左下：上传产品图按钮 -->
-          <button class="view-17" type="button" @click="triggerFileUpload">
-            <img v-if="uploadedImagePreview" :src="uploadedImagePreview" class="thumbnail-preview round-preview" alt="已上传" />
-            <div v-else class="btn-inner-hint-round">
-              <span class="text-wrapper-14">+</span>
-            </div>
-            <div v-if="uploadedImagePreview" class="selected-badge">✓</div>
-          </button>
+          <div class="asset-actions">
+            <!-- 选择背景模板 -->
+            <button class="view-25 asset-card" type="button" @click="templateModalOpen = true">
+              <img v-if="templateThumbnail" :src="templateThumbnail" class="thumbnail-preview" alt="已选模板" />
+              <div v-else class="asset-card-empty">
+                <span class="asset-icon">+</span>
+                <span class="btn-label">选择背景模板</span>
+              </div>
+              <div v-if="selectedTemplate" class="selected-badge">✓</div>
+            </button>
+
+            <!-- 上传产品图 -->
+            <button class="view-17 asset-card" type="button" @click="triggerFileUpload">
+              <img v-if="uploadedImagePreview" :src="uploadedImagePreview" class="thumbnail-preview round-preview" alt="已上传产品图" />
+              <div v-else class="asset-card-empty">
+                <span class="asset-icon">+</span>
+                <span class="btn-label">上传产品图</span>
+              </div>
+              <div v-if="uploadedImagePreview" class="selected-badge">✓</div>
+            </button>
+          </div>
           <input type="file" ref="fileInput" style="display:none;" accept="image/*" @change="handleFileUpload" />
 
           <!-- 填空容器 -->
           <div class="fill-container">
+            <div class="fill-label">内容参数</div>
+            <div class="fill-copy">
             请为您的宣传内容选择一个
             <span class="tag-fill-container">
               <button class="fill-btn" :class="{ selected: selectedTags.platform.length > 0 }" @click.stop="toggleMenu('platform')">
@@ -127,12 +142,15 @@
               </div>
             </span>
             中呈现最佳效果。
+            </div>
           </div>
 
           <!-- 自由输入框 -->
           <div class="textarea-wrapper">
+            <label class="textarea-label" for="creation-request">补充要求 <span>选填</span></label>
             <textarea class="custom-textarea"
-              placeholder="在此输入您的其他要求或描述… (自由输入)"
+              id="creation-request"
+              placeholder="例如：突出产地、口感和适合送礼的场景"
               rows="2"
               v-model="freeText">
             </textarea>
@@ -179,7 +197,10 @@
           <!-- 提交按钮 -->
           <button class="arrow-up-left-wrapper" type="button" @click="handleSubmit" :disabled="isGenerating">
             <span v-if="isGenerating" class="loading-spinner"></span>
-            <i v-else data-feather="arrow-up-left" class="arrow-up-left"></i>
+            <template v-else>
+              <span class="submit-label">生成宣传方案</span>
+              <i data-feather="arrow-up-left" class="arrow-up-left"></i>
+            </template>
           </button>
         </section>
       </div>
@@ -190,7 +211,7 @@
         <!-- 第一部分：文案 -->
         <div class="result-section result-text">
           <div class="section-header">
-            <h3 class="section-title">📝 文案内容</h3>
+            <h3 class="section-title">文案内容</h3>
             <div class="header-actions">
               <span v-if="aiProductName" class="product-badge">{{ aiProductName }}</span>
               <span v-if="aiRegion" class="region-badge">📍 {{ aiRegion }}</span>
@@ -212,15 +233,14 @@
         <!-- 第二部分：图片 -->
         <div class="result-section result-images">
           <div class="section-header">
-            <h3 class="section-title">🖼️ 生成图片</h3>
+            <h3 class="section-title">生成图片</h3>
             <span v-if="!uploadedImagePreview" class="hint-small">请在左侧上传产品图后重新生成</span>
           </div>
 
           <!-- ★ 进度条：图片处理中时显示 ★ -->
           <div class="progress-card" v-if="imgIsProcessing">
             <div class="progress-header">
-              <span>🎨</span>
-              <span class="progress-title">AI 正在处理图片</span>
+              <span class="progress-title">正在处理图片</span>
               <span class="progress-pct">{{ imgProgress }}%</span>
             </div>
             <div class="progress-bar-track">
@@ -233,13 +253,13 @@
             </div>
             <div class="step-bubbles">
               <div class="step-bubble" :class="{ active: imgProgress < 50, done: imgProgress >= 50 }">
-                <span>✂️</span><span>智能抠图</span>
+                <span>智能抠图</span>
               </div>
               <div class="step-bubble" :class="{ active: imgProgress >= 50 && imgProgress < 65, done: imgProgress >= 65, wait: imgProgress < 50 }">
-                <span>🖼️</span><span>合成海报</span>
+                <span>合成海报</span>
               </div>
               <div class="step-bubble" :class="{ active: imgProgress >= 65 && imgProgress < 100, done: imgProgress >= 100, wait: imgProgress < 65 }">
-                <span>🎨</span><span>生成滤镜</span>
+                <span>生成滤镜</span>
               </div>
             </div>
             <div class="progress-tip">{{ currentTip }}</div>
@@ -261,7 +281,7 @@
 
             <!-- 滤镜选择条（有海报才显示） -->
             <div class="filter-strip" v-if="imgPosterVersions && Object.keys(imgPosterVersions).length">
-              <div class="filter-strip-label">🎨 选择滤镜风格（点击切换）</div>
+              <div class="filter-strip-label">选择滤镜风格</div>
               <div class="filter-strip-options">
                 <div v-for="(ver, fid) in imgPosterVersions" :key="fid"
                   class="filter-option"
@@ -270,6 +290,32 @@
                   <img :src="ver.thumbnail || ver.image" class="filter-thumb" :alt="ver.name" />
                   <span class="filter-option-name">{{ ver.name }}</span>
                 </div>
+              </div>
+            </div>
+
+            <div class="poster-text-editor" v-if="selectedPosterSrc">
+              <div class="poster-text-head">
+                <span>海报文字</span>
+                <button class="poster-text-apply" @click="renderCurrentPosterText" :disabled="posterTextUpdating">
+                  <span v-if="posterTextUpdating" class="loading-spinner-sm"></span>
+                  <span v-else>应用文字</span>
+                </button>
+              </div>
+              <div class="poster-text-grid">
+                <label v-for="field in posterTextFields" :key="field.key" class="poster-text-field">
+                  <span>{{ field.label }}</span>
+                  <input v-model="posterText[field.key]" :maxlength="field.max" @keyup.enter="renderCurrentPosterText" />
+                </label>
+              </div>
+              <div class="poster-refine-row">
+                <input
+                  v-model="posterTextInstruction"
+                  class="poster-refine-input"
+                  placeholder="例如：主标题改成一口爆汁清爽开炫，或整体更高级"
+                  @keyup.enter="refinePosterText" />
+                <button class="poster-refine-btn" @click="refinePosterText" :disabled="posterTextUpdating || !posterTextInstruction.trim()">
+                  按要求修改
+                </button>
               </div>
             </div>
 
@@ -283,7 +329,7 @@
                   <i data-feather="image"></i> 重新上传
                 </button>
                 <button class="ai-poster-btn" @click="showAiPosterInput = !showAiPosterInput">
-                  <i data-feather="sparkles"></i> ✨ AI 生成海报
+                  <i data-feather="sparkles"></i> 生成海报
                 </button>
               </div>
               <!-- AI海报生成输入框 -->
@@ -306,7 +352,7 @@
         <!-- 第三部分：推荐标签 -->
         <div class="result-section result-tags" v-if="hotTags.length">
           <div class="section-header">
-            <h3 class="section-title">🏷️ 推荐标签</h3>
+            <h3 class="section-title">推荐标签</h3>
             <div class="header-actions">
               <span class="tag-source-hint">来自 Neo4j 标签库</span>
               <button class="copy-btn" @click="copyText(hotTags.join(' '))">
@@ -326,7 +372,7 @@
         <!-- 第四部分：数据集参考案例 -->
         <div class="result-section result-rag" v-if="ragExamples.length">
           <div class="section-header">
-            <h3 class="section-title">📚 数据集参考案例</h3>
+            <h3 class="section-title">数据集参考案例</h3>
             <span class="tag-source-hint">来自本地农业文案数据集</span>
           </div>
           <div class="rag-list">
@@ -345,7 +391,7 @@
         <!-- ★ 实时排版预览 -->
         <div class="result-section preview-section" v-if="aiContent">
           <div class="section-header">
-            <h3 class="section-title">📱 排版预览</h3>
+            <h3 class="section-title">排版预览</h3>
             <span class="hint-small">模拟手机端展示效果</span>
           </div>
           <div class="phone-preview-wrap">
@@ -363,7 +409,7 @@
                   <img :src="selectedPosterSrc" class="preview-poster" />
                 </div>
                 <div class="preview-img-placeholder" v-else>
-                  <span>🖼️ 生成海报后显示</span>
+                  <span>生成海报后显示</span>
                 </div>
                 <!-- 文案 -->
                 <div class="preview-text-area">
@@ -375,10 +421,10 @@
                 </div>
                 <!-- 底部互动栏 -->
                 <div class="preview-action-bar">
-                  <span>❤️ 点赞</span>
-                  <span>💬 评论</span>
-                  <span>⭐ 收藏</span>
-                  <span>↗️ 转发</span>
+                  <span>点赞</span>
+                  <span>评论</span>
+                  <span>收藏</span>
+                  <span>转发</span>
                 </div>
               </div>
             </div>
@@ -388,7 +434,7 @@
         <!-- ★ 直播脚本结果模块（在预览图下方） -->
         <div class="result-section live-script-section" v-if="enableLiveScript && generatedScript">
           <div class="section-header">
-            <h3 class="section-title">🎬 直播脚本</h3>
+            <h3 class="section-title">直播脚本</h3>
             <div class="header-actions">
               <select class="script-duration-select" v-model="scriptDuration" @change="regenerateScript">
                 <option :value="30">30秒</option>
@@ -469,8 +515,9 @@ const handleLogout = () => {
 }
 
 // ── 服务地址 ──
-const AI_API  = 'http://localhost:5001'
-const IMG_API = 'http://localhost:5003'
+const MAIN_API = import.meta.env.VITE_HOST || 'http://localhost:5000'
+const AI_API  = import.meta.env.VITE_AI_API || 'http://localhost:5001'
+const IMG_API = import.meta.env.VITE_IMG_API || 'http://localhost:5003'
 
 // ── 平台/节日映射 ──
 const PLATFORM_MAP = { xiaohongshu:'小红书', douyin:'抖音', taobao:'淘宝', weibo:'微博', toutiao:'头条' }
@@ -508,6 +555,25 @@ const scriptDuration    = ref(60)
 const aiPosterPrompt     = ref('')
 const aiPosterGenerating = ref(false)
 const showAiPosterInput  = ref(false)
+const posterTextUpdating = ref(false)
+const posterTextInstruction = ref('')
+const posterText = reactive({
+  event: '',
+  headline: '',
+  subhead: '',
+  badge: '',
+  footer: '',
+  brand: '',
+  disclaimer: ''
+})
+const posterTextFields = [
+  { key: 'event', label: '活动角标', max: 8 },
+  { key: 'headline', label: '主标题', max: 14 },
+  { key: 'subhead', label: '副标题', max: 10 },
+  { key: 'badge', label: '斜贴卖点', max: 12 },
+  { key: 'footer', label: '底部产品名', max: 12 },
+  { key: 'brand', label: '品牌名', max: 16 }
+]
 
 // 方言选项
 const dialectOptions = [
@@ -550,22 +616,22 @@ let _pendingSave = null  // 等图片完成后再保存历史
 const workflowId  = ref(null)
 
 const AGENT_LABELS = {
-  ProfileAgent:     { icon: '👤', label: '读取用户档案' },
-  RegionAgent:      { icon: '🗺️', label: '分析地域文化' },
-  TagPoolAgent:     { icon: '🏷️', label: '加载标签库' },
-  CopywriterAgent:  { icon: '✍️', label: '创作文案' },
-  QAAgent_round1:   { icon: '🔍', label: '质检 第1轮' },
-  QAAgent_round2:   { icon: '🔍', label: '质检 第2轮' },
-  QAAgent_round3:   { icon: '🔍', label: '质检 第3轮' },
-  TagSelectorAgent: { icon: '⭐', label: '筛选推荐标签' },
+  ProfileAgent:     { icon: '档', label: '读取用户档案' },
+  RegionAgent:      { icon: '域', label: '分析地域文化' },
+  TagPoolAgent:     { icon: '签', label: '加载标签库' },
+  CopywriterAgent:  { icon: '文', label: '创作文案' },
+  QAAgent_round1:   { icon: '审', label: '质检 第1轮' },
+  QAAgent_round2:   { icon: '审', label: '质检 第2轮' },
+  QAAgent_round3:   { icon: '审', label: '质检 第3轮' },
+  TagSelectorAgent: { icon: '选', label: '筛选推荐标签' },
 }
 
 const tips = [
-  '💡 背景越简单，抠图效果越好',
-  '🌿 AI 自动识别产品主体，无需手动标注',
-  '🎯 抠图完成后可选择 4 种滤镜风格',
-  '✨ 暖调滤镜最适合农产品宣传',
-  '📐 建议使用正方形图片，合成效果更佳',
+  '背景越简单，抠图效果越好',
+  '系统会自动识别产品主体，无需手动标注',
+  '抠图完成后可选择 4 种滤镜风格',
+  '暖调滤镜更适合农产品宣传',
+  '建议使用正方形图片，合成效果更佳',
 ]
 const currentTip = ref(tips[0])
 let tipTimer = null
@@ -630,6 +696,8 @@ const loadHistory = (item) => {
   if (item.posterVersions && Object.keys(item.posterVersions).length) {
     imgPosterVersions.value = item.posterVersions
     selectedFilter.value = Object.keys(item.posterVersions)[0] || 'original'
+    const firstPoster = item.posterVersions[selectedFilter.value]
+    if (firstPoster?.poster_text) syncPosterText(firstPoster.poster_text)
   } else if (item.posterSrc) {
     imgPosterVersions.value = {
       original: { name:'原图', image: item.posterSrc, thumbnail: item.posterSrc }
@@ -674,6 +742,63 @@ const selectedPosterSrc = computed(() => {
   if (!imgPosterVersions.value) return ''
   return imgPosterVersions.value[selectedFilter.value]?.image || ''
 })
+
+const selectedPosterBaseSrc = computed(() => {
+  if (!imgPosterVersions.value) return ''
+  const ver = imgPosterVersions.value[selectedFilter.value]
+  return ver?.base_image || ver?.image || ''
+})
+
+const syncPosterText = (text = {}) => {
+  Object.keys(posterText).forEach((key) => {
+    posterText[key] = text[key] || posterText[key] || ''
+  })
+}
+
+const posterTextPayload = () => {
+  const payload = {}
+  Object.keys(posterText).forEach((key) => {
+    if (posterText[key]) payload[key] = posterText[key]
+  })
+  return payload
+}
+
+const draftPosterText = async () => {
+  try {
+    const res = await fetch(`${IMG_API}/api/poster/text-draft`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        product_name: aiProductName.value || '',
+        ai_content: aiContent.value,
+        tags: hotTags.value,
+        user_hint: freeText.value
+      })
+    })
+    const data = await res.json()
+    if (data.poster_text) syncPosterText(data.poster_text)
+  } catch (e) {
+    console.warn('海报文字起草失败，使用后端合成兜底', e)
+  }
+}
+
+const syncCurrentPosterToHistory = async () => {
+  if (!workflowId.value || !imgPosterVersions.value) return
+  try {
+    const userId = getUser()?.id || 'default_user'
+    await fetch(`${AI_API}/api/history/update-poster`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        workflow_id: workflowId.value,
+        user_id: String(userId),
+        poster_versions: imgPosterVersions.value
+      })
+    })
+  } catch (e) {
+    console.warn('同步海报到历史失败（不影响展示）:', e)
+  }
+}
 
 // ────────────────────────────────────────────
 //  文件上传
@@ -774,7 +899,11 @@ const runImagePipeline = async () => {
         scale:        compositionStrategy.scale,
         alignment:    compositionStrategy.alignment,
         auto_composition: template?.auto_composition || false,
-        filters:      ['original', 'vintage', 'vivid']
+        filters:      ['original', 'vintage', 'vivid'],
+        render_text:  true,
+        poster_text:  posterTextPayload(),
+        product_name: aiProductName.value || '',
+        ai_content:   aiContent.value || ''
       })
     })
     const data = await res.json()
@@ -798,6 +927,12 @@ const runImagePipeline = async () => {
           if (pollData.status === 'done') {
             clearInterval(imgPollTimer)
             imgPosterVersions.value = pollData.poster_versions
+            if (pollData.poster_text) {
+              syncPosterText(pollData.poster_text)
+              Object.keys(imgPosterVersions.value || {}).forEach((fid) => {
+                imgPosterVersions.value[fid].poster_text = pollData.poster_text
+              })
+            }
             selectedFilter.value    = Object.keys(pollData.poster_versions || {})[0] || 'original'
             resolve()
 
@@ -813,17 +948,8 @@ const runImagePipeline = async () => {
     })
     // ★ 图片处理成功！立刻把 poster 数据同步到历史记录
     if (workflowId.value && imgPosterVersions.value) {
-      const userId = getUser()?.id || 'default_user'
       try {
-        await fetch(`${AI_API}/api/history/update-poster`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            workflow_id: workflowId.value,
-            user_id: String(userId),
-            poster_versions: imgPosterVersions.value
-          })
-        })
+        await syncCurrentPosterToHistory()
         console.log('✅ 历史记录图片已同步')
       } catch (e) {
         console.warn('同步图片到历史失败（不影响展示）:', e)
@@ -916,7 +1042,8 @@ const handleSubmit = async () => {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        product_name: freeText.value || '',
+        product_name: '',
+        user_request: freeText.value || '',
         platform,
         user_id: userId,
         session_id: sessionId.value,
@@ -960,6 +1087,7 @@ const handleSubmit = async () => {
       sessionId.value     = genData.session_id || null
       hotTags.value       = genData.recommended_tags || []
       ragExamples.value   = genData.rag_examples || []
+      await draftPosterText()
       // ★ 保存 workflow_id 供面板使用（最终状态已经返回，只是回显）
       if (genData.workflow_id) {
         workflowId.value  = genData.workflow_id
@@ -1037,6 +1165,62 @@ const downloadPoster = () => {
   a.href = selectedPosterSrc.value
   a.download = `海报_${aiProductName.value || '农产品'}_${selectedFilter.value}.jpg`
   a.click()
+}
+
+const renderCurrentPosterText = async () => {
+  if (!selectedPosterBaseSrc.value || !imgPosterVersions.value?.[selectedFilter.value]) return
+  posterTextUpdating.value = true
+  try {
+    const res = await fetch(`${IMG_API}/api/poster/render-text`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        base_image: selectedPosterBaseSrc.value,
+        poster_text: posterTextPayload()
+      })
+    })
+    const data = await res.json()
+    if (!data.success) throw new Error(data.error || '渲染失败')
+    const current = imgPosterVersions.value[selectedFilter.value]
+    imgPosterVersions.value[selectedFilter.value] = {
+      ...current,
+      image: data.image,
+      thumbnail: data.thumbnail || current.thumbnail,
+      poster_text: data.poster_text || posterTextPayload()
+    }
+    await syncCurrentPosterToHistory()
+  } catch (e) {
+    console.error('海报文字渲染失败:', e)
+    alert('海报文字渲染失败：' + (e.message || '请重试'))
+  } finally {
+    posterTextUpdating.value = false
+  }
+}
+
+const refinePosterText = async () => {
+  if (!posterTextInstruction.value.trim()) return
+  posterTextUpdating.value = true
+  try {
+    const res = await fetch(`${IMG_API}/api/poster/refine-text`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        poster_text: posterTextPayload(),
+        instruction: posterTextInstruction.value
+      })
+    })
+    const data = await res.json()
+    if (data.poster_text) {
+      syncPosterText(data.poster_text)
+      posterTextInstruction.value = ''
+      await renderCurrentPosterText()
+    }
+  } catch (e) {
+    console.error('海报文字修改失败:', e)
+    alert('海报文字修改失败，请重试')
+  } finally {
+    posterTextUpdating.value = false
+  }
 }
 
 // ────────────────────────────────────────────
@@ -1159,7 +1343,7 @@ const generateAiPoster = async () => {
         auto_composition: true
       }
       templateThumbnail.value = data.thumbnail
-      alert(`✨ AI 海报生成成功！已自动设为背景模板${data.message ? '\n' + data.message : ''}`)
+      alert(`海报生成成功，已自动设为背景模板${data.message ? '\n' + data.message : ''}`)
       showAiPosterInput.value = false
       // 如果已有产品图，自动重新合成
       if (uploadedImageBase64.value) {
@@ -1303,6 +1487,8 @@ const newChat = () => {
   aiPosterPrompt.value = ''
   aiPosterGenerating.value = false
   showAiPosterInput.value = false
+  posterTextInstruction.value = ''
+  Object.keys(posterText).forEach(k => { posterText[k] = '' })
   clearInterval(imgPollTimer)
   clearInterval(tipTimer)
   Object.keys(selectedTags).forEach(k => { selectedTags[k] = Array.isArray(selectedTags[k]) ? [] : '' })
@@ -1326,11 +1512,11 @@ onMounted(async () => {
     const user = getUser()
     if (user?.id) {
       try {
-        const profileRes = await fetch(`http://localhost:5000/api/user/${user.id}/profile`)
+        const profileRes = await fetch(`${MAIN_API}/api/user/${user.id}/profile`)
         const profile    = await profileRes.json()
         const primaryProduct = profile?.products?.find(p => p.is_primary) || profile?.products?.[0]
         if (primaryProduct?.id) {
-          const imgRes = await fetch(`http://localhost:5000/api/product/${primaryProduct.id}/image`)
+          const imgRes = await fetch(`${MAIN_API}/api/product/${primaryProduct.id}/image`)
           if (imgRes.ok) {
             const imgData = await imgRes.json()
             if (imgData.image_base64) {
@@ -1470,6 +1656,19 @@ watch([submitted, activeMenu, historyOpen], () => {
 .filter-option-name { font-size: 11px; color: #555; white-space: nowrap; }
 .filter-option.active .filter-option-name { color: #6a994e; font-weight: 700; }
 
+.poster-text-editor { background: #fff; border: 1px solid #e4ecd9; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+.poster-text-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; color: #2c3e2f; font-size: 14px; font-weight: 700; }
+.poster-text-apply, .poster-refine-btn { height: 34px; border: none; border-radius: 9px; background: #6a994e; color: white; padding: 0 14px; font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; }
+.poster-text-apply:disabled, .poster-refine-btn:disabled { opacity: .55; cursor: not-allowed; }
+.poster-text-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.poster-text-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.poster-text-field span { color: #70805f; font-size: 12px; }
+.poster-text-field input, .poster-refine-input { width: 100%; min-width: 0; border: 1px solid #d9e5c5; border-radius: 9px; background: #fbfdf8; color: #2c3e2f; font-size: 13px; outline: none; }
+.poster-text-field input { height: 34px; padding: 0 10px; }
+.poster-text-field input:focus, .poster-refine-input:focus { border-color: #8bc34a; background: #fff; }
+.poster-refine-row { display: flex; gap: 10px; margin-top: 12px; }
+.poster-refine-input { height: 36px; padding: 0 12px; flex: 1; }
+
 .ai-tools-container { display: flex; justify-content: flex-end; }
 .ai-tools { display: flex; gap: 12px; }
 .view-13, .view-14 { height: 40px; padding: 0 18px; display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg,#8bc34a,#6a994e); border-radius: 10px; border: none; cursor: pointer; font-weight: 500; color: #fff; font-size: 14px; transition: all .3s; }
@@ -1591,6 +1790,9 @@ watch([submitted, activeMenu, historyOpen], () => {
   .img-wrapper { height: 220px; }
   .filter-strip-options { gap: 8px; }
   .filter-thumb { width: 50px; height: 50px; }
+  .poster-text-grid { grid-template-columns: 1fr; }
+  .poster-refine-row { flex-direction: column; }
+  .poster-refine-btn { width: 100%; }
   .ai-result-card { padding: 16px; border-radius: 16px; }
   .result-section { padding: 14px; }
   .further-request { padding: 6px 6px 6px 16px; }
@@ -1834,6 +2036,1002 @@ watch([submitted, activeMenu, historyOpen], () => {
 }
 :deep(.script-action) {
   color: #e65100; font-style: italic; font-size: 13px;
+}
+
+/* ── taste pass: trust-first agricultural tool surface ── */
+.creation-wrapper {
+  --agri-bg: #f4f6f1;
+  --agri-surface: #ffffff;
+  --agri-surface-soft: #f8faf6;
+  --agri-border: #d9e4d5;
+  --agri-border-strong: #b9ccb3;
+  --agri-text: #203027;
+  --agri-muted: #66746a;
+  --agri-primary: #315f32;
+  --agri-primary-soft: #e7f0e3;
+  --agri-warn: #9a5a1f;
+  background: var(--agri-bg);
+}
+
+.view-8 {
+  background: var(--agri-bg);
+  padding-inline: clamp(18px, 4vw, 42px);
+}
+
+.initial-content {
+  justify-content: flex-start;
+  padding-top: clamp(36px, 8vh, 92px);
+  padding-bottom: 48px;
+}
+
+.welcome-title {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  color: var(--agri-text);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  font-size: clamp(30px, 4.3vw, 48px);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+
+.view-16,
+.ai-result-card,
+.result-section,
+.poster-text-editor,
+.filter-strip,
+.further-request {
+  border-color: var(--agri-border);
+  box-shadow: 0 10px 28px rgba(32, 48, 39, 0.06);
+}
+
+.view-16 {
+  min-height: 360px;
+  border-radius: 18px;
+  background: var(--agri-surface);
+}
+
+.view-25,
+.view-17 {
+  border-color: var(--agri-border-strong);
+  background: var(--agri-surface-soft);
+  box-shadow: none;
+}
+
+.view-25:hover,
+.view-17:hover {
+  background: var(--agri-primary-soft);
+  transform: translateY(-1px);
+}
+
+.text-wrapper-17,
+.text-wrapper-14,
+.btn-label,
+.tool-btn .tool-icon,
+.tool-btn .tool-label,
+.copy-btn,
+.preview-follow,
+.filter-strip-label,
+.filter-option.active .filter-option-name {
+  color: var(--agri-primary);
+}
+
+.selected-badge,
+.tag-dropdown-option.selected .checkbox,
+.poster-selected-mark {
+  background: var(--agri-primary);
+}
+
+.fill-container {
+  background: var(--agri-surface-soft);
+  color: var(--agri-text);
+  border: 1px solid var(--agri-border);
+  line-height: 2.05;
+}
+
+.fill-btn,
+.hot-tag,
+.preview-tag {
+  background: var(--agri-primary-soft);
+  color: var(--agri-primary);
+  border: 1px solid transparent;
+}
+
+.fill-btn:hover,
+.fill-btn.selected,
+.hot-tag:hover,
+.hot-tag.tag-copied {
+  background: var(--agri-primary);
+  color: #ffffff;
+}
+
+.tag-dropdown-popup {
+  border-color: var(--agri-border);
+  box-shadow: 0 16px 40px rgba(32, 48, 39, 0.14);
+}
+
+.tag-dropdown-option:hover,
+.tag-dropdown-option.selected {
+  border-left-color: var(--agri-primary);
+}
+
+.custom-textarea,
+.poster-text-field input,
+.poster-refine-input,
+.further-input,
+.ai-poster-prompt {
+  border-color: var(--agri-border);
+  background: #ffffff;
+  color: var(--agri-text);
+}
+
+.custom-textarea:focus,
+.poster-text-field input:focus,
+.poster-refine-input:focus,
+.ai-poster-prompt:focus {
+  border-color: var(--agri-primary);
+  box-shadow: 0 0 0 3px rgba(49, 95, 50, 0.12);
+}
+
+.arrow-up-left-wrapper,
+.view-13,
+.view-14,
+.poster-text-apply,
+.poster-refine-btn,
+.further-btn,
+.ai-poster-gen-btn,
+.ai-poster-btn {
+  background: var(--agri-primary);
+  box-shadow: none;
+}
+
+.arrow-up-left-wrapper:hover,
+.view-13:hover,
+.view-14:hover,
+.further-btn:hover,
+.ai-poster-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.tool-btn {
+  border-color: var(--agri-border);
+  background: #ffffff;
+}
+
+.tool-btn:hover,
+.tool-btn.script-btn.active {
+  background: var(--agri-primary-soft);
+  border-color: var(--agri-border-strong);
+  transform: translateY(-1px);
+}
+
+.ai-result-card {
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+.result-section {
+  background: var(--agri-surface-soft);
+  border-radius: 14px;
+}
+
+.section-title {
+  color: var(--agri-text);
+  font-weight: 850;
+}
+
+.ai-text,
+.script-body,
+.rag-body {
+  color: #344339;
+}
+
+.product-badge {
+  background: var(--agri-primary-soft);
+  color: var(--agri-primary);
+}
+
+.region-badge {
+  background: #f7eadc;
+  color: var(--agri-warn);
+}
+
+.progress-card {
+  background: var(--agri-primary-soft);
+  border-color: var(--agri-border-strong);
+}
+
+.progress-title,
+.progress-pct,
+.progress-tip {
+  color: var(--agri-primary);
+}
+
+.progress-bar-fill,
+.preview-avatar {
+  background: var(--agri-primary);
+}
+
+.step-bubble.active {
+  border-color: var(--agri-primary);
+  color: var(--agri-primary);
+  box-shadow: none;
+}
+
+.img-wrapper {
+  border-color: var(--agri-border);
+  box-shadow: none;
+}
+
+.img-wrapper:hover {
+  transform: translateY(-1px);
+}
+
+.img-wrapper.img-selected {
+  border-color: var(--agri-primary);
+  box-shadow: 0 0 0 3px rgba(49, 95, 50, 0.12);
+}
+
+.result-rag {
+  background: #fffdf8;
+  border-color: #e8ddc9;
+}
+
+.rag-platform {
+  background: var(--agri-primary-soft);
+  color: var(--agri-primary);
+}
+
+.live-script-section {
+  background: #f6f8fb;
+  border-color: #d8e1e8;
+}
+
+.preview-section {
+  background: #eef5eb;
+}
+
+.preview-follow {
+  border-color: var(--agri-primary);
+}
+
+:deep(.script-h2) {
+  color: var(--agri-text);
+  border-bottom-color: var(--agri-border);
+}
+
+:deep(.script-h3) {
+  color: var(--agri-primary);
+}
+
+@media (max-width: 1100px) {
+  .view-8 {
+    margin-left: 0;
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+  }
+
+  .initial-content {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .creation-wrapper {
+    background: var(--agri-bg);
+  }
+
+  .view-8 {
+    padding: 16px;
+  }
+
+  .welcome-title {
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 28px;
+  }
+
+  .view-16 {
+    display: grid;
+    gap: 12px;
+    min-height: 0;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .view-25,
+  .view-17,
+  .fill-container,
+  .textarea-wrapper,
+  .arrow-up-left-wrapper {
+    position: static;
+  }
+
+  .view-25 {
+    width: 100%;
+    height: 64px;
+    border-radius: 12px;
+    order: 1;
+  }
+
+  .view-17 {
+    width: 100%;
+    height: 58px;
+    border-radius: 12px;
+    order: 2;
+  }
+
+  .round-preview {
+    border-radius: 10px;
+  }
+
+  .fill-container {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    font-size: 15px;
+    line-height: 2.15;
+  }
+
+  .tag-fill-container {
+    margin: 4px 3px;
+  }
+
+  .fill-btn {
+    min-width: 0;
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+
+  .tag-dropdown-popup {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    top: auto;
+    bottom: 18px;
+    width: auto;
+    max-height: 72vh;
+    overflow: auto;
+    transform: none;
+    z-index: 4000;
+  }
+
+  .textarea-wrapper {
+    order: 4;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .custom-textarea {
+    width: 100%;
+    min-height: 96px;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  .input-tools {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tool-btn {
+    width: 100%;
+    height: 48px;
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .arrow-up-left-wrapper {
+    order: 5;
+    width: 100%;
+    height: 52px;
+    border-radius: 12px;
+  }
+
+  .arrow-up-left-wrapper .arrow-up-left {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ai-result-card {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .view-8.submitted {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    padding-top: 16px;
+    padding-bottom: 92px;
+  }
+
+  .view-8.submitted .ai-result-card {
+    overflow: visible;
+  }
+
+  .result-section {
+    margin-bottom: 14px;
+    padding: 16px;
+  }
+
+  .section-header {
+    align-items: flex-start;
+  }
+
+  .section-title {
+    font-size: 17px;
+  }
+
+  .ai-text {
+    font-size: 16px;
+  }
+
+  .view-10 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .img-wrapper {
+    height: 210px;
+  }
+
+  .ai-tools,
+  .ai-tools-container {
+    width: 100%;
+    display: grid;
+    gap: 12px;
+  }
+
+  .view-13,
+  .view-14,
+  .ai-poster-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .further-request {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .further-btn {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .phone-frame {
+    width: min(100%, 300px);
+  }
+}
+
+/* ── redesign-skill pass: content workbench ── */
+:global(html:has(.creation-wrapper)),
+:global(body:has(.creation-wrapper)) {
+  min-width: 0;
+}
+
+.creation-wrapper {
+  --work-bg: #eef2ec;
+  --work-surface: #fbfcf9;
+  --work-panel: #f4f7f2;
+  --work-line: #d5ded2;
+  --work-line-strong: #aebeaa;
+  --work-ink: #1d2b22;
+  --work-muted: #718078;
+  --work-accent: #2f6b45;
+  --work-accent-dark: #245437;
+  --work-accent-soft: #e4efe5;
+  --work-warm: #a96b32;
+  background:
+    linear-gradient(rgba(238,242,236,.9), rgba(238,242,236,.9)),
+    repeating-linear-gradient(0deg, rgba(47,107,69,.035) 0, rgba(47,107,69,.035) 1px, transparent 1px, transparent 4px);
+  color: var(--work-ink);
+}
+
+.view-8 {
+  width: calc(100% - 358px);
+  min-width: 0;
+  max-width: 1260px;
+  margin-left: 258px;
+  background: transparent;
+  padding-inline: 32px;
+}
+
+.initial-content {
+  min-height: auto;
+  padding-top: 36px;
+  padding-bottom: 40px;
+}
+
+.creation-intro {
+  width: 100%;
+  margin: 0 0 24px;
+}
+
+.creation-kicker,
+.composer-eyebrow {
+  color: var(--work-accent);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.creation-kicker {
+  margin-bottom: 14px;
+}
+
+.welcome-title {
+  max-width: 100%;
+  margin: 0;
+  color: var(--work-ink);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.welcome-subtitle {
+  max-width: 560px;
+  margin-top: 16px;
+  color: var(--work-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.view-16 {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-areas:
+    "head head"
+    "assets form"
+    "assets request"
+    "assets submit";
+  gap: 20px 28px;
+  min-height: 0;
+  padding: 28px;
+  border: 1px solid var(--work-line);
+  border-radius: 8px;
+  background: rgba(251,252,249,.92);
+  box-shadow: none;
+}
+
+.composer-head {
+  grid-area: head;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--work-line);
+}
+
+.composer-head h3 {
+  margin-top: 7px;
+  color: var(--work-ink);
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.composer-note {
+  flex: 0 0 auto;
+  color: var(--work-muted);
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.asset-actions {
+  grid-area: assets;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.view-25,
+.view-17 {
+  position: relative;
+  inset: auto;
+  width: 150px;
+  height: 132px;
+  border: 1px solid var(--work-line-strong);
+  border-radius: 8px;
+  background: var(--work-panel);
+  box-shadow: none;
+}
+
+.view-17 {
+  height: 132px;
+}
+
+.asset-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--work-accent);
+  background: var(--work-accent-soft);
+}
+
+.asset-card .thumbnail-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.asset-card .selected-badge {
+  top: 6px;
+  right: 6px;
+}
+
+.asset-card-empty {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+}
+
+.asset-icon {
+  color: var(--work-accent);
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.asset-card .btn-label {
+  color: var(--work-ink);
+  font-size: 13px;
+  font-weight: 650;
+  text-align: left;
+}
+
+.fill-container {
+  grid-area: form;
+  position: static;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 20px 22px;
+  border: 1px solid var(--work-line);
+  border-radius: 8px;
+  background: var(--work-panel);
+  font-size: 17px;
+  line-height: 2.1;
+}
+
+.fill-label,
+.textarea-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--work-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.fill-copy {
+  color: var(--work-ink);
+}
+
+.fill-btn {
+  border: 1px solid var(--work-line-strong);
+  border-radius: 8px;
+  background: var(--work-surface);
+  color: var(--work-accent-dark);
+  font-size: 15px;
+  font-weight: 650;
+  padding: 3px 11px;
+  min-width: 74px;
+}
+
+.fill-btn:hover,
+.fill-btn.selected {
+  background: var(--work-accent);
+  border-color: var(--work-accent);
+  color: #fff;
+}
+
+.textarea-wrapper {
+  grid-area: request;
+  position: static;
+  inset: auto;
+  min-width: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr;
+  gap: 8px 16px;
+  align-items: end;
+}
+
+.textarea-label {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.textarea-label span {
+  color: var(--work-muted);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.custom-textarea {
+  position: static;
+  inset: auto;
+  grid-column: 1;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  min-height: 92px;
+  margin: 0;
+  padding: 15px 17px;
+  border: 1px solid var(--work-line);
+  border-radius: 8px;
+  background: var(--work-surface);
+  color: var(--work-ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.custom-textarea::placeholder {
+  color: #8a968f;
+}
+
+.input-tools {
+  grid-column: 2;
+  grid-row: 2;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.tool-btn {
+  width: 76px;
+  height: 54px;
+  border: 1px solid var(--work-line);
+  border-radius: 8px;
+  background: var(--work-surface);
+}
+
+.tool-btn .tool-icon,
+.tool-btn .tool-label {
+  color: var(--work-accent);
+}
+
+.tool-btn:hover,
+.tool-btn.script-btn.active {
+  transform: translateY(-1px);
+  border-color: var(--work-accent);
+  background: var(--work-accent-soft);
+}
+
+.arrow-up-left-wrapper {
+  grid-area: submit;
+  position: static;
+  inset: auto;
+  min-width: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  background: var(--work-accent);
+  box-shadow: none;
+  justify-content: center;
+  gap: 10px;
+}
+
+.arrow-up-left-wrapper:hover {
+  transform: translateY(-1px);
+  background: var(--work-accent-dark);
+}
+
+.arrow-up-left-wrapper:active {
+  transform: translateY(1px) scale(.99);
+}
+
+.submit-label {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.arrow-up-left {
+  width: 19px;
+  height: 19px;
+}
+
+.view-26 {
+  background: rgba(251,252,249,.88);
+  box-shadow: -8px 0 26px rgba(36,84,55,.05);
+}
+
+.ai-result-card {
+  max-width: 980px;
+  margin: 28px auto 40px;
+  padding: 22px;
+  border: 1px solid var(--work-line);
+  border-radius: 20px;
+  background: rgba(251,252,249,.94);
+  box-shadow: 0 18px 50px rgba(36,84,55,.08);
+}
+
+.result-section {
+  margin-bottom: 16px;
+  padding: 20px;
+  border: 1px solid var(--work-line);
+  border-radius: 14px;
+  background: var(--work-panel);
+  box-shadow: none;
+}
+
+.section-title {
+  font-size: 18px;
+  letter-spacing: -.01em;
+}
+
+@media (max-width: 1100px) {
+  .view-8 {
+    width: calc(100% - 358px);
+    margin-left: 258px;
+    max-width: none;
+    padding-inline: 20px;
+  }
+
+  .view-16 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "assets"
+      "form"
+      "request"
+      "submit";
+    padding: 20px;
+  }
+
+  .asset-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view-25,
+  .view-17 {
+    width: 100%;
+    height: 104px;
+  }
+
+  .textarea-wrapper {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .input-tools {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .view-8 {
+    width: 100%;
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .initial-content {
+    padding-top: 32px;
+    padding-bottom: 36px;
+  }
+
+  .creation-intro {
+    margin-bottom: 22px;
+  }
+
+  .creation-kicker {
+    margin-bottom: 10px;
+  }
+
+  .welcome-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .welcome-subtitle {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .view-16 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "assets"
+      "form"
+      "request"
+      "submit";
+    gap: 14px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .composer-head {
+    padding-bottom: 14px;
+  }
+
+  .composer-head h3 {
+    font-size: 18px;
+  }
+
+  .asset-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view-25,
+  .view-17 {
+    width: 100%;
+    height: 92px;
+  }
+
+  .asset-card-empty {
+    padding: 14px;
+  }
+
+  .asset-icon {
+    font-size: 28px;
+  }
+
+  .fill-container {
+    padding: 16px;
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .textarea-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+  }
+
+  .custom-textarea {
+    grid-column: 1;
+    min-height: 104px;
+  }
+
+  .input-tools {
+    grid-column: 1;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .tool-btn {
+    width: 100%;
+    height: 48px;
+    flex-direction: row;
+    gap: 7px;
+  }
+
+  .arrow-up-left-wrapper {
+    height: 50px;
+  }
+
+  .ai-result-card {
+    margin-top: 16px;
+    padding: 0;
+  }
 }
 
 </style>
